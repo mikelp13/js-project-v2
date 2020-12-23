@@ -12,6 +12,7 @@ import './components/developers/modal-window/dev-modal';
 import './components/catalog/categories-list-item/index.js';
 import './components/auth/accCabinet';
 // import './components/spinner/spin';
+import './components/product-info/index.js'
 import './components/header/js/newAdv';
 import './components/ads/newAddForm/newAddForm.js';
 
