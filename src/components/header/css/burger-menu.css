@@ -19,7 +19,7 @@
   box-shadow: 15px 0px 25px 0px rgba(29, 29, 27, 0.15);
   transform: translateX(93.75vw);
   transition: 0.5s;
-  z-index: 3;
+  z-index: 4;
 }
 
 @media (max-width: 767px) {
