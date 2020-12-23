@@ -1,1 +1,1 @@
-# js-project-v2
+# bc3-js-project

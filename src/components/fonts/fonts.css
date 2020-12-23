@@ -1,0 +1,54 @@
+/* montserrat-regular - latin_cyrillic */
+@font-face {
+  font-family: 'MontserratRegular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/Montserrat-Regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/Montserrat-Regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* montserrat-600 - latin_cyrillic */
+@font-face {
+  font-family: 'MontserratSemiBold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/Montserrat-SemiBold.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/Montserrat-SemiBold.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* montserrat-700 - latin_cyrillic */
+@font-face {
+  font-family: 'MontserratBold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/Montserrat-Bold.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/Montserrat-Bold.woff')
+      format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* montserrat-300 - latin_cyrillic */
+@font-face {
+  font-family: 'MontserratLight';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/Montserrat-Light.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/Montserrat-Light.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* montserrat-500 - latin_cyrillic */
+@font-face {
+  font-family: 'MontserratMedium';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/Montserrat-Medium.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/Montserrat-Medium.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}

@@ -1,0 +1,52 @@
+@import './components/fonts/fonts.css';
+@import './components/header/css/header.css';
+@import './components/header/css/input.css';
+@import './components/header/css/burger-menu.css';
+@import './components/header/css/header-filters.css';
+@import './components/header/css/header-auth.css';
+@import './components/auth/accCabinet.css';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 280px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 688px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}

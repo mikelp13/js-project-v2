@@ -1,0 +1,50 @@
+.mobile-menu-closed {
+  transform: translate(0vh);
+  color: #818181;
+}
+
+.mobile-menu-closed {
+  position: absolute;
+  left: -93.75vw;
+  top: 0;
+  display: flex;
+  width: 93.75vw;
+  height: 100vh;
+  background-color: #031c33;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+.mobile-menu-opened {
+  box-shadow: 15px 0px 25px 0px rgba(29, 29, 27, 0.15);
+  transform: translateX(93.75vw);
+  transition: 0.5s;
+  z-index: 3;
+}
+
+@media (max-width: 767px) {
+  .mobile-burger {
+    border: none;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    background: url(../../menu/icons/dehaze-24px.svg);
+  }
+
+  .mobile-burger:hover {
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: url(../../menu/icons/dehaze-24px-orange.svg);
+  }
+
+  .mobile-menu-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-wrapper {
+    display: none;
+  }
+}

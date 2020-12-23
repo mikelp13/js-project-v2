@@ -1,0 +1,205 @@
+.header {
+  background-color: #112437;
+  padding: 21px 0px;
+}
+
+.header__logo {
+  display: block;
+  cursor: pointer;
+  width: 64px;
+  height: 40px;
+  background: url(../images/logo.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+}
+
+.mobile-buttons-wrapper {
+  display: flex;
+  position: absolute;
+  height: 24px;
+  box-sizing: border-box;
+  left: 6.7vw;
+  top: 27.8vh;
+}
+
+.close-menu {
+  background: url(../images/close/close-24px.svg);
+  border: none;
+  outline: none;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-24px, 24px);
+}
+
+@media (max-width: 767px) {
+  .modal-btn {
+    display: block;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: #ff6b08;
+    box-shadow: 0px 8px 8px 0px rgba(233, 97, 5, 0.24);
+    position: fixed;
+    right: 22px;
+    top: 80vh;
+    outline: none;
+  }
+
+  .modal-btn::after {
+    content: '+';
+    color: #ffffff;
+  }
+
+  .modal-btn:hover {
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+      5px 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .header {
+    min-height: 92px;
+  }
+
+  .tablet-upper-wrapper {
+    display: none;
+  }
+
+  .tablet-bottom-wrapper {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 34px 0;
+  }
+
+  .tablet-upper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  main .modal-btn {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+  }
+
+  .header__logo {
+    margin: 0 auto 0 0;
+  }
+
+  .header__create-ad-btn {
+    position: relative;
+    display: block;
+    padding-top: 13px;
+    text-align: center;
+    font-family: 'MontserratBold', sans-serif;
+    letter-spacing: 0.28px;
+    width: 200px;
+    height: 44px;
+    text-decoration: none;
+    overflow: hidden;
+    color: #fff;
+    transition: box-shadow 0.5s linear;
+  }
+
+  .header__create-ad-btn span {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .header__create-ad-btn .liquid {
+    position: absolute;
+    left: 0;
+    top: -220%;
+    width: 227px;
+    height: 200px;
+    background: #ff6b08;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+  }
+
+  .header__create-ad-btn:hover .liquid {
+    top: -320%;
+  }
+
+  .header__create-ad-btn .liquid::before,
+  .header__create-ad-btn .liquid::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+  }
+
+  .header__create-ad-btn .liquid::before {
+    border-radius: 45%;
+    background: rgba(17, 36, 55, 1);
+    animation: animate 5s linear infinite;
+  }
+
+  .header__create-ad-btn .liquid::after {
+    border-radius: 40%;
+    background: rgba(20, 20, 20, 0.5);
+    animation: animate 10s linear infinite;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translate(-50%, -75%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -75%) rotate(360deg);
+    }
+  }
+
+  .header__create-ad-btn .liquid::after .header__create-ad-btn:hover {
+    box-shadow: 0px 1px 4px 4px rgba(129, 129, 129, 0.2);
+    transform: scale(1.04);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 0);
+  }
+
+  .tablet-bottom-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header__logo {
+    margin-right: 35px;
+  }
+
+  .header__create-ad-btn {
+    width: 233px;
+  }
+
+  .desktop-upper-wrapper .header__logo {
+    margin-right: 36px;
+  }
+
+  .desktop-upper-wrapper {
+    margin-bottom: 24px;
+  }
+}
