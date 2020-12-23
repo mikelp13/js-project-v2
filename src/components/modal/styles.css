@@ -23,8 +23,7 @@
   visibility: visible;
 }
 
-.modal-div {
-  /* display: block; */
+/* .modal-div {
   position: relative;
   top: 50%;
   left: 50%;
@@ -32,9 +31,9 @@
   width: 400px;
   height: 500px;
   background-color: #ffffff;
-}
+} */
 
-.modalBD__close-btn {
+/* .modalBD__close-btn {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -47,4 +46,4 @@
   border: none;
   outline: none;
   cursor: pointer;
-}
+} */
