@@ -11,6 +11,36 @@
     inset 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
+#loggedUser__exit {
+  background-image: url(../header/images/logout.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+}
+
+#loggedUser__exit:hover {
+  background-image: url(../header/images/logout-orange.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+}
+
+#loggedUser__carts {
+  background-image: url(../header/images/user-profile.svg);
+  background-repeat: no-repeat;
+  background-position: start;
+  text-align: end;
+  width: 110px;
+}
+
+#loggedUser__carts:hover {
+  background-image: url(../header/images/user-profile-orange.svg);
+  background-repeat: no-repeat;
+  background-position: start;
+  text-align: end;
+  width: 110px;
+}
+
 .acc-cabinet-content {
   display: inline-block;
   font-family: 'MontserratMedium', sans-serif;
