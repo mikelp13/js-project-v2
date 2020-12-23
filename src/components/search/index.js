@@ -1,5 +1,6 @@
 import './style.css';
 import findCard from '../../components/search/templatesSearch.hbs';
+import createInputMarkup from '../../components/search/formSearch.hbs';
 
 // Форма!!!
 const baseUrl = 'https://callboard-backend.herokuapp.com';
