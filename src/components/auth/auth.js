@@ -7,7 +7,7 @@ import userLogged from './template/userLogged.hbs';
 import login from './template/login.hbs'
 import { modalBackDrop } from '../modal/modalBackDrop';
 import { data } from '../../data/data';
-import accCabinet from './accCabinet';
+import {CreateCabinetMarkup} from './accCabinet';
 
 const url = 'https://callboard-backend.herokuapp.com';
 
