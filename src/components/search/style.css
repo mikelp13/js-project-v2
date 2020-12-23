@@ -1,0 +1,55 @@
+.search-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.search__card {
+  display: block;
+  margin: 0 auto 20px;
+  height: 305px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+
+  touch-action: pan-y;
+  width: 280px;
+  height: 305px;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: transform 0.5s, filter 1.5s ease-in-out;
+  text-align: -webkit-match-parent;
+}
+
+.search___img {
+  object-fit: cover;
+  width: 240px;
+  height: 240px;
+  margin: 0 auto 5px;
+}
+
+.search__title {
+  display: block;
+  font-size: 12px;
+  font-family: Montserrat;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+
+  color: #000;
+  text-transform: uppercase;
+  max-width: 240px;
+  max-height: 14px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.search__price {
+  display: block;
+  font-size: 12px;
+  font-family: Montserrat;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: bold;
+
+  color: #e96105;
+}
