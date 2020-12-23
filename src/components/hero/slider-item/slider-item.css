@@ -1,18 +1,5 @@
-.hero{
-  margin-bottom: 50px;
-}
-@media (min-width: 768px) and (max-width: 1279px) {
-  .hero{
-    margin-bottom: 60px;
-  }
-}
-@media (min-width: 1280px) {
-  .hero{
-    margin-bottom: 72px;
-  }
-}
 
-.hero-wrapper {
+/* .hero-wrapper {
   display: flex;
   flex-wrap: wrap;
 }
@@ -111,7 +98,7 @@
     right: 107px;
     font-size: 14px;
   }
-}
+} */
 
 /* =================== hero side items =================================*/
 .side-items {
@@ -230,7 +217,7 @@
     display: none;
   }
 }
-
+/* ===== modal ====== */
 .item-modal{
   position: relative;
   top: 50%;

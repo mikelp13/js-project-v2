@@ -1,6 +1,7 @@
 import '../node_modules/normalize.css/normalize.css';
 import './styles.css';
 import './components/header/js/header';
+import './components/hero/slider/slider';
 import './components/hero/slider-item/slider-item';
 import './components/footer/styles.js';
 import './components/card/index';
