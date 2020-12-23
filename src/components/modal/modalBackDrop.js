@@ -2,7 +2,7 @@ import './styles.css';
 
 export const modalBackDrop = templation => {
     const container = document.querySelector('.modal');
-    const createModalMarkup = (closeModal) => { return `${templation}`; };
+    const createModalMarkup = (closeModal) => { return `<div class="modal-div"><button class="modalBD__close-btn"></button>${templation}</div>`; };
 
     const closeModal = () => {
         container.classList.remove('is-open');
@@ -22,5 +22,6 @@ export const modalBackDrop = templation => {
     container.classList.add('is-open');
     container.addEventListener('click', close);
     document.addEventListener('keydown', escBtnPress);
+
     return closeModal;
 };
