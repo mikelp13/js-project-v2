@@ -10,8 +10,8 @@ $(window).on( 'load', function () {
         speed: 500,
         easing: 'ease',
         infinite: true,
-        // autoplay: true,
-        // autoplaySpeed: 1500,
+        autoplay: true,
+        autoplaySpeed: 3500,
         
         responsive: [
             {
