@@ -16,11 +16,13 @@
 
 .mobile-buttons-wrapper {
   display: flex;
+  justify-content: space-between;
   position: absolute;
   height: 24px;
+  width: 250px;
   box-sizing: border-box;
-  left: 6.7vw;
-  top: 27.8vh;
+  left: 18vw;
+  top: 25.8vh;
 }
 
 .close-menu {
@@ -33,6 +35,10 @@
   top: 0;
   right: 0;
   transform: translate(-24px, 24px);
+}
+
+.close-menu:hover {
+  background: url(../images/close/close-24px-orange.svg);
 }
 
 @media (max-width: 767px) {

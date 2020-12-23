@@ -11,7 +11,7 @@
 @media (min-width: 768px) {
   .header-auth {
     display: flex;
-    width: 140px;
+    width: 170px;
     align-items: center;
     justify-content: space-around;
     height: 26px;
@@ -21,7 +21,7 @@
 
 @media (min-width: 1280px) {
   .header-auth {
-    margin-right: 55px;
+    margin-right: 40px;
   }
 }
 
@@ -89,6 +89,6 @@
 
 @media (min-width: 1280px) {
   .sign-in-up__stick {
-    margin: 0 6px;
+    margin: 0 15px;
   }
 }
