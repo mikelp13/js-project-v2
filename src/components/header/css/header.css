@@ -49,6 +49,7 @@
     right: 22px;
     top: 80vh;
     outline: none;
+    z-index: 3;
   }
 
   .modal-btn::after {

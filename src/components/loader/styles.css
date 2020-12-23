@@ -5,6 +5,11 @@
   background: #02172a;
   width: 100%;
 }
+
+.loader.hide {
+  display: none;
+}
+
 /* =======================================ANIMATION================================== */
 
 .loader-animation {
