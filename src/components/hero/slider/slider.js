@@ -43,7 +43,7 @@ const getSliderItems = async () => {
       infinite: true,
       initialSlide: 0,
       autoplay: true,
-      autoplaySpeed: 1000,
+      autoplaySpeed: 2000,
       pauseOnFocus: false,
       pauseOnHover: false,
       pauseOnDotsHover: false,
@@ -68,7 +68,6 @@ const getSliderItems = async () => {
     });
   });
   $('.slider').slick('slickAdd', createSliderMarkup(data.calls.ads));
- 
 };
 
 getSliderItems();
