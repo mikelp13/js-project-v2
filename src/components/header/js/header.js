@@ -34,14 +34,17 @@ function openMobileFilters() {
 mobileFiltersBtn.addEventListener('click', openMobileFilters)
 
 // ===========================TABLET FILTER OPEN-CLOSE================
+const mediaTabletMin = window.matchMedia('(min-width: 768px)')
+const mediaTabletMax = window.matchMedia('(max-width: 1279px)')
+
 function tabletCategoriesOpen() {
-    if (tabletFilters.innerHTML === '') {
-        tabletFilters.style.display = "flex"
-        tabletFilters.innerHTML = categoriesMarkup
-    } else {
-        tabletFilters.innerHTML = ''
-        tabletFilters.style.display = "none"
-    }
+        if (tabletFilters.innerHTML === '') {
+            tabletFilters.style.display = "flex"
+            tabletFilters.innerHTML = categoriesMarkup
+        } else {
+            tabletFilters.style.display = "none"
+            tabletFilters.innerHTML = ''
+        }
 }
 filterBtn.addEventListener("click", tabletCategoriesOpen)
 
