@@ -107,7 +107,7 @@
 }
 
 .slider__img {
-  max-width: 190px;
+  max-width: 150px;
 }
 @media screen and (min-width: 768px) {
   .slider__img {

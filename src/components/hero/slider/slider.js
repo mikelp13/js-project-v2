@@ -41,7 +41,6 @@ const getSliderItems = async () => {
       speed: 1000,
       easing: '_ease_',
       infinite: true,
-      initialSlide: 0,
       autoplay: true,
       autoplaySpeed: 2000,
       pauseOnFocus: false,
@@ -54,17 +53,6 @@ const getSliderItems = async () => {
       waitForAnimate: false,
       centralMode: false,
       variableWidth: false,
-      responsive: [
-        {
-          breakpoint: 320,
-        },
-        {
-          breakpoint: 768,
-        },
-        {
-          breakpoint: 1280,
-        },
-      ],
     });
   });
   $('.slider').slick('slickAdd', createSliderMarkup(data.calls.ads));
