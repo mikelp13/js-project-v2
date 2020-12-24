@@ -1,5 +1,5 @@
 .acc-cabinet-menu {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 150px;
@@ -9,6 +9,38 @@
   margin-right: 10px;
   box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.05),
     inset 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+#loggedUser__exit {
+  background-image: url(../header/images/logout.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+}
+
+#loggedUser__exit:hover,
+#loggedUser__exit:focus {
+  background-image: url(../header/images/logout-orange.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+}
+
+#loggedUser__carts {
+  background-image: url(../header/images/user-profile.svg);
+  background-repeat: no-repeat;
+  background-position: start;
+  text-align: end;
+  width: 110px;
+}
+
+#loggedUser__carts:hover,
+#loggedUser__carts:focus {
+  background-image: url(../header/images/user-profile-orange.svg);
+  background-repeat: no-repeat;
+  background-position: start;
+  text-align: end;
+  width: 110px;
 }
 
 .acc-cabinet-content {
@@ -23,7 +55,8 @@
   background-color: transparent;
 }
 
-.acc-cabinet-content:hover {
+.acc-cabinet-content:hover,
+.acc-cabinet-content:focus {
   cursor: pointer;
   color: #ff6b08;
 }
