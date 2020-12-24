@@ -1,13 +1,13 @@
 import './styles.css';
 
-const buttonLoaderRef = document.querySelector('.loader__btn');
-const downloaderRef = document.querySelector('.loader');
-const categoryRef = document.querySelectorAll('.category');
 
-buttonLoaderRef.addEventListener('click', loaderCategory);
+export const runLoader = () => { 
 
-function loaderCategory() {
+    const buttonLoaderRef = document.querySelector('.loader__btn');
+    const downloaderRef = document.querySelector('.loader');
+    const categoryRef = document.querySelectorAll('.category');
 
+    function loaderCategory() {
     for (let i in categoryRef) {
 
         if (categoryRef[i].className === 'category unvisible') { 
@@ -22,5 +22,9 @@ function loaderCategory() {
 
         
     };
-    
+        
+    }
+
+    buttonLoaderRef.addEventListener('click', loaderCategory);
 }
+

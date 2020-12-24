@@ -2,29 +2,33 @@ import { data } from "../data/data";
 import axios from 'axios';
 
 
-const createCamelCase = value => {
-  return value;
+const createCamelCase = (value) => {
+    return value;
 };
 
+
+
+
 export const getCategories = async () => {
-  if (data.calls.categories.length) {
-    console.log('if result:', data.calls.categories);
-    return data.calls.categories;
-  }
-  else {
-      try {
+ 
+  try {
+    if (data.calls.categories.length) {
+      console.log('if result:', data.calls.categories);
+      return data.calls.categories;
+    } else {
       const result = await axios.get(
         'https://callboard-backend.herokuapp.com/call/categories',
       );
-    data.calls.categories = [...createCamelCase(result.data)];
+      data.calls.categories = [...createCamelCase(result.data)];
       result.data.forEach(
         item => (data.calls.specificCategory[createCamelCase(item)] = []),
       
       );
       console.log('getCategories API:', [...result.data]);
-      return result;
-      } catch (error) { }
-  }
+      return result.data;
+    }
+  } catch (error) { }
+
 };
 
 export const getCategoriesSpesific = async categoryName => {
@@ -35,13 +39,9 @@ export const getCategoriesSpesific = async categoryName => {
       data.calls.specificCategory[categoryName] = [...result.data];
       console.log('getCategoriesSpesific API:', [...result.data]);
      
-    return result;
+    return result.data;
   } catch (error) {}
 };
-
-
-
-
 
 
 // export const getCategories = async () => {
