@@ -1,6 +1,5 @@
 .acc-cabinet-menu {
-  display: flex;
-  opacity: 0;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 150px;
