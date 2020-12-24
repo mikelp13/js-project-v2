@@ -1,52 +1,44 @@
 
-import '../../styles.css'
-import './css/style.css'
-import '../fonts/fonts.css'
-import templateProductInfo from './templateProductInfo/templateProductInfo.hbs'
-import {modalBackDrop} from '../modal/modalBackDrop.js'
-import dataMy from './data/dataMy.json'
-import {getFavourites, addFavourite, delFavourite} from '../servises/itemService'
-import {data} from '../../data/data'
-import axios from 'axios';
+import '../../styles.css';
+import './css/style.css';
+import '../fonts/fonts.css';
+import templateProductInfo from './templateProductInfo/templateProductInfo.hbs';
+import { modalBackDrop } from '../modal/modalBackDrop.js';
+import data from './data/data.json';
+import { addFavourite, delFavourite } from '../servises/itemService';
+import { loggedUser } from '../../data/data';
 
+const card = document.querySelector('.img');
 
-
-
-const card = document.querySelector('.img')
-
-
- function productInfoMarkup  (dataMy)  {
-  const markup = templateProductInfo(dataMy);
+const productInfoMarkup = event => {
+  const markup = templateProductInfo(data);
   modalBackDrop(markup);
-  const imgRef = document.querySelector(".product-card__image__main");
-  imgRef.src = dataMy.imageUrls[0];
-  const listImg = document.querySelector(".product-card__image__secondary")
+  const imgRef = document.querySelector('.product-card__image__main');
+  imgRef.src = data.imageUrls[0];
+  const listImg = document.querySelector('.product-card__image__secondary');
 
-
-if (window.screen.width < 767)
-{
-  $('.product-card__image__secondary').slick({
-    arrows: false,
-    dots: true,
-})
+  if (window.screen.width < 767) {
+    $('.product-card__image__secondary').slick({
+      arrows: false,
+      dots: true,
+    });
+  } else {
+    listImg.addEventListener('click', event => {
+      const activeImg = event.target.dataset.id;
+      imgRef.src = data.imageUrls[activeImg];
+    });
   }
- else {
- listImg.addEventListener('click', (event) => {
-   const activeImg = event.target.dataset.id;
-    imgRef.src = dataMy.imageUrls[activeImg];
-  })
-}
 
-
-  const favorItem = document.querySelector(".icon");
-  favorItem.addEventListener('click', async (event) => {
+  const favorItem = document.querySelector('.icon');
+  favorItem.addEventListener('click', async event => {
     //const activeId = event.target.dataset.id;
     const activeId = event.target.closest('[data-productid]').dataset.productid;
-
-    getFavourites().then(favorites => {
-      data.user.favorites = favorites;
-    } )
-
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+      .eyJ1aWQiOiI1ZmUzMWQyMmE0ZjYyYzAwMTdhZWE3ZTciLCJzaWQiOiI1ZmUzNDhkOWE0ZjYyYzAwMTdhZWE4NGQiLCJpYXQiOjE2MDg3MzA4NDEsImV4cCI6MTYwODczNDQ0MX0
+      .NY0pf3M1uGCrraa35Fsog4AEUdJ8hMtEyLHc - Wh3i0E;
+getFavourites().then(favorites => {
+  data.user.favorites = favorites;
+} )
     //if (data.loggedUser.isAuth) {
     const favoriteControl = data.user.favorites.some(
       item => item._id === activeId,
@@ -64,11 +56,10 @@ if (window.screen.width < 767)
     }
     console.log(activeId);
 
-    favorItem.classList.add("iconcolor");
-    const result =  await addFavourite(activeId);
+    favorItem.classList.add('iconcolor');
+    const result = await addFavourite(activeId);
     console.log(result);
     localStorage.setItem('favoritOn', activeId)
-
 
     /*if (localStorage.getItem('favoritOn') === activeId)
     {
@@ -80,39 +71,9 @@ if (window.screen.width < 767)
       localStorage.removeItem('favoritOn')
     }*/
 
-  //} else {console.log('Go to Sign Up');}
 
-}
-)
-}
+    //} else {console.log('Go to Sign Up');}
+  });
+};
 
-card.addEventListener('click', productInfoMarkup(dataMy));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// card.addEventListener('click', productInfoMarkup);

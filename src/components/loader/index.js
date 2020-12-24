@@ -1,26 +1,27 @@
 import './styles.css';
+import { data } from '../../data/data';
+import { createMarkup, runSlider } from '../catalog/categories-list-item/index';
+import { getCategoriesSpesific} from '../../api/api';
 
-const buttonLoaderRef = document.querySelector('.loader__btn');
-const downloaderRef = document.querySelector('.loader');
-const categoryRef = document.querySelectorAll('.category');
+export const runLoader = () => { 
 
-buttonLoaderRef.addEventListener('click', loaderCategory);
+    const buttonLoaderRef = document.querySelector('.loader__btn'); 
+    const colorLoaderRef = document.querySelector('.loader');
 
-function loaderCategory() {
+    const loaderCategory = async () => { 
 
-    for (let i in categoryRef) {
-
-        if (categoryRef[i].className === 'category unvisible') { 
-            categoryRef[i].className = 'category visible';
-            const categoryVisibleRef = document.querySelectorAll('.category.visible');
-            if (categoryVisibleRef.length < 8) { return } else {
-                buttonLoaderRef.className = 'loader__btn hide';
-                downloaderRef.className = 'loader hide';
-            }
-            return;
+        await  getCategoriesSpesific(data.calls.categories[data.renderedCategories.length]);
+        createMarkup(data.renderedCategories.length);
+        data.renderedCategories.push(data.calls.categories[data.renderedCategories.length]);
+        runSlider();
+        if (data.renderedCategories.length === data.calls.categories.length) {
+            buttonLoaderRef.className = 'loader__btn hide';
+            colorLoaderRef.className = 'loader hide';
         }
+    }
 
-        
-    };
+    buttonLoaderRef.addEventListener('click', loaderCategory);
+
     
 }
+

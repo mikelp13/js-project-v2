@@ -139,13 +139,15 @@
   box-shadow: none;
 }
 
-.authForm__btn_exit:hover {
+.authForm__btn_exit:hover,
+.authForm__btn_exit:focus {
   color: #ffffff;
   background-color: #ff6b09;
   border: 1px solid transparent;
   box-shadow: none;
 }
-.authForm__btn_exit:hover .authForm__btn_logOut {
+.authForm__btn_exit:hover .authForm__btn_logOut,
+.authForm__btn_exit:focus .authForm__btn_logOut {
   background-color: #fff;
   border: 1px solid #bbbbbb;
   outline: none;

@@ -1,5 +1,6 @@
 import '../components/auth/auth'
 
+
 export const data = {
     auth: {
         isAuth: false,
@@ -12,5 +13,9 @@ export const data = {
         id: '',
         registrationDate: '',
     },
+    calls: {
+        categories: [],
+        specificCategory: {},
+    },
+    renderedCategories: [],
 };
-
