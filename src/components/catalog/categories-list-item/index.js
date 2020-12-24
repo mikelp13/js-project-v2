@@ -1,113 +1,57 @@
 import './styles.css';
+import { data } from "../../../data/data";
 import categoryTemplate from './template/category.hbs';
-import сategoriesArray from './arrayCat';
+import { runLoader } from '../../loader/index';
 
-const categoryRefs = document.querySelectorAll('.category-list');
 
-function createСategories() {
-    const markupProperty=categoryTemplate(сategoriesArray.filter(category => category.category === 'property'));
-    categoryRefs[0].insertAdjacentHTML('afterbegin', markupProperty);
-    
-    const markupTransport = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport'));
-    categoryRefs[1].insertAdjacentHTML('afterbegin', markupTransport);
+export const runSlider = (i) => {
+         $(`.sliders-slick${i}`).slick({
+            dots: true,
+            variableWidth: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            speed: 500,
+            easing: 'ease',
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3500, 
+        });
+};
 
-    const markupWork = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport')); // Работа
-    categoryRefs[2].insertAdjacentHTML('afterbegin', markupWork);
-    
-    const markupElect = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport'));  // Электроника
-    categoryRefs[3].insertAdjacentHTML('afterbegin', markupElect);
+export const createMarkup = (i) => {
 
-    const markupBusiness = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport'));  // Бизнес услуги
-    categoryRefs[4].insertAdjacentHTML('afterbegin', markupBusiness);
+    const categoryRefs = document.querySelector('.container-categories');
+    const markup = `<div class="category visible"><div class="category-header"><h2 class="category-title">${data.calls.categories[i]}
+            </h2><a href="" class="category-link" data-category="category">Смотреть все</a></div>
+            <ul class="category-list sliders sliders-slick${i}"> 
+            ${categoryTemplate(data.calls.specificCategory[data.calls.categories[i]].slice(0, 10))} </ul> </div>`
+        categoryRefs.insertAdjacentHTML('beforeend', markup);
+        data.renderedCategories.push(data.calls.categories[i]);  
+        runSlider(i);    
+    // console.log(data.renderedCategories);
+};
 
-    const markupSport = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport')); // Отдых  и спорт
-    categoryRefs[5].insertAdjacentHTML('afterbegin', markupSport);
-
-    const markupFree = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport'));  // Отдам бесплатно
-    categoryRefs[6].insertAdjacentHTML('afterbegin', markupFree);
-
-    const markupTrade = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport'));  // Обмен
-    categoryRefs[7].insertAdjacentHTML('afterbegin', markupTrade);
-
+export const createСategories = () => {
+    for (let i = 0; i < 4; i += 1) {
+        createMarkup(i);
+    }
+    runLoader();
 }
-createСategories();
 
 
+
+
+
+// =============================================================================
 // const getСategory = async () => { 
-//     return await fetch('https://callboard-backend.herokuapp.com/call/specific/transport')
+//     return await fetch('https://callboard-backend.herokuapp.com/call/specific/work')
 //         .then(response => response.json())
 //         .then(data => {
 //             console.log(data);
 //     })
 // }
 // getСategory();
-
-// fetch==========================================================================================================
-
-// let addCategoryProperty;
-
-// const getСategoryProperty = async () => { 
-//     return await fetch('https://callboard-backend.herokuapp.com/call/specific/property')
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-//             addCategoryProperty = [...data];
-//         })
-// }
-
-// const createСategoryProperty = async () => {
-//     await getСategoryProperty();
-//     // console.log(addCategoryProperty);
-//     const markup = categoryTemplate(addCategoryProperty);
-//     categoryRefs[0].insertAdjacentHTML('afterbegin', markup);
-//     console.log('markup category ready Property');
-// }
-// createСategoryProperty();
-
-// ================================================================================================================
+// ===============================================================================
 
 
-
-$(window).on( 'load', function () {
-    $('.sliders').slick({
-        dots: true,
-        variableWidth: true,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        speed: 500,
-        easing: 'ease',
-        infinite: true,
-        autoplay: true,
-        autoplaySpeed: 3500,
-        
-        responsive: [
-            {
-                breakpoint: 1280,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 2,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 320,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            },
-        ]
-      
-    });
-});
-
-$(window).on('load', function() {
-    // console.log( "slider ready!" );
-});
 

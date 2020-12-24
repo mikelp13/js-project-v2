@@ -50,4 +50,28 @@ export default [
     {
         "imageUrls": ["https://storage.googleapis.com/kidslikev2_bucket/2f798e53-eebd-4f9c-a504-a15e72a81b48.jpg"], "_id": "5fe198b43acd9400174ec8ec", "title": "Audi", "description": "nice car bla bla bla blab ewqeweq", "category": "transport", "price": 120000, "phone": "+380960792310", "isOnSale": false, "userId": "5fd245a20031930017e9151d", "__v": 0
     },
+    {
+        "imageUrls": ["https://storage.googleapis.com/kidslikev2_bucket/3e79ed80-ff80-450e-b101-418692b4edf3.jpg"], "_id": "5fd38c696da6ab0017dbf55f", "title": "Retard", "description": "Looking for retarded developer", "category": "work", "price": 0, "phone": "+380930000000", "isOnSale": false, "userId": "5fd27aeb0031930017e91795", "__v": 0
+    },
+    {
+        "imageUrls": ["https://storage.googleapis.com/kidslikev2_bucket/0db32835-5dbc-48bf-ad35-2c308065717e.jpg"], "_id": "5fd38c9a6da6ab0017dbf563", "title": "Scientist", "description": "Looking for scientist", "category": "work", "price": 0, "phone": "+380930000000", "isOnSale": false, "userId": "5fd27aeb0031930017e91795", "__v": 0
+    },
+    {
+        "imageUrls": ["https://storage.googleapis.com/kidslikev2_bucket/71530d7f-323d-4444-a9c9-896a517db094.jpg"], "_id": "5fd38cb06da6ab0017dbf565", "title": "MailMan", "description": "Looking for MailMan", "category": "work", "price": 0, "phone": "+380930000000", "isOnSale": false, "userId": "5fd27aeb0031930017e91795", "__v": 0
+    },
+    {
+        "imageUrls": ["https://storage.googleapis.com/kidslikev2_bucket/0e6de604-8d6b-410c-a354-90ac696f1220.jpg"], "_id": "5fd483ed85dda200172bd016", "title": "Security Guard", "description": "Надаю послуги охоронця", "category": "work", "price": 0, "phone": "+380987798875", "isOnSale": false, "userId": "5fd0b413deae5f0017e41ad5", "__v": 0
+    },
+    {
+        "imageUrls": ["https://storage.googleapis.com/kidslikev2_bucket/c89efc8d-01bc-4602-8081-f9aa38c80577.jpg"], "_id": "5fd9ba4cd398de0017c5dddd", "title": "Tatoo Master", "description": "Tatoo is my best work", "category": "work", "price": 0, "phone": "+380971100370", "isOnSale": false, "userId": "5fd0b413deae5f0017e41ad5", "__v": 0
+    },
+    {
+        "imageUrls": ["https://storage.googleapis.com/kidslikev2_bucket/c0ee05b7-dc09-4cd9-b6bd-fec04fa14ae6.png"], "_id": "5fde5a1464501b0017308f2e", "title": "Mentor", "description": "ddsfdfsdsdf", "category": "work", "price": 0, "phone": "+380636033288", "isOnSale": false, "userId": "5fd3361f80dabd00179d7ff6", "__v": 0
+    },
+    {
+        "imageUrls": ["https://storage.googleapis.com/kidslikev2_bucket/0f2f64e0-c483-445f-b418-8e65bbb168f8.jpg"], "_id": "5fdfadcbe9633c0017af7485", "title": "ssadsda", "description": "qwerwewewqweqwweqeqweqweqweqweeqweqweqweqeqweqwet", "category": "work", "price": 0, "phone": "+380960792310", "isOnSale": false, "userId": "5fd245a20031930017e9151d", "__v": 0
+    },
+    {
+        "imageUrls": ["https://storage.googleapis.com/kidslikev2_bucket/1a0bcd62-87ea-49f4-86cf-8f2fe31dcab6.jpg"], "_id": "5fe09645030ff0001712d1dc", "title": "Red Shirt", "description": "New red shirt, made from cotton", "category": "work", "price": 0, "phone": "+380976732345", "isOnSale": false, "userId": "5fe08e5a030ff0001712d1ba", "__v": 0
+    },
 ]
