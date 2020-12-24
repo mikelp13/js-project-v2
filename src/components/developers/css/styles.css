@@ -71,7 +71,8 @@
     5px 5px 15px rgba(5, 180, 250, 0.89);
 }
 
-.student-modal__close-btn:hover {
+.student-modal__close-btn:hover,
+.student-modal__close-btn:focus {
   box-shadow: -5px -5px 20px rgb(13, 240, 5), 5px 5px 30px rgb(0, 236, 253);
   background-image: url('../../../images/icons/close/close-24px-green.svg');
 }
@@ -87,7 +88,8 @@
   transition: 0.5s;
 }
 
-.students-modal-card:hover {
+.students-modal-card:hover,
+.students-modal-card:focus {
   height: 260px;
 }
 
@@ -110,7 +112,8 @@
   transition: 0.5s;
 }
 
-.students-modal-card:hover .students-modal-imgBx .student-modal-avatar {
+.students-modal-card:hover .students-modal-imgBx .student-modal-avatar,
+.students-modal-card:focus .students-modal-imgBx .student-modal-avatar {
   opacity: 1;
 }
 
@@ -154,12 +157,14 @@
   z-index: 1;
 }
 
-.students-modal-card:hover .students-modal-content {
+.students-modal-card:hover .students-modal-content,
+.students-modal-card:focus .students-modal-content {
   opacity: 1;
   z-index: 1;
 }
 
-.students-modal-card:hover .students-modal-content h2 {
+.students-modal-card:hover .students-modal-content h2,
+.students-modal-card:focus .students-modal-content h2 {
   font-size: 16px;
   color: #fff;
   font-weight: 500;
@@ -168,7 +173,8 @@
   z-index: 1;
 }
 
-.students-modal-card:hover .students-modal-content h2 span {
+.students-modal-card:hover .students-modal-content h2 span,
+.students-modal-card:focus .students-modal-content h2 span {
   font-size: 12px;
   color: rgb(131, 128, 128);
   font-weight: 200;
