@@ -7,7 +7,8 @@ import userLogged from './template/userLogged.hbs';
 import login from './template/login.hbs'
 import { modalBackDrop } from '../modal/modalBackDrop';
 import { data } from '../../data/data';
-import {CreateCabinetMarkup} from './accCabinet';
+// import { CreateCabinetMarkup } from './accCabinet';
+import accCabinet from './template/accCabinet.hbs';
 
 const url = 'https://callboard-backend.herokuapp.com';
 
@@ -16,6 +17,7 @@ let user = {
     password: '',
 };
 
+// const dopKnopka = document.querySelector('.acc-cabinet-menu')
 
 
 const container = document.querySelector('.modal');
@@ -23,6 +25,8 @@ const container = document.querySelector('.modal');
 const headerAuthMobile = document.querySelector('.header-auth-mobile');
 const headerAuth = document.querySelector('.header-auth');
 
+const authWrapper = document.querySelector('.header-auth');
+const authMobileWrapper = document.querySelector('.header-auth-mobile');
 
 // ===========================ОТРИСОВКА БЛОКА ВХОД/РЕГИСТРАЦИЯ=======================
 
@@ -31,52 +35,63 @@ function newUserEnter() {
     if (!localStorage.getItem('accessToken')) {
         data.auth.accessToken = '';
         data.auth.isAuth = false;
-        console.log(data);
         
-        const mediaQuery = window.matchMedia('(min-width: 768px)')
-        if (mediaQuery.matches) {
-            headerAuth.innerHTML = login();
+        function screenChng() {
+            if (window.innerWidth > 767) {
+                headerAuth.innerHTML = login();
+            } else {
+                headerAuthMobile.innerHTML = login();
+            };
 
-        } else {
-            headerAuthMobile.innerHTML = login();
-        }
             const signUpHeader = document.querySelector('#signUpHeader');
             const signInHeader = document.querySelector('#signInHeader');
-
+ 
             signUpHeader.addEventListener('click', onHeaderSignUp);
             signInHeader.addEventListener('click', onHeaderSignUp);
-    
+        }
+        window.addEventListener('resize', screenChng);
+        screenChng()
     } else { loggedUserEnter()};
     
 };
 
+
 // ==========================================LOGGED USER==========================
+
 function loggedUserEnter () {
     if (localStorage.getItem('accessToken')) {
         data.auth.isAuth = true;
         data.auth.accessToken = localStorage.getItem('accessToken')
 
-        const mediaQuery = window.matchMedia('(min-width: 768px)')
-        if (mediaQuery.matches) {
-            headerAuth.innerHTML = userLogged();
-        } else {
-            headerAuthMobile.innerHTML = userLogged();
-        };
-  
-        const loggedUserCarts = document.querySelector('#loggedUser__carts');
-        const loggedUserExit = document.querySelector('#loggedUser__exit');
+        function screenChng() {
+            if (window.innerWidth > 767) {
+                headerAuth.innerHTML = userLogged();
+            } else {
+                headerAuthMobile.innerHTML = userLogged();
+            };
 
-    loggedUserExit.addEventListener('click', logOutForm)
-    loggedUserCarts.addEventListener('click', CreateCabinetMarkup)
-    
-    } else { newUserEnter() };
+            // function CreateCabinetMarkup() {
+            //     dopKnopka.classList.toggle('nonActive')
+
+            // };
+  
+            const loggedUserCarts = document.querySelector('#loggedUser__carts');
+            const loggedUserExit = document.querySelector('#loggedUser__exit');
+            loggedUserExit.addEventListener('click', logOutForm);
+            // loggedUserCarts.addEventListener('click', CreateCabinetMarkup);
+
+        }
+            
+        window.addEventListener('resize', screenChng);
+        screenChng()
+        
+    }  else { newUserEnter() };
 
 };
 
 
 window.addEventListener('DOMContentLoaded', loggedUserEnter);
 window.addEventListener('DOMContentLoaded', newUserEnter);
-
 
 
 // ==================================МОДАЛКА ВЫХОДА==========================================
@@ -97,7 +112,6 @@ function logOutForm() {
     authFormExit.addEventListener('click', onXclose);
 
     authFormLogOut.addEventListener('click', logOutUser);
-    console.log(data);
 };
 
 // ==================================ЗАЧИСТКА ЮЗЕРА===============================
@@ -107,7 +121,6 @@ function logOutUser() {
     data.auth.isAuth = false;
     newUserEnter();
     container.classList.remove('is-open');
-    console.log(data);
 };
 
 // =================================РЕГИСТРАЦИЯ/ВХОД===================================
@@ -183,7 +196,6 @@ function onHeaderSignUp(e) {
 
     authForm.addEventListener('submit', checkSubmit);
     authForm.addEventListener('input', gatherInfo);
-    console.log(data);
 };
 
 

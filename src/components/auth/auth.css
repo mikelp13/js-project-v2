@@ -1,14 +1,4 @@
 /* ================================ */
-/* .drop__authedUser_menu {
-  display: block;
-  width: 206px;
-  height: 94px;
-} */
-/* .drop_authedUser {
-  font-size: 14px;
-  line-height: 1.214;
-  letter-spacing: 0.02em;
-} */
 
 .authForm {
   background-color: white;
@@ -33,20 +23,25 @@
 .authForm__btn_cls.logOut {
   top: 30px;
   right: 30px;
+  background-image: url('../../images/auth/close-24px.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  outline: none;
 }
 
 .authForm__btn_cls {
   position: absolute;
   top: 14px;
   right: 15px;
-  width: 14px;
-  height: 14px;
+  width: 30px;
+  height: 30px;
+  background-image: url('../../images/auth/close-24px.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
   background-color: #fff;
   border: none;
-  outline: 1px solid tomato;
+  outline: none;
   cursor: pointer;
-  display: block;
-  text-align: center;
 }
 
 .authForm__input {
@@ -62,7 +57,7 @@
   line-height: 1.214;
   letter-spacing: 0.02em;
   outline: none;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 /* ==============GOOGLE===================== */
@@ -104,8 +99,6 @@
   max-width: 450px;
   margin-right: auto;
   margin-left: auto;
-  /* padding-top: 60px;
-  padding-bottom: 60px; */
 }
 
 .authForm__btn_signUp,
@@ -152,19 +145,27 @@
   box-shadow: 15px 15px 55px rgba(0, 0, 0, 0.3);
 }
 
+@media screen and (max-width: 1270px) {
+  .authForm,
+  .logOut__wrap {
+    top: 247px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .authForm {
     top: 43px;
     width: 290px;
     padding: 50px 20px;
-    position: relative;
+    position: absolute;
   }
   .logOut__wrap {
+    top: 43px;
     width: 290px;
     height: 205px;
     padding: 45px 20px;
     /* outline: 1px solid teal; */
-    position: relative;
+    position: absolute;
   }
   .authForm__btn_signUp,
   .authForm__btn_logIn {
@@ -189,9 +190,9 @@
     font-size: 12px;
     line-height: 15px;
   }
-}
-@media screen and (max-width: 1270px) {
-  .authForm {
-    top: 247px;
+  .authForm__btn_cls.logOut,
+  .authForm__btn_cls {
+    top: 5px;
+    right: 5px;
   }
 }
