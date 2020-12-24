@@ -1,36 +1,36 @@
 import './hero-slider.css';
-import { getAds } from '../../servises/itemService';
-// import { getSliderItems } from '../../servises/itemService';
+import '../slider-item/slider-item.css';
+import _ from '../../../../node_modules/lodash';
+import { data } from '../../../data/data';
+import { getAds } from '../../../api/api';
 import sliderTemplate from './templates/hero-slider.hbs';
+import itemsTemplate from '../slider-item/templates/items-template.hbs';
 
 const refs = {
   slider: document.querySelector('#hero-slider'),
+  sideItemList: document.querySelector('.side-items'),
+  bottomItemList: document.querySelector('.bottom-items'),
 };
 
-const getSliderProducts = ()=>{
-  getAds().then(response => {
-    const productsArr = response.data;
-    console.log(productsArr);
-    createSliderMarkup(productsArr);
-  })
-}
+const createSliderMarkup = data => {
+  refs.slider.insertAdjacentHTML('afterbegin', sliderTemplate(data));
+};
 
-getSliderProducts()
+const createItemsMarkup = data => {
+  const randomItems = _.sampleSize(data, 5);
+  const sideItems = randomItems.slice(0, 2);
+  const bottomItems = randomItems.slice(2);
 
-const createSliderMarkup = (data) =>{
-  refs.slider.insertAdjacentHTML(
-    'afterbegin',
-    sliderTemplate(data)
+  refs.bottomItemList.insertAdjacentHTML(
+    'beforeend',
+    itemsTemplate(bottomItems),
   );
-  console.log(sliderTemplate(data));
-}
+  refs.sideItemList.insertAdjacentHTML('beforeend', itemsTemplate(sideItems));
+};
 
-//============== function version with callback ==============
-//getSliderItems(createSliderMarkup)
-// ============================================================
-
-$(document).ready(function() {
-  $('.slider').slick({
+const getSliderItems = async () => {
+  $(document).ready(function () {
+    $('.slider').slick({
       arrows: false,
       dots: true,
       fade: true,
@@ -53,18 +53,29 @@ $(document).ready(function() {
       waitForAnimate: false,
       centralMode: false,
       //  variableWidth: true,
-      responsive: [{
-          breakpoint: 320
-      }, {
-          breakpoint: 768
-      }, {
-          breakpoint: 1280
-      }],
+      responsive: [
+        {
+          breakpoint: 320,
+        },
+        {
+          breakpoint: 768,
+        },
+        {
+          breakpoint: 1280,
+        },
+      ],
       mobileFirst: false,
-
+    });
   });
-});
 
+  await getAds();
+  createItemsMarkup(data.calls.ads);
+  createSliderMarkup(data.calls.ads);
+};
+
+getSliderItems();
+
+//===
 
 // -------------------------------------- test -----------------------------------------------
 // const items = [
