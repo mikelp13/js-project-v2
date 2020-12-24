@@ -1,4 +1,7 @@
 import './styles.css';
+import { data } from "../../../data/data";
+import { getCategories } from '../../../api/api';
+import { getCategoriesSpesific } from '../../../api/api';
 import categoryTemplate from './template/category.hbs';
 import сategoriesArray from './arrayCat';
 
@@ -11,7 +14,7 @@ function createСategories() {
     const markupTransport = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport'));
     categoryRefs[1].insertAdjacentHTML('afterbegin', markupTransport);
 
-    const markupWork = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport')); // Работа
+    const markupWork = categoryTemplate(сategoriesArray.filter(category => category.category === 'work')); // Работа
     categoryRefs[2].insertAdjacentHTML('afterbegin', markupWork);
     
     const markupElect = categoryTemplate(сategoriesArray.filter(category => category.category === 'transport'));  // Электроника
@@ -32,40 +35,54 @@ function createСategories() {
 }
 createСategories();
 
+// from API============================================================
 
+// const getInitialData = () => {
+//     getCategories()
+//         .then(data => console.log('InintialData Categories:',[...data]));
+//     getCategoriesSpesific()
+//         .then(data => console.log('InintialData Category Specific:', [...data]));
+// };
+// getInitialData();
+
+
+const getInitialData = async () => {
+    await getCategories();
+    await getCategoriesSpesific(data.calls.categories[0]);
+    await getCategoriesSpesific(data.calls.categories[1]);
+    await getCategoriesSpesific(data.calls.categories[2]);
+    await getCategoriesSpesific(data.calls.categories[3]);
+    
+//   data.renderedCategories.push(
+//     data.calls.categories[0],
+//     data.calls.categories[1],
+//   );
+//   console.log(data);
+//   setTimeout(() => {
+//     getMore();
+//   }, 5000);
+};
+getInitialData();
+
+// const getMore = async () => {
+//   await getCategoriesSpesific(data.calls.categories[data.renderedCategories.length]);
+//   data.renderedCategories.push(
+//     data.calls.categories[data.renderedCategories.length],
+//   );
+//   console.log(data);
+// };
+
+
+// =============================================================================
 // const getСategory = async () => { 
-//     return await fetch('https://callboard-backend.herokuapp.com/call/specific/transport')
+//     return await fetch('https://callboard-backend.herokuapp.com/call/specific/work')
 //         .then(response => response.json())
 //         .then(data => {
 //             console.log(data);
 //     })
 // }
 // getСategory();
-
-// fetch==========================================================================================================
-
-// let addCategoryProperty;
-
-// const getСategoryProperty = async () => { 
-//     return await fetch('https://callboard-backend.herokuapp.com/call/specific/property')
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-//             addCategoryProperty = [...data];
-//         })
-// }
-
-// const createСategoryProperty = async () => {
-//     await getСategoryProperty();
-//     // console.log(addCategoryProperty);
-//     const markup = categoryTemplate(addCategoryProperty);
-//     categoryRefs[0].insertAdjacentHTML('afterbegin', markup);
-//     console.log('markup category ready Property');
-// }
-// createСategoryProperty();
-
-// ================================================================================================================
-
+// ===============================================================================
 
 
 $(window).on( 'load', function () {
