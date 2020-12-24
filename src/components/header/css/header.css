@@ -83,7 +83,7 @@
   width: 120px;
   height: 80px;
   position: absolute;
-  z-index: 5;
+  z-index: 5000;
   top: 0;
   transform: translate(-60vh, -2.5vh) rotate(80deg);
   animation: animateFLY 8s linear 1;

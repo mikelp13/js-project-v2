@@ -5,6 +5,7 @@
 @import './components/header/css/header-filters.css';
 @import './components/header/css/header-auth.css';
 @import './components/auth/accCabinet.css';
+@import './components/header/css/color-switch.css';
 
 html {
   box-sizing: border-box;

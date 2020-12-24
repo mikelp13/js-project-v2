@@ -11,17 +11,18 @@
 @media (min-width: 768px) {
   .header-auth {
     display: flex;
-    width: 170px;
+    width: 150px;
     align-items: center;
     justify-content: space-around;
     height: 26px;
-    margin-right: 20px;
+    margin-right: 2px;
   }
 }
 
 @media (min-width: 1280px) {
   .header-auth {
-    margin-right: 40px;
+    width: 170px;
+    margin-right: 12px;
   }
 }
 
