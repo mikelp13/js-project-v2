@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: space-around;
     height: 26px;
-    margin-right: 30px;
+    margin-right: 20px;
   }
 }
 
@@ -56,12 +56,14 @@
   background-color: transparent;
 }
 
-.sign-up__btn:hover {
+.sign-up__btn:hover,
+.sign-up__btn:focus {
   cursor: pointer;
   color: #ff6b08;
 }
 
-.sign-in__btn:hover {
+.sign-in__btn:hover,
+.sign-in__btn:focus {
   cursor: pointer;
   color: #ff6b08;
 }
