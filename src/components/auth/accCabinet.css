@@ -18,7 +18,8 @@
   color: transparent;
 }
 
-#loggedUser__exit:hover {
+#loggedUser__exit:hover,
+#loggedUser__exit:focus {
   background-image: url(../header/images/logout-orange.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -33,7 +34,8 @@
   width: 110px;
 }
 
-#loggedUser__carts:hover {
+#loggedUser__carts:hover,
+#loggedUser__carts:focus {
   background-image: url(../header/images/user-profile-orange.svg);
   background-repeat: no-repeat;
   background-position: start;
@@ -53,7 +55,8 @@
   background-color: transparent;
 }
 
-.acc-cabinet-content:hover {
+.acc-cabinet-content:hover,
+.acc-cabinet-content:focus {
   cursor: pointer;
   color: #ff6b08;
 }

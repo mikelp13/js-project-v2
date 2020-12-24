@@ -22,7 +22,8 @@
   width: 100%;
 }
 /* =====================================Right-Wave================================== */
-.loader-animation:hover .right-loader-wave {
+.loader-animation:hover .right-loader-wave,
+.loader-animation:focus .right-loader-wave {
   width: 50px;
   height: 80%;
   margin: 0 20px;
@@ -30,31 +31,40 @@
   animation: animate1 1.4s linear infinite;
 }
 
-.loader-animation:hover span:nth-child(9) {
+.loader-animation:hover span:nth-child(9),
+.loader-animation:focus span:nth-child(9) {
   animation-delay: 0s;
 }
-.loader-animation:hover span:nth-child(8) {
+.loader-animation:hover span:nth-child(8),
+.loader-animation:focus span:nth-child(8) {
   animation-delay: 0.2s;
 }
-.loader-animation:hover span:nth-child(7) {
+.loader-animation:hover span:nth-child(7),
+.loader-animation:focus span:nth-child(7) {
   animation-delay: 0s;
 }
-.loader-animation:hover span:nth-child(6) {
+.loader-animation:hover span:nth-child(6),
+.loader-animation:focus span:nth-child(6) {
   animation-delay: 0.2s;
 }
-.loader-animation:hover span:nth-child(5) {
+.loader-animation:hover span:nth-child(5),
+.loader-animation:focus span:nth-child(5) {
   animation-delay: 0.4s;
 }
-.loader-animation:hover span:nth-child(4) {
+.loader-animation:hover span:nth-child(4),
+.loader-animation:focus span:nth-child(4) {
   animation-delay: 0.6s;
 }
-.loader-animation:hover span:nth-child(3) {
+.loader-animation:hover span:nth-child(3),
+.loader-animation:focus span:nth-child(3) {
   animation-delay: 0.8s;
 }
-.loader-animation:hover span:nth-child(2) {
+.loader-animation:hover span:nth-child(2),
+.loader-animation:focus span:nth-child(2) {
   animation-delay: 1s;
 }
-.loader-animation:hover span:nth-child(1) {
+.loader-animation:hover span:nth-child(1),
+.loader-animation:focus span:nth-child(1) {
   animation-delay: 1.2s;
 }
 
@@ -74,7 +84,8 @@
 }
 
 /* ==================================Left-Wave=========================================== */
-.loader-animation:hover .left-loader-wave {
+.loader-animation:hover .left-loader-wave,
+.loader-animation:focus .left-loader-wave {
   width: 50px;
   height: 80%;
   margin: 0 20px;
@@ -82,31 +93,40 @@
   animation: animate2 1.4s linear infinite;
 }
 
-.loader-animation:hover span:nth-child(10) {
+.loader-animation:hover span:nth-child(10),
+.loader-animation:focus span:nth-child(10) {
   animation-delay: 0s;
 }
-.loader-animation:hover span:nth-child(11) {
+.loader-animation:hover span:nth-child(11),
+.loader-animation:focus span:nth-child(11) {
   animation-delay: 0.2s;
 }
-.loader-animation:hover span:nth-child(12) {
+.loader-animation:hover span:nth-child(12),
+.loader-animation:focus span:nth-child(12) {
   animation-delay: 0.4s;
 }
-.loader-animation:hover span:nth-child(13) {
+.loader-animation:hover span:nth-child(13),
+.loader-animation:focus span:nth-child(13) {
   animation-delay: 0.6s;
 }
-.loader-animation:hover span:nth-child(14) {
+.loader-animation:hover span:nth-child(14),
+.loader-animation:focus span:nth-child(14) {
   animation-delay: 0.8s;
 }
-.loader-animation:hover span:nth-child(15) {
+.loader-animation:hover span:nth-child(15),
+.loader-animation:focus span:nth-child(15) {
   animation-delay: 1s;
 }
-.loader-animation:hover span:nth-child(16) {
+.loader-animation:hover span:nth-child(16),
+.loader-animation:focus span:nth-child(16) {
   animation-delay: 1.2s;
 }
-.loader-animation:hover span:nth-child(17) {
+.loader-animation:hover span:nth-child(17),
+.loader-animation:focus span:nth-child(17) {
   animation-delay: 1.4s;
 }
-.loader-animation:hover span:nth-child(18) {
+.loader-animation:hover span:nth-child(18),
+.loader-animation:focus span:nth-child(18) {
   animation-delay: 1.6s;
 }
 
