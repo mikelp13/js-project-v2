@@ -6,13 +6,13 @@ import './components/footer/styles.js';
 import './components/card/index';
 import './components/loader/index';
 import './components/auth/auth';
+import './components/product-info/index'
 import './components/modal/modalBackDrop.js';
 import './components/developers/js/index';
 import './components/developers/modal-window/dev-modal';
 import './components/catalog/categories-list-item/index.js';
 import './components/auth/accCabinet';
 // import './components/spinner/spin';
-import './components/product-info/index.js'
 import './components/header/js/newAdv';
 import './components/ads/newAddForm/newAddForm.js';
 

@@ -1,10 +1,11 @@
 import axios from 'axios';
+import {data} from '../../data/data'
 const baseUrl = 'https://callboard-backend.herokuapp.com';
 
 //=== Call endpoints ===//
 
-/* 
- Публикация, редактирование и удаление обьявления, получает такой обьект 
+/*
+ Публикация, редактирование и удаление обьявления, получает такой обьект
 */
 
 // const newAds = {
@@ -56,7 +57,7 @@ export const delAds = id => {
 
 //===
 
-/* 
+/*
  Получение страниц с категориями по номеру страницы(1-3) параметр page получает такие объекты
 */
 
@@ -113,9 +114,20 @@ export const getFavourites = () => {
 };
 
 // getFavourites();
+const key = localStorage.getItem('accessToken');
 
-export const addFavourite = id => {
-  return axios.post(`${baseUrl}/call/favourite/${id}`);
+export const addFavourite = async (id) => {
+  if (data.user.favorites.length === 0){
+    let result = await axios.post(`${baseUrl}/call/favourite/${id}`, {
+     headers: {
+       'Content-Type': 'multipart/form-data',
+      Authorization: `Bearer ${key}`,
+   }})
+  return result;
+  }
+    else {
+      return data.user.favorites
+    }
 };
 
 // addFavourite();
@@ -128,7 +140,7 @@ export const delFavourite = id => {
 
 //===
 
-/* 
+/*
  Получает список объявлений юзера
 */
 
@@ -140,7 +152,7 @@ export const getUserCalls = () => {
 
 //===
 
-/* 
+/*
  Получение страниц с категориями по запросу(значения поля поиск)
 */
 
@@ -152,7 +164,7 @@ export const getSearchQuery = searchQuery => {
 
 //===
 
-/* 
+/*
  Получает список всех категорий товаров
 */
 
@@ -175,7 +187,7 @@ export const getCategories = () => {
 
 //===
 
-/* 
+/*
  Получает одну категорию со списка категорий
 */
 
@@ -187,7 +199,7 @@ export const getOneCategory = cat => {
 
 //===
 
-/* 
+/*
  Получает список рекламных карточек
 */
 

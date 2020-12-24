@@ -14,9 +14,11 @@ h1, h2,h3, h4, h5, h6, p {
   height: 780px;
   z-index: 99;
   background-color: white;
-
 }
 
+.active {
+  border: #FF6B09 solid 2px;
+}
 @media screen and (min-width: 768px) {
   .product-card__list  {
   width: 724px;
@@ -65,6 +67,7 @@ color: #000000;
 
 .product-card__image__main {
   margin-bottom: 30px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .product-card__price {
@@ -217,9 +220,9 @@ color: #878686;
 
 /*/////////////*/
 
-.slick-track {
+/*.slick-track {
   display: flex;
-  /*min-width: 0;*/
+
 }
 .slick-list {
   overflow: hidden;
@@ -248,4 +251,4 @@ color: #878686;
 .slick-dots li.slick-active button {
   border: none;
   background-color:#FF6B09;
-}
+}*/
