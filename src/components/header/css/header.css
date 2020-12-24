@@ -5,13 +5,74 @@
 
 .header__logo {
   display: inline-block;
+  position: relative;
   cursor: pointer;
   width: 135px;
   height: 50px;
+  text-decoration: none;
+  color: transparent;
   background: url(../images/magic-logo/header-magic-logo.svg);
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto;
+}
+
+.header__logo:hover .hogvarts,
+.header__logo:focus .hogvarts {
+  display: flex;
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  font-family: 'MontserratMedium', sans-serif;
+  font-size: 16px;
+  -webkit-text-stroke: black 0.4px;
+  padding-right: 5px;
+  padding-left: 22px;
+  color: #ff6b08;
+  width: 250px;
+  height: 50px;
+  top: -4vh;
+  left: -4.5vh;
+  border-radius: 40%;
+}
+
+.header__logo:hover .harry-say,
+.header__logo:focus .harry-say {
+  display: flex;
+  position: absolute;
+  background: #fff;
+  text-align: center;
+  align-items: center;
+  padding-right: 5px;
+  padding-left: 22px;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+  color: black;
+  width: 100px;
+  height: 50px;
+  opacity: 0;
+  top: -6vh;
+  left: 5vh;
+  border-radius: 40%;
+  animation: animateSAY 8s linear 1;
+}
+
+@keyframes animateSAY {
+  0% {
+    opacity: 0;
+  }
+
+  79% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .header__logo:hover .harry-fly,
@@ -24,8 +85,8 @@
   position: absolute;
   z-index: 5;
   top: 0;
-  transform: translate(-400%, -2.5%) rotate(80deg);
-  animation: animateFLY 6s linear 1;
+  transform: translate(-60vh, -2.5vh) rotate(80deg);
+  animation: animateFLY 8s linear 1;
 }
 
 @keyframes animateFLY {
