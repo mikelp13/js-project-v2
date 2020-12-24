@@ -29,30 +29,30 @@ const createItemsMarkup = data => {
 };
 
 const getSliderItems = async () => {
+  await getAds();
+  createItemsMarkup(data.calls.ads);
   $(document).ready(function () {
     $('.slider').slick({
       arrows: false,
       dots: true,
-      fade: true,
-      adaptiveHeight: false,
       slidesToShow: 1,
       slidesToScroll: 1,
       speed: 1000,
       easing: '_ease_',
       infinite: true,
-      initialSlide: 1,
+      initialSlide: 0,
       autoplay: true,
       autoplaySpeed: 1000,
-      pauseOnFocus: true,
-      pauseOnHover: true,
-      pauseOnDotsHover: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      pauseOnDotsHover: false,
       draggable: true,
       swipe: true,
       touchThreshold: 1,
       touchMove: true,
       waitForAnimate: false,
       centralMode: false,
-      //  variableWidth: true,
+      variableWidth: false,
       responsive: [
         {
           breakpoint: 320,
@@ -64,13 +64,10 @@ const getSliderItems = async () => {
           breakpoint: 1280,
         },
       ],
-      mobileFirst: false,
     });
   });
-
-  await getAds();
-  createItemsMarkup(data.calls.ads);
-  createSliderMarkup(data.calls.ads);
+  $('.slider').slick('slickAdd', createSliderMarkup(data.calls.ads));
+ 
 };
 
 getSliderItems();
