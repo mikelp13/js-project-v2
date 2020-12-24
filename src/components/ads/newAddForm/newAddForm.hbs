@@ -1,4 +1,6 @@
 <form class="form" name="newAdvForm" >
+    <button type="button" class="modal-close-btn" name="close"></button>
+
     <b class="form_text">Создать объявление</b>
 
     <div class="form_field">
@@ -8,7 +10,8 @@
 
     <div class="form_field">
         <label class="name_product">Фото</label>
-        <div class="input_wrapper"></div>
+        <ul class="input_wrapper"></ul>
+        <ul class="grey-wrapper"></ul>
     </div>
     
     <div class="form_field">
@@ -23,7 +26,9 @@
 
         <div class="form_field--select">
             <select class="form_input">
-                <option value="">data.category</option>
+                {{#each this}}
+                <option value="">{{this}}</option>
+                {{/each}}
             </select>
         </div>
     </div>
@@ -41,8 +46,10 @@
         placeholder="+38 (0--) --- -- --" >
     </div>
     
+    <div class="btn">
     <button type="submit" class="btn_push">
         <span class="btn_text">Добавить</span>
     </button>
+    </div>
 </form>
 
