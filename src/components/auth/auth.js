@@ -7,7 +7,7 @@ import userLogged from './template/userLogged.hbs';
 import login from './template/login.hbs'
 import { modalBackDrop } from '../modal/modalBackDrop';
 import { data } from '../../data/data';
-// import { CreateCabinetMarkup } from './accCabinet';
+import { CreateCabinetMarkup } from './accCabinet';
 import accCabinet from './template/accCabinet.hbs';
 
 const url = 'https://callboard-backend.herokuapp.com';
@@ -37,10 +37,11 @@ function newUserEnter() {
         data.auth.isAuth = false;
         
         function screenChng() {
+            if((window.innerWidth <= 767)){
+                headerAuthMobile.innerHTML = login();
+            };
             if (window.innerWidth > 767) {
                 headerAuth.innerHTML = login();
-            } else {
-                headerAuthMobile.innerHTML = login();
             };
 
             const signUpHeader = document.querySelector('#signUpHeader');
@@ -48,7 +49,7 @@ function newUserEnter() {
  
             signUpHeader.addEventListener('click', onHeaderSignUp);
             signInHeader.addEventListener('click', onHeaderSignUp);
-        }
+        };
         window.addEventListener('resize', screenChng);
         screenChng()
     } else { loggedUserEnter()};
@@ -66,30 +67,26 @@ function loggedUserEnter () {
         function screenChng() {
             if (window.innerWidth > 767) {
                 headerAuth.innerHTML = userLogged();
-            } else {
+            }
+            if (window.innerWidth <= 767){
                 headerAuthMobile.innerHTML = userLogged();
             };
 
-            // function CreateCabinetMarkup() {
-            //     dopKnopka.classList.toggle('nonActive')
-
-            // };
-  
             const loggedUserCarts = document.querySelector('#loggedUser__carts');
             const loggedUserExit = document.querySelector('#loggedUser__exit');
             loggedUserExit.addEventListener('click', logOutForm);
-            // loggedUserCarts.addEventListener('click', CreateCabinetMarkup);
-
+            loggedUserCarts.addEventListener('click', CreateCabinetMarkup);
         }
             
         window.addEventListener('resize', screenChng);
-        screenChng()
+        screenChng();
         
     }  else { newUserEnter() };
 
 };
 
-
+        // window.addEventListener('resize', screenChng);
+        // screenChng();
 window.addEventListener('DOMContentLoaded', loggedUserEnter);
 window.addEventListener('DOMContentLoaded', newUserEnter);
 
@@ -129,8 +126,7 @@ function onHeaderSignUp(e) {
     modalBackDrop(signUp());
     
     const authForm = document.forms.authForm;
-    console.log(authForm);
-
+   
     const onXclose = () => {
         container.classList.remove('is-open');
     };
