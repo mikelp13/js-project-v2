@@ -1,11 +1,11 @@
 import accCabinet from './template/accCabinet.hbs';
-import {data} from '../../data/data';
 const authWrapper = document.querySelector('.header-auth')
 const authMobileWrapper = document.querySelector('.header-auth-mobile')
 
-export function CreateCabinetMarkup() {
-    authWrapper.insertAdjacentHTML('beforebegin', accCabinet())
-    authMobileWrapper.insertAdjacentHTML('afterbegin', accCabinet())    
-}
+authWrapper.insertAdjacentHTML('beforebegin', accCabinet())
+const cabinetMenu = document.querySelector('.acc-cabinet-menu')
+authMobileWrapper.insertAdjacentHTML('afterbegin', accCabinet())   
 
-// CreateCabinetMarkup()
+export function CreateCabinetMarkup() {
+    cabinetMenu.style.opacity = (cabinetMenu.style.opacity == '0') ? '1' : '0'
+}

@@ -17,7 +17,7 @@
   <!-- header -->
   <header class="header">
     <div class="container">
-      <div class="mobile-menu-wrapper">
+      <div class="mobile-menu-wrapper mobile-input-form">
         <input
           class="mobile-input-closed"
           type="search"
@@ -54,13 +54,17 @@
       </div>
       <div class="tablet-upper-wrapper desktop-upper-wrapper">
         <a href="/" class="header__logo"></a>
-        <input
+        <form class="search-form js-search-form js-search-form-desk" id="search-form">
+          <input class="search-input-closed" type="text" name="query" placeholder="Поиск товаров..." />
+          <button class="search-input-btn" type="submit"></button>
+        </form>
+        <!-- <input
           class="header__input header__input--pc"
           type="search"
           placeholder="Поиск товаров..."
-        />
-        <button class="header__input--btn"></button>
-        <div class="header-auth">
+        /> -->
+        <!-- <button class="header__input--btn"></button> -->
+        <div class="header-auth" style="position: relative;">
           <!-- <button id="signInHeader" class="sign-in__btn" data-btn="signin">
             Вход
           </button>
@@ -76,12 +80,16 @@
       </div>
       <div class="tablet-bottom-wrapper">
         <ul class="categories-filter"></ul>
-        <input
+        <form class="search-form js-search-form js-search-form-tablet" id="search-form">
+          <input class="search-input-closed" type="text" name="query" placeholder="Поиск товаров..." />
+          <button class="search-input-btn" type="submit"></button>
+        </form>
+        <!-- <input
           class="header__input header__input--tablet"
           type="search"
           placeholder="Поиск товаров..."
-        />
-        <button class="header__input--btn"></button>
+        /> -->
+        <!-- <button class="header__input--btn"></button> -->
         <div class="filters-wrapper">
           <button class="header__filters--btn"></button>
           <span class="header__filters">Фильтры</span>

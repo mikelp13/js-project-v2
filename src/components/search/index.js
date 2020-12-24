@@ -6,6 +6,16 @@ import createInputMarkup from '../../components/search/formSearch.hbs';
 const baseUrl = 'https://callboard-backend.herokuapp.com';
 const main = document.querySelector('.main');
 const searchForm = document.querySelector('.js-search-form');
+const mobilCreateInput = document.querySelector('.mobile-input-form'); 
+// const desctopCreateInput = document.querySelector('.desctop-input-form'); 
+// const tabletCreateInput = document.querySelector('.tablet-input-form');
+// const headerLogo = document.querySelector('.header__logo')  
+// console.log(mobilCreateInput); 
+// console.log(desctopCreateInput); 
+// console.log(tabletCreateInput);  
+// mobilCreateInput.innerHTML = createInputMarkup(); 
+// tabletCreateInput.innerHTML = createInputMarkup(); 
+// headerLogo.insertAdjacentHTML('afterend', createInputMarkup());
 
 //
 
