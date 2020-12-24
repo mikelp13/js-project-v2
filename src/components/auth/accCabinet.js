@@ -7,5 +7,5 @@ const cabinetMenu = document.querySelector('.acc-cabinet-menu')
 authMobileWrapper.insertAdjacentHTML('afterbegin', accCabinet())   
 
 export function CreateCabinetMarkup() {
-    cabinetMenu.style.opacity = (cabinetMenu.style.opacity == '0') ? '1' : '0'
+    cabinetMenu.style.display = (cabinetMenu.style.display == 'none') ? 'flex' : 'none'
 }

@@ -119,6 +119,7 @@
   color: #1f1e1d;
   border-color: transparent;
   color: #ff6b08;
+  z-index: 100;
   box-shadow: 0 0 10px #ff6b08, 0 0 40px #ff6b08, 0 0 80px #ff6b08;
 }
 
