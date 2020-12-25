@@ -39,9 +39,7 @@ export const getRussianCategories = async () => {
     if (data.calls.russianCategories.length) {
       return data.calls.russianCategories;
     } else {
-      const result = await axios.get(
-        'https://callboard-backend.herokuapp.com/call/russian-categories',
-      );
+      const result = await axios.get('/call/russian-categories');
       data.calls.russianCategories = [...result.data.map(item => item)];
     }
   } catch (error) {
