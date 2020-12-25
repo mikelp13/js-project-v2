@@ -37,7 +37,28 @@
           <button class="mobile-input-btn"></button>
           <div class="mobile-menu-closed">
             <button class="close-menu close-menu-orange"></button>
-            <div class="header-auth-mobile"></div>
+            <div class="header-auth-mobile">
+              <div class ="authNewUser__mobile">
+                <button class="sign-in__btn logInAuth__mobile" data-btn="signin">Вход</button>
+                <span class="sign-in-up__stick"></span>
+                <button class="sign-up__btn signUpAuth__mobile" data-btn="signup">Регистрация</button>
+            </div>
+            <div class ="authLoggedUser__mobile">
+                <button class="sign-in__btn myCabAuth__mobile" data-btn="signin">Мой кабинет</button>
+                <span class="sign-in-up__stick"></span>
+                <button class="sign-up__btn exitCabAut__mobile" data-btn="signup">Exit</button>
+            </div>
+            <div class="acc-cabinet-menu__mobile">
+              <ul class="acc-cabinet-list">
+                  <li class="acc-cabinet-item">
+                      <p class="acc-cabinet-content">Мои объявления</p>
+                  </li>
+                  <li class="acc-cabinet-item">
+                      <p class="acc-cabinet-content">Избранное</p>
+                  </li>
+              </ul>
+          </div>
+            </div>
             <div class="mobile-buttons-wrapper">
               <div class="mobile-filters-wrapper">
                 <button
@@ -78,7 +99,30 @@
               type="submit"
             ></button>
           </form>
-          <div class="header-auth" style="position: relative"></div>
+          <div class="header-auth" style="position: relative">
+            <div class ="authNewUser">
+              <button class="sign-in__btn logInAuth" data-btn="signin">Вход</button>
+              <span class="sign-in-up__stick"></span>
+              <button class="sign-up__btn signUpAuth" data-btn="signup">Регистрация</button>
+          </div>
+          <div class ="authLoggedUser">
+              <button class="sign-in__btn myCabAuth" data-btn="signin">Мой кабинет</button>
+              <span class="sign-in-up__stick"></span>
+              <button class="sign-up__btn exitCabAut" data-btn="signup">Exit</button>
+          </div>
+          
+          <div class="acc-cabinet-menu">
+              <ul class="acc-cabinet-list">
+                <li class="acc-cabinet-item">
+                    <p class="acc-cabinet-content">Мои объявления</p>
+                </li>
+                <li class="acc-cabinet-item">
+                    <p class="acc-cabinet-content">Избранное</p>
+                </li>
+            </ul>
+        </div>
+
+          </div>
           <div class="accent-color-switcher">
             <label>
               <input class="orange-btn" type="radio" name="color" />

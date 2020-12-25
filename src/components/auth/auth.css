@@ -1,3 +1,6 @@
+.nonAuth {
+  display: none;
+}
 
 .authForm {
   background-color: white;
