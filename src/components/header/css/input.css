@@ -25,11 +25,13 @@ input::-webkit-search-results-decoration {
 .search-input-btn:hover,
 .search-input-btn:focus {
   background: url(../../search/icons/search-24px-orange.svg);
+  transition: 0.5s;
 }
 
 .search-input-btn-blue:hover,
 .search-input-btn-blue:focus {
   background: url(../../search/icons/search-24px-blue.svg);
+  transition: 0.5s;
 }
 
 .search-input-closed {
