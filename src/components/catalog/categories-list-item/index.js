@@ -37,6 +37,8 @@ export const createСategories = () => {
     runLoader();
 }
 
+
+console.log(data.calls.specificCategory);
 // =============================================================================
 // const getСategory = async () => { 
 //     return await fetch('https://callboard-backend.herokuapp.com/call/specific/work')
