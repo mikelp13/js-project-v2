@@ -7,21 +7,15 @@ export const runLoader = () => {
 
     const buttonLoaderRef = document.querySelector('.loader__btn'); 
     const colorLoaderRef = document.querySelector('.loader');
-
     const loaderCategory = async () => { 
-
         await  getCategoriesSpesific(data.calls.categories[data.renderedCategories.length]);
         createMarkup(data.renderedCategories.length);
-        data.renderedCategories.push(data.calls.categories[data.renderedCategories.length]);
         runSlider();
-        if (data.renderedCategories.length === 8) {
-          // data.calls.categories.length + 1
+        if (data.renderedCategories.length === data.calls.categories.length) {
             buttonLoaderRef.className = 'loader__btn hide';
             colorLoaderRef.className = 'loader hide';
         }
     }
     buttonLoaderRef.addEventListener('click', loaderCategory);
-
-    
 }
 
