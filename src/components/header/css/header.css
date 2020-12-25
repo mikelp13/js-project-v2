@@ -123,13 +123,14 @@
 
 .mobile-buttons-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   position: absolute;
   height: 24px;
   width: 250px;
   box-sizing: border-box;
-  left: 18vw;
-  top: 25.8vh;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
 }
 
 .close-menu {
