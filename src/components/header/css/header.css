@@ -14,6 +14,7 @@
   background: url(../images/magic-logo/header-magic-logo.svg);
   background-repeat: no-repeat;
   background-size: cover;
+  transition: 0.5s;
   margin: 0 auto;
 }
 
@@ -28,6 +29,7 @@
   background: url(../images/magic-logo/header-magic-logo-blue.svg);
   background-repeat: no-repeat;
   background-size: cover;
+  transition: 0.5s;
   margin: 0 auto;
 }
 
