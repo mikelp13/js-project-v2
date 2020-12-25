@@ -6,8 +6,8 @@ export const data = {
     accessToken: '',
   },
   user: {
-    calls: [],
-    favorites: [],
+    adv: [],
+    favourites: [],
     email: '',
     id: '',
     registrationDate: '',
@@ -15,6 +15,7 @@ export const data = {
   calls: {
     ads: [],
     categories: [],
+    allCategories: [],
     russianCategories: [],
     specificCategory: {},
   },

@@ -1,13 +1,14 @@
 import './styles.css';
 import { data } from '../../data/data';
 import { createMarkup, runSlider } from '../catalog/categories-list-item/index';
-import { getCategoriesSpesific} from '../../api/api';
+import { getCategoriesSpecific } from '../../api/api';
 
-export const runLoader = () => { 
-
-    const buttonLoaderRef = document.querySelector('.loader__btn'); 
-    const colorLoaderRef = document.querySelector('.loader');
-    const loaderCategory = async () => { 
+export const runLoader = () => {
+  const buttonLoaderRef = document.querySelector('.loader__btn');
+  const colorLoaderRef = document.querySelector('.loader');
+  const buttonLoaderRef = document.querySelector('.loader__btn'); 
+  const colorLoaderRef = document.querySelector('.loader');
+  const loaderCategory = async () => { 
         await  getCategoriesSpesific(data.calls.categories[data.renderedCategories.length]);
         createMarkup(data.renderedCategories.length);
         runSlider();
