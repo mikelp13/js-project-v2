@@ -5,8 +5,10 @@
 @import './components/header/css/header-filters.css';
 @import './components/header/css/header-auth.css';
 @import './components/auth/accCabinet.css';
+@import './components/header/css/color-switch.css';
 
 html {
+  --main-accent-color: #ff6b08;
   box-sizing: border-box;
 }
 

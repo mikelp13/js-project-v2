@@ -245,7 +245,7 @@
 .loader-animation:hover .loader__btn,
 .loader-animation:focus .loader__btn,
 .loader-animation:active .loader__btn {
-  color: #ff6b09;
+  color: var(--main-accent-color);
   opacity: 0.8;
   cursor: pointer;
   outline: none;

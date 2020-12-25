@@ -11,27 +11,28 @@
 @media (min-width: 768px) {
   .header-auth {
     display: flex;
-    width: 170px;
+    width: 150px;
     align-items: center;
     justify-content: space-around;
     height: 26px;
-    margin-right: 20px;
+    margin-right: 2px;
   }
 }
 
 @media (min-width: 1280px) {
   .header-auth {
-    margin-right: 40px;
+    width: 170px;
+    margin-right: 12px;
   }
 }
 
-.header-auth-mobile .sign-up__btn {
+/* .header-auth-mobile .sign-up__btn {
   color: #818181;
 }
 
 .header-auth-mobile .sign-in__btn {
   color: #818181;
-}
+} */
 
 .sign-up__btn {
   display: inline-block;
@@ -59,13 +60,13 @@
 .sign-up__btn:hover,
 .sign-up__btn:focus {
   cursor: pointer;
-  color: #ff6b08;
+  color: var(--main-accent-color);
 }
 
 .sign-in__btn:hover,
 .sign-in__btn:focus {
   cursor: pointer;
-  color: #ff6b08;
+  color: var(--main-accent-color);
 }
 
 .sign-in-up__stick {

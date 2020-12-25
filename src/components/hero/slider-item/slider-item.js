@@ -1,9 +1,6 @@
 // import './slider-item.css';
-// import itemsTemplate from './templates/items-template.hbs';
 // // import itemModalTpl from './templates/item-modal.hbs';
-// import { getAds } from '../../../api/api';
 // // import { modalBackDrop } from '../../modal/modalBackDrop';
-// import _ from '../../../../node_modules/lodash';
 // import { data } from '../../../data/data';
 
 // const refs = {
@@ -27,28 +24,7 @@
 
 // // getSliderItems();
 
-// // ====== callback refactoring ===============
 
-// // export const getSliderItems = (callback) => {
-// //   getAds().then(response => {
-// //     const itemsArr = response.data;
-// //     callback(itemsArr);
-// //   });
-// // };
-// // getSliderItems(createMarkup);
-// //==============================================
-
-// const createMarkup = data => {
-//   const randomItems = _.sampleSize(data, 5);
-//   const sideItems = randomItems.slice(0, 2);
-//   const bottomItems = randomItems.slice(2);
-
-//   refs.bottomItemList.insertAdjacentHTML(
-//     'beforeend',
-//     itemsTemplate(bottomItems),
-//   );
-//   refs.sideItemList.insertAdjacentHTML('beforeend', itemsTemplate(sideItems));
-// };
 
 // // // open modal
 // // const onItemClick = event => {

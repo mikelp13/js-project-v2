@@ -1,15 +1,16 @@
 import { data } from '../data/data';
 import axios from 'axios';
+import {camelCase} from 'lodash';
 const token = JSON.parse(localStorage.getItem('accessToken'));
 axios.defaults.baseURL = 'https://callboard-backend.herokuapp.com';
 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
+ 
 export const getCategories = async () => {
   try {
     if (data.calls.categories.length) {
-      // console.log('if result:', data.calls.categories);
       return data.calls.categories;
     } else {
+
       const res = await axios.get(`/call/categories`);
       data.calls.categories = [...res.data];
       res.data.forEach(item => (data.calls.specificCategory[item] = []));
@@ -21,24 +22,6 @@ export const getCategories = async () => {
   }
 };
 
-//===
-
-export const getRuCategories = async () => {
-  try {
-    if (data.calls.ruCategories.length) {
-      return data.calls.ruCategories;
-    } else {
-      const res = await axios.get(`/call/russian-categories`);
-      data.calls.ruCategories = [...res.data];
-      return res.data;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//===
-
 export const getCategoriesSpecific = async categoryName => {
   try {
     if (data.calls.specificCategory.length) {
@@ -47,12 +30,33 @@ export const getCategoriesSpecific = async categoryName => {
       const res = await axios.get(`/call/specific/${categoryName}`);
       data.calls.specificCategory[categoryName] = [...res.data];
       // console.log('getCategoriesSpecific API:', [...result.data]);
+
+      const result = await axios.get(
+        'https://callboard-backend.herokuapp.com/call/categories',
+      );
+      data.calls.categories = [...result.data.map(item => camelCase(item))];
+      result.data.forEach(item => (data.calls.specificCategory[item] = []));
       return result.data;
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-//===
+export const getRussianCategories = async () => {
+  try {
+    if (data.calls.russianCategories.length) {
+      return data.calls.russianCategories;
+    } else {
+      const result = await axios.get(
+        'https://callboard-backend.herokuapp.com/call/russian-categories',
+      );
+      data.calls.russianCategories = [...result.data.map(item => item)];
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const getAllCategories = async page => {
   try {
@@ -176,7 +180,6 @@ export const getAds = async () => {
     } else {
       const res = await axios.get(`/call/ads`);
       data.calls.ads = [...res.data];
-      // console.log('get ads:', data.calls.ads);
       return res.data;
     }
   } catch (error) {
