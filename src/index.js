@@ -17,6 +17,7 @@ import './components/header/js/newAdv';
 // import './components/search/index';
 // import './components/ads/newAddForm/newAddForm.js';
 import { getAds } from './api/api';
+import './components/spinLoad/spinLoad';
 
 import { createСategories } from './components/catalog/categories-list-item/index.js';
 import { data } from './data/data';
