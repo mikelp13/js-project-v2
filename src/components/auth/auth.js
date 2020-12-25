@@ -141,6 +141,7 @@ function onHeaderSignUp(e) {
         authForm.logIn.classList.add('active'); 
     }
 
+    
     const gatherInfo = () => {
         return user = {
             email: authForm.email.value,
@@ -168,8 +169,7 @@ function onHeaderSignUp(e) {
             authForm.signUp.classList.remove('active');
             authForm.logIn.classList.add('active');
             const result = await axios.post(`${url}/auth/login`, { ...user });
-            //
-            localStorage.setItem('accessToken', JSON.stringify(`Bearer ${result.data.accessToken}`));
+            localStorage.setItem('accessToken', JSON.stringify(result.data.accessToken));
             data.user = { ...result.data.user }
             data.auth.accessToken = result.data.accessToken;
             data.auth.isAuth = true;
@@ -181,6 +181,7 @@ function onHeaderSignUp(e) {
 
     };
             
+
     const checkSubmit = (event) => {
         event.preventDefault()
         if (event.submitter === authForm.logIn) {
