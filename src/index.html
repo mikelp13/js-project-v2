@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>OLX-project</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -16,48 +22,47 @@
       crossorigin="anonymous"
     ></script>
   </head>
-<body>
-  <!-- header -->
-  <header class="header">
-    <div class="container">
-      <div class="mobile-menu-wrapper mobile-input-form">
-        <input class="mobile-input-closed" type="search" name ="query" placeholder="Поиск товаров..." />
-        <button class="mobile-input-cross"></button>
-        <button class="mobile-input-btn"></button>
-        <div class="mobile-menu-closed">
-          <button class="close-menu"></button>
-          <div class="header-auth-mobile">
-            <!-- <button id="signInDrop" class="sign-in__btn" data-btn="signin">
-              Вход
-            </button>
-            <span class="sign-in-up__stick"></span>
-            <button id="signUpDrop" class="sign-up__btn" data-btn="signup">
-              Регистрация
-            </button> -->
-            </div>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="container">
+        <div class="mobile-menu-wrapper mobile-input-form">
+          <input
+            class="mobile-input-closed orange"
+            type="search"
+            name ="query"
+            placeholder="Поиск товаров..."
+          />
+          <button class="mobile-input-cross"></button>
+          <button class="mobile-input-btn"></button>
+          <div class="mobile-menu-closed">
+            <button class="close-menu close-menu-orange"></button>
+            <div class="header-auth-mobile"></div>
             <div class="mobile-buttons-wrapper">
               <div class="mobile-filters-wrapper">
-                <button class="header__filters--btn"></button>
-                <span class="header__filters">Фильтры</span>
+                <button
+                  class="header__filters--btn header__filters--btn-orange"
+                ></button>
+                <span class="header__filters orange">Фильтры</span>
               </div>
               <div class="mobile-clear-filters-wrapper">
-                <button class="header__clear-filter--btn"></button>
-                <span class="header__clear-filter">Очистить</span>
+                <button
+                  class="header__clear-filter--btn header__clear-filter--btn-orange"
+                ></button>
+                <span class="header__clear-filter orange">Очистить</span>
               </div>
             </div>
             <ul class="categories-filter-mobile"></ul>
           </div>
-          <button class="mobile-burger"></button>
-          <a href="/" class="header__logo"></a>
+          <button class="mobile-burger mobile-burger-orange"></button>
+          <a href="/" class="header__logo logo-orange-mobile"></a>
           <button class="mobile-search"></button>
         </div>
         <div class="tablet-upper-wrapper desktop-upper-wrapper">
-          <a href="/" class="header__logo">
-            <p class="hogvarts">Магия вне Хогвартса</p>
-            <span class="harry-fly">
-              <p class="harry-say">Привет</p>
-            </span>
-          </a>
+          <a href="/" class="header__logo logo-orange"
+            ><p class="hogvarts orange">Магия вне Хогвартса</p>
+            <span class="harry-fly"><p class="harry-say">Привет</p></span></a
+          >
           <form
             class="search-form js-search-form js-search-form-desk"
             id="search-form"
@@ -68,26 +73,25 @@
               name="query"
               placeholder="Поиск товаров..."
             />
-            <button class="search-input-btn" type="submit"></button>
+            <button
+              class="search-input-btn desk-input-btn-orange"
+              type="submit"
+            ></button>
           </form>
-          <!-- <input
-          class="header__input header__input--pc"
-          type="search"
-          placeholder="Поиск товаров..."
-        /> -->
-          <!-- <button class="header__input--btn"></button> -->
-          <div class="header-auth" style="position: relative">
-            <!-- <button id="signInHeader" class="sign-in__btn" data-btn="signin">
-            Вход
-          </button>
-          <span class="sign-in-up__stick"></span>
-          <button id="signUpHeader" class="sign-up__btn" data-btn="signup">
-            Регистрация
-          </button> -->
+          <div class="header-auth" style="position: relative"></div>
+          <div class="accent-color-switcher">
+            <label>
+              <input class="orange-btn" type="radio" name="color" />
+              <i class="fa fa-circle" aria-hidden="true"></i>
+            </label>
+            <label>
+              <input class="blue-btn" type="radio" name="color" />
+              <i class="fa fa-circle" aria-hidden="true"></i>
+            </label>
           </div>
           <a href="#" class="header__create-ad-btn modal-btn">
             <span> Создать объявление </span>
-            <div class="liquid"></div>
+            <div class="liquid orange"></div>
           </a>
         </div>
         <div class="tablet-bottom-wrapper">
@@ -97,12 +101,15 @@
             id="search-form"
           >
             <input
-              class="search-input-closed"
+              class="search-input-closed orange"
               type="text"
               name="query"
               placeholder="Поиск товаров..."
             />
-            <button class="search-input-btn" type="submit"></button>
+            <button
+              class="search-input-btn tablet-input-btn-orange"
+              type="submit"
+            ></button>
           </form>
           <!-- <input
           class="header__input header__input--tablet"
@@ -111,11 +118,13 @@
         /> -->
           <!-- <button class="header__input--btn"></button> -->
           <div class="filters-wrapper">
-            <button class="header__filters--btn"></button>
+            <button class="header__filters--btn header__btn-orange"></button>
             <span class="header__filters">Фильтры</span>
           </div>
           <div class="clear-filters-wrapper">
-            <button class="header__clear-filter--btn"></button>
+            <button
+              class="header__clear-filter--btn header__clear-btn-orange"
+            ></button>
             <span class="header__clear-filter">Очистить</span>
           </div>
         </div>
@@ -123,7 +132,7 @@
       </div>
     </header>
     <main class="main">
-      <button class="modal-btn"></button>
+      <button class="modal-btn orange"></button>
       <section class="hero">
         <div class="hero-wrapper">
           <div class="slider-wrapper">
@@ -169,7 +178,7 @@
         </p>
         <p class="text-2">
           Developed with &#x1F9E1; by
-          <button class="js-students footer__our-students">
+          <button class="js-students footer__our-students orange">
             GoIT Students
           </button>
         </p>
