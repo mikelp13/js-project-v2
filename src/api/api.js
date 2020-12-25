@@ -157,7 +157,7 @@ export const getFavourites = async () => {
     if (data.user.favourites.length) {
       return data.user.favourites;
     } else {
-      const res = await axios.post(`/call/favourites`);
+      const res = await axios.get(`/call/favourites`);
       data.user.favourites = [...res.data.favourites];
       return res.data.favourites;
     }
