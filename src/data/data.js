@@ -14,6 +14,9 @@ export const data = {
   },
   calls: {
     ads: [],
+    //
+    originalCategories: [],
+    //
     categories: [],
     russianCategories: [],
     specificCategory: {},

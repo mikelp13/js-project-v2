@@ -14,6 +14,10 @@ export const getCategories = async () => {
         'https://callboard-backend.herokuapp.com/call/categories',
       );
       data.calls.categories = [...result.data.map(item => camelCase(item))];
+      //
+      data.calls.originalCategories = [...result.data]
+      console.log(result.data);
+      //
       result.data.forEach(item => (data.calls.specificCategory[item] = []));
       return result.data;
     }
