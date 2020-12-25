@@ -21,14 +21,13 @@ export const runSlider = (i) => {
 export const createMarkup = (i) => {
 
     const categoryRefs = document.querySelector('.container-categories');
-    const markup = `<div class="category visible"><div class="category-header"><h2 class="category-title">${data.calls.categories[i]}
+    const markup = `<div class="category visible"><div class="category-header"><h2 class="category-title">${data.calls.russianCategories[i]}
             </h2><a href="" class="category-link" data-category="category">Смотреть все</a></div>
             <ul class="category-list sliders sliders-slick${i}"> 
             ${categoryTemplate(data.calls.specificCategory[data.calls.categories[i]].slice(0, 10))} </ul> </div>`
         categoryRefs.insertAdjacentHTML('beforeend', markup);
         data.renderedCategories.push(data.calls.categories[i]);  
         runSlider(i);    
-    // console.log(data.renderedCategories);
 };
 
 export const createСategories = () => {
@@ -37,10 +36,6 @@ export const createСategories = () => {
     }
     runLoader();
 }
-
-
-
-
 
 // =============================================================================
 // const getСategory = async () => { 

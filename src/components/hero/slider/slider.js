@@ -32,8 +32,9 @@ const createItemsMarkup = data => {
 const getSliderItems = async () => {
   await getAds();
   createItemsMarkup(data.calls.ads);
+  createSliderMarkup(data.calls.ads);
   $(document).ready(function () {
-    $('.slider').slick({
+    $('.slider').not('.slick-initialized').slick({
       arrows: false,
       dots: true,
       slidesToShow: 1,
@@ -55,7 +56,7 @@ const getSliderItems = async () => {
       variableWidth: false,
     });
   });
-  $('.slider').slick('slickAdd', createSliderMarkup(data.calls.ads));
+  // $('.slider').slick('slickAdd', createSliderMarkup(data.calls.ads));
 };
 
 getSliderItems();
