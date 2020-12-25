@@ -31,10 +31,10 @@ function themSwitcher() {
         clearFilterBtn.classList.toggle("header__clear-filter--btn-blue");
         tabletInputBtn.classList.toggle("search-input-btn-blue");
         deskInputBtn.classList.toggle("search-input-btn-blue");
-        logedUserCard.classList.toggle("loggedUser__carts-blue");
-        exitUserCard.classList.toggle("loggedUser__exit-blue");
-        mobilelogedUserCard.classList.toggle("loggedUser__carts-blue");
-        mobileexitUserCard.classList.toggle("loggedUser__exit-blue");
+        // logedUserCard.classList.toggle("loggedUser__carts-blue");
+        // exitUserCard.classList.toggle("loggedUser__exit-blue");
+        // mobilelogedUserCard.classList.toggle("loggedUser__carts-blue");
+        // mobileexitUserCard.classList.toggle("loggedUser__exit-blue");
     })
     orangeBtn.addEventListener('change', () => {
         html.style.setProperty("--main-accent-color", "#ff6b08");
@@ -48,10 +48,10 @@ function themSwitcher() {
         clearFilterBtn.classList.remove("header__clear-filter--btn-blue");
         tabletInputBtn.classList.remove("search-input-btn-blue");
         deskInputBtn.classList.remove("search-input-btn-blue");
-        logedUserCard.classList.remove("loggedUser__carts-blue");
-        exitUserCard.classList.remove("loggedUser__exit-blue");
-        mobilelogedUserCard.classList.remove("loggedUser__carts-blue");
-        mobileexitUserCard.classList.remove("loggedUser__exit-blue");
+        // logedUserCard.classList.remove("loggedUser__carts-blue");
+        // exitUserCard.classList.remove("loggedUser__exit-blue");
+        // mobilelogedUserCard.classList.remove("loggedUser__carts-blue");
+        // mobileexitUserCard.classList.remove("loggedUser__exit-blue");
     })
     // =================================LISTENERS==============================
 }
