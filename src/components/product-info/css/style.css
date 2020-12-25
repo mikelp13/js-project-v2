@@ -16,8 +16,8 @@ h1, h2,h3, h4, h5, h6, p {
   background-color: white;
 }
 
-.active {
-  border: #FF6B09 solid 2px;
+.activeicon {
+  fill:  #FF6B09;
 }
 @media screen and (min-width: 768px) {
   .product-card__list  {

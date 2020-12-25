@@ -1,6 +1,23 @@
 import axios from 'axios';
 import {data} from '../../data/data'
 const baseUrl = 'https://callboard-backend.herokuapp.com';
+const key = JSON.parse(localStorage.getItem('accessToken'))
+
+export const getUserData = async () => {
+
+  try
+  {
+    if (localStorage.getItem('accessToken')) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${key}`;
+      await axios.get("https://callboard-backend.herokuapp.com/user")
+  .then(response=> data.user = {...response.data})
+  console.log(data);
+   }
+  }
+  catch(error){
+    console.log(error);
+  }
+}
 
 //=== Call endpoints ===//
 
@@ -108,7 +125,7 @@ export const getPagesCategories = (page = 1) => {
 /*
  Запрос, а так же добавляет и  удаляет избранное (id параметр в обьекте call)
 */
-const key = localStorage.getItem('accessToken')
+
 
 export const getFavourites = async () => {
   try {
@@ -128,19 +145,52 @@ export const getFavourites = async () => {
 // getFavourites();
 
 
-export const addFavourite = async (id) => {
-  try {
-  //if (data.user.favorites.length === 0){
-    let result = await axios.post(`${baseUrl}/call/favourite/${id}`, {
-     headers: {
-       'Content-Type': 'multipart/form-data',
-      Authorization: `Bearer ${key}`,
-   }})
+export const addFavourite = async (id, favorItem) => {
+  axios.defaults.headers.common['Authorization'] = `Bearer ${key}`;
 
-//getFavourites().then(({ favorites }) => {
-//data.user.favorites = favorites});
-return result;
-//}
+  try {
+    //const favorItem = document.querySelector('.heart');
+
+  if (localStorage.getItem('accessToken'))
+  {
+   if ( data.user.favourites.some(item => item._id === id))
+    {
+      await axios.delete(`${baseUrl}/call/favourite/${id}`)
+      data.user.favourites=[...data.user.favourites.filter(item => item._id !== id)]
+      favorItem.classList.toggle('activeicon')
+    }
+    else { await axios.post(`${baseUrl}/call/favourite/${id}`)
+    .then(response => {
+      data.user.favourites = [...response.data.newFavourites]
+     // const favorItem = document.querySelector('.heart');
+      favorItem.classList.toggle('activeicon')
+
+
+    }
+    )
+    console.log(data.user.favourites);
+  }
+  }
+  else
+    {
+
+      if (localStorage.getItem('favorites'))
+
+      {
+        const localFavorites = JSON.parse(localStorage.getItem('favorites'))
+        if ( JSON.parse(localStorage.getItem('favorites')).some(item => item === id)) {
+
+          localStorage.setItem('favorites', JSON.stringify(localFavorites.filter(item => item !== id)))
+          favorItem.classList.toggle('activeicon')
+        }
+        else {localStorage.setItem('favorites', JSON.stringify([...localFavorites, id]))
+        favorItem.classList.toggle('activeicon')}
+      }
+      else {
+        localStorage.setItem('favorites', JSON.stringify([id]))
+      }
+    }
+
 }catch (error) {
 throw error;
 }
@@ -155,9 +205,6 @@ export const delFavourite = id => {
        'Content-Type': 'multipart/form-data',
       Authorization: `Bearer ${key}`,
    }});
-   //this.getUserFavourites().then(({ favorites }) => {
-    //data.user.favorites = favorites});
-    return result;
   }
   catch (error) {
     throw error;
@@ -190,7 +237,7 @@ export const getSearchQuery = searchQuery => {
 
 // getSearchQuery();
 
-//===
+//===bra
 
 /*
  Получает список всех категорий товаров
