@@ -84,7 +84,7 @@
 
 .mobile-clear-filters-wrapper:hover .header__clear-filter,
 .mobile-clear-filters-wrapper:focus .header__clear-filter {
-  color: #ff6b08;
+  color: var(--main-accent-color);
 }
 
 .mobile-clear-filters-wrapper:hover .header__clear-filter--btn,
@@ -95,7 +95,7 @@
 
 .mobile-filters-wrapper:hover .header__filters,
 .mobile-filters-wrapper:focus .header__filters {
-  color: #ff6b08;
+  color: var(--main-accent-color);
 }
 
 .mobile-filters-wrapper:hover .header__filters--btn,
@@ -122,20 +122,21 @@
 .active-category {
   color: #1f1e1d;
   border-color: transparent;
-  color: #ff6b08;
+  color: var(--main-accent-color);
   z-index: 100;
-  box-shadow: 0 0 10px #ff6b08, 0 0 40px #ff6b08, 0 0 80px #ff6b08;
+  box-shadow: 0 0 10px var(--main-accent-color),
+    0 0 40px var(--main-accent-color), 0 0 80px var(--main-accent-color);
 }
 
 .filter-item-btn:hover,
 .filter-item-btn:focus {
-  color: #ff6b08;
+  color: var(--main-accent-color);
 }
 
 .magic-span {
   position: absolute;
   display: block;
-  background: #ff6b08;
+  background: var(--main-accent-color);
 }
 
 .filter-item-btn .magic-span:nth-child(1) {
@@ -231,7 +232,7 @@
 
   .clear-filters-wrapper:hover .header__clear-filter,
   .clear-filters-wrapper:focus .header__clear-filter {
-    color: #ff6b08;
+    color: var(--main-accent-color);
   }
 
   .clear-filters-wrapper:hover .header__clear-filter--btn,
@@ -242,7 +243,7 @@
 
   .filters-wrapper:hover .header__filters,
   .filters-wrapper:focus .header__filters {
-    color: #ff6b08;
+    color: var(--main-accent-color);
   }
 
   .filters-wrapper:hover .header__filters--btn,

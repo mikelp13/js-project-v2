@@ -60,13 +60,13 @@
 .sign-up__btn:hover,
 .sign-up__btn:focus {
   cursor: pointer;
-  color: #ff6b08;
+  color: var(--main-accent-color);
 }
 
 .sign-in__btn:hover,
 .sign-in__btn:focus {
   cursor: pointer;
-  color: #ff6b08;
+  color: var(--main-accent-color);
 }
 
 .sign-in-up__stick {

@@ -30,7 +30,7 @@ input::-webkit-search-results-decoration {
   position: relative;
   font-family: 'MontserratMedium', sans-serif;
   outline: none;
-  color: #ff6b08;
+  color: var(--main-accent-color);
   background: #112437;
   border: none;
   border-radius: 40px;
@@ -49,7 +49,7 @@ input::-webkit-search-results-decoration {
   position: absolute;
   font-family: 'MontserratMedium', sans-serif;
   outline: none;
-  color: #ff6b08;
+  color: var(--main-accent-color);
   background: #112437;
   border: none;
   border-radius: 40px;
@@ -134,15 +134,14 @@ input::-webkit-search-results-decoration {
   }
 }
 
-
 @media (max-width: 767px) {
-  .js-search-form-tablet{
+  .js-search-form-tablet {
     display: none;
   }
 }
 
 @media (min-width: 1279px) {
-  .js-search-form-tablet{
+  .js-search-form-tablet {
     display: none;
   }
 }
