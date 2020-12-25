@@ -17,6 +17,7 @@ function themSwitcher() {
     const exitUserCard = document.querySelector('.loggedUser__exit-orange')
     const mobilelogedUserCard = document.querySelector('.mobile-loggedUser__carts-orange')
     const mobileexitUserCard = document.querySelector('.mobile-loggedUser__exit-orange')
+    const mobileSearch = document.querySelector('.mobile-search')
     // ===================================REFS==================================
     // =================================LISTENERS==============================
     blueBtn.addEventListener('change', () => {
@@ -31,10 +32,11 @@ function themSwitcher() {
         clearFilterBtn.classList.toggle("header__clear-filter--btn-blue");
         tabletInputBtn.classList.toggle("search-input-btn-blue");
         deskInputBtn.classList.toggle("search-input-btn-blue");
-        // logedUserCard.classList.toggle("loggedUser__carts-blue");
-        // exitUserCard.classList.toggle("loggedUser__exit-blue");
-        // mobilelogedUserCard.classList.toggle("loggedUser__carts-blue");
-        // mobileexitUserCard.classList.toggle("loggedUser__exit-blue");
+        logedUserCard.classList.toggle("loggedUser__carts-blue");
+        exitUserCard.classList.toggle("loggedUser__exit-blue");
+        mobilelogedUserCard.classList.toggle("loggedUser__carts-blue");
+        mobileexitUserCard.classList.toggle("loggedUser__exit-blue");
+        mobileSearch.classList.toggle("mobile-search-blue");
     })
     orangeBtn.addEventListener('change', () => {
         html.style.setProperty("--main-accent-color", "#ff6b08");
@@ -48,10 +50,11 @@ function themSwitcher() {
         clearFilterBtn.classList.remove("header__clear-filter--btn-blue");
         tabletInputBtn.classList.remove("search-input-btn-blue");
         deskInputBtn.classList.remove("search-input-btn-blue");
-        // logedUserCard.classList.remove("loggedUser__carts-blue");
-        // exitUserCard.classList.remove("loggedUser__exit-blue");
-        // mobilelogedUserCard.classList.remove("loggedUser__carts-blue");
-        // mobileexitUserCard.classList.remove("loggedUser__exit-blue");
+        logedUserCard.classList.remove("loggedUser__carts-blue");
+        exitUserCard.classList.remove("loggedUser__exit-blue");
+        mobilelogedUserCard.classList.remove("loggedUser__carts-blue");
+        mobileexitUserCard.classList.remove("loggedUser__exit-blue");
+        mobileSearch.classList.toggle("mobile-search-blue");
     })
     // =================================LISTENERS==============================
 }

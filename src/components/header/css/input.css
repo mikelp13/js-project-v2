@@ -138,6 +138,16 @@ input::-webkit-search-results-decoration {
     height: 24px;
     background: url(../../search/icons/search-24px.svg);
   }
+
+  .mobile-search:hover,
+  .mobile-search:focus {
+  background: url(../../search/icons/search-24px-orange.svg);
+}
+
+.mobile-search-blue:hover,
+.mobile-search-blue:focus {
+  background: url(../../search/icons/search-24px-blue.svg);
+}
 }
 
 @media (max-width: 767px) {

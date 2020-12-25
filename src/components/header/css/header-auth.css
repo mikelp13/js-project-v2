@@ -1,11 +1,47 @@
 .header-auth-mobile {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   transform: translateX(-50%);
   left: 46.875vw;
   top: 14.4vh;
   height: 30px;
+}
+
+.authNewUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authNewUser__mobile {
+  display: flex;
+  flex-direction: column;
+  margin-top: 31px;
+  height: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .authLoggedUser__mobile .sign-in-up__stick {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 20px;
+      background: url(../images/stick.svg);
+      transition: 0.5s ease-in-out;
+  }
+
+  .sign-in-up__stick {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background: url(../images/stick.svg);
+    transition: 0.5s ease-in-out;
+  }
 }
 
 @media (min-width: 768px) {

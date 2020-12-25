@@ -1,25 +1,33 @@
 .acc-cabinet-menu {
-  /* display: none; */
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 150px;
   height: 44px;
   border-radius: 40px;
   background: #112437;
-  margin-right: 10px;
   box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.05),
     inset 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-#loggedUser__exit {
+.authLoggedUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exitCabAut,
+.exitCabAut__mobile {
   background-image: url(../header/images/logout.svg);
   background-repeat: no-repeat;
   background-position: center;
   color: transparent;
 }
 
-#loggedUser__exit:hover,
-#loggedUser__exit:focus {
+.exitCabAut:hover,
+.exitCabAut:focus,
+.exitCabAut__mobile:hover,
+.exitCabAut__mobile:focus {
   background-image: url(../header/images/logout-orange.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -27,14 +35,17 @@
 }
 
 .loggedUser__exit-blue:hover,
-.loggedUser__exit-blue:focus {
+.loggedUser__exit-blue:focus,
+.mobile-loggedUser__exit-blue:hover,
+.mobile-loggedUser__exit-blue:focus {
   background-image: url(../header/images/logout-blue.svg);
   background-repeat: no-repeat;
   background-position: center;
   color: transparent;
 }
 
-#loggedUser__carts {
+.myCabAuth,
+.myCabAuth__mobile {
   background-image: url(../header/images/user-profile.svg);
   background-repeat: no-repeat;
   background-position: start;
@@ -42,8 +53,10 @@
   width: 110px;
 }
 
-#loggedUser__carts:hover,
-#loggedUser__carts:focus {
+.myCabAuth:hover,
+.myCabAuth:focus,
+.myCabAuth__mobile:hover,
+.myCabAuth__mobile:focus {
   background-image: url(../header/images/user-profile-orange.svg);
   background-repeat: no-repeat;
   background-position: start;
@@ -52,7 +65,9 @@
 }
 
 .loggedUser__carts-blue:hover,
-.loggedUser__carts-blue:focus {
+.loggedUser__carts-blue:focus,
+.mobile-loggedUser__carts-blue:hover,
+.mobile-loggedUser__carts-blue:focus {
   background-image: url(../header/images/user-profile-blue.svg);
   background-repeat: no-repeat;
   background-position: start;
@@ -75,11 +90,11 @@
 .acc-cabinet-content:hover,
 .acc-cabinet-content:focus {
   cursor: pointer;
-  color: #ff6b08;
+  color: var(--main-accent-color);
 }
 
 @media (max-width: 767px) {
-  .acc-cabinet-menu {
+  .acc-cabinet-menu__mobile {
     position: absolute;
     display: flex;
     top: 40px;
@@ -90,9 +105,15 @@
     height: 44px;
     border-radius: 40px;
     background: #031c33;
-    margin-right: 10px;
+    margin-right: 14px;
     box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.05),
       inset 2px 2px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .authLoggedUser__mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .acc-cabinet-content {
