@@ -1,27 +1,26 @@
 import './styles.css';
 import { data } from '../../data/data';
 import { createMarkup, runSlider } from '../catalog/categories-list-item/index';
-import { getCategoriesSpesific} from '../../api/api';
+import { getCategoriesSpecific } from '../../api/api';
 
-export const runLoader = () => { 
+export const runLoader = () => {
+  const buttonLoaderRef = document.querySelector('.loader__btn');
+  const colorLoaderRef = document.querySelector('.loader');
 
-    const buttonLoaderRef = document.querySelector('.loader__btn'); 
-    const colorLoaderRef = document.querySelector('.loader');
-
-    const loaderCategory = async () => { 
-
-        await  getCategoriesSpesific(data.calls.categories[data.renderedCategories.length]);
-        createMarkup(data.renderedCategories.length);
-        data.renderedCategories.push(data.calls.categories[data.renderedCategories.length]);
-        runSlider();
-        if (data.renderedCategories.length === data.calls.categories.length) {
-            buttonLoaderRef.className = 'loader__btn hide';
-            colorLoaderRef.className = 'loader hide';
-        }
+  const loaderCategory = async () => {
+    await getCategoriesSpecific(
+      data.calls.categories[data.renderedCategories.length],
+    );
+    createMarkup(data.renderedCategories.length);
+    data.renderedCategories.push(
+      data.calls.categories[data.renderedCategories.length],
+    );
+    runSlider();
+    if (data.renderedCategories.length === data.calls.categories.length) {
+      buttonLoaderRef.className = 'loader__btn hide';
+      colorLoaderRef.className = 'loader hide';
     }
+  };
 
-    buttonLoaderRef.addEventListener('click', loaderCategory);
-
-    
-}
-
+  buttonLoaderRef.addEventListener('click', loaderCategory);
+};

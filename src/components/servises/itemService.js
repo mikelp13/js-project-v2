@@ -10,31 +10,9 @@ import { data } from '../../data/data';
  Публикация, редактирование и удаление обьявления, получает такой обьект
 */
 
-// const newAds = {
-//   title: "string",
-//   description: "string",
-//   category: "string",
-//   price: "integer",
-//   phone: "string",
-//   file: "string($binary)",
-// };
-
 export const postAds = newAds => {
   return axios.post(`/call`, newAds);
 };
-
-// export const postAds = (advertData) => {
-//   const { title, description, category, price, phone, file } = advertData;
-//   return axios.post(`/call`, {
-//     title,
-//     description,
-//     category,
-//     price,
-//     phone,
-//     file,
-//   });
-// };
-
 // postAds();
 
 export const patchAds = (advertData, id) => {
@@ -48,7 +26,6 @@ export const patchAds = (advertData, id) => {
     file,
   });
 };
-
 // patchAds();
 
 export const delAds = id => {
