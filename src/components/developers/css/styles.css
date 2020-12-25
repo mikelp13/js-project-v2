@@ -2,7 +2,7 @@
   background-color: transparent;
   border: none;
   outline: none;
-  color: #ff6b08;
+  color: var(--main-accent-color);
   cursor: pointer;
 }
 
