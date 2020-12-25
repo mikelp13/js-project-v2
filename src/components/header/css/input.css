@@ -22,8 +22,14 @@ input::-webkit-search-results-decoration {
   background: url(../../search/icons/search-24px.svg);
 }
 
+.search-input-btn:hover,
 .search-input-btn:focus {
   background: url(../../search/icons/search-24px-orange.svg);
+}
+
+.search-input-btn-blue:hover,
+.search-input-btn-blue:focus {
+  background: url(../../search/icons/search-24px-blue.svg);
 }
 
 .search-input-closed {

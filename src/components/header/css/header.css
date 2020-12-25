@@ -17,6 +17,20 @@
   margin: 0 auto;
 }
 
+.blue {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 135px;
+  height: 50px;
+  text-decoration: none;
+  color: transparent;
+  background: url(../images/magic-logo/header-magic-logo-blue.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+}
+
 .header__logo:hover .hogvarts,
 .header__logo:focus .hogvarts {
   display: flex;
@@ -147,6 +161,11 @@
 .close-menu:hover,
 .close-menu:focus {
   background: url(../images/close/close-24px-orange.svg);
+}
+
+.close-menu-blue:hover,
+.close-menu-blue:focus {
+  background: url(../images/close/close-24px-blue.svg);
 }
 
 @media (max-width: 767px) {

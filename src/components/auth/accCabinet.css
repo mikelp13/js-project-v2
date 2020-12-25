@@ -26,6 +26,14 @@
   color: transparent;
 }
 
+.loggedUser__exit-blue:hover,
+.loggedUser__exit-blue:focus {
+  background-image: url(../header/images/logout-blue.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+}
+
 #loggedUser__carts {
   background-image: url(../header/images/user-profile.svg);
   background-repeat: no-repeat;
@@ -37,6 +45,15 @@
 #loggedUser__carts:hover,
 #loggedUser__carts:focus {
   background-image: url(../header/images/user-profile-orange.svg);
+  background-repeat: no-repeat;
+  background-position: start;
+  text-align: end;
+  width: 110px;
+}
+
+.loggedUser__carts-blue:hover,
+.loggedUser__carts-blue:focus {
+  background-image: url(../header/images/user-profile-blue.svg);
   background-repeat: no-repeat;
   background-position: start;
   text-align: end;
@@ -81,7 +98,6 @@
   .acc-cabinet-content {
     display: inline-block;
     font-family: 'MontserratMedium', sans-serif;
-    /* line-height: 26px; */
     font-size: 12px;
     color: #818181;
     transition: 0.5s;
