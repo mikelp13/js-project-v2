@@ -3,6 +3,12 @@
   flex-direction: column;
 }
 
+.slider-item,
+.slick-slide,
+.slick-current,
+.slick-active {
+  outline: none;
+}
 @media (max-width: 767px) {
   .side-items {
     display: none;
@@ -72,7 +78,7 @@
   line-height: 1.22;
   letter-spacing: -0.02em;
   max-width: 202px;
- }
+}
 
 .slider-item__price {
   font-family: 'MontserratBold';
@@ -115,17 +121,17 @@
   }
 }
 /* ===== modal ====== */
-.item-modal{
+.item-modal {
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
-  height:90%;
-  background-color:#ffffff;
+  height: 90%;
+  background-color: #ffffff;
 }
 
-@media (min-width: 768px) and (max-width: 1279px){
+@media (min-width: 768px) and (max-width: 1279px) {
   .item-modal {
     width: 724px;
     height: 530px;
@@ -134,26 +140,26 @@
 
 @media (min-width: 1280px) {
   .item-modal {
-   width: 1025px;
-   height: 764px;
+    width: 1025px;
+    height: 764px;
   }
 }
-.modal-close-btn{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 24px;
-    height: 24px;
-    background-image: url('../../../images/icons/close/close-24px.svg');
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-color: transparent;
-    cursor: pointer;
-    outline: none;
-    border: none;
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  background-image: url('../../../images/icons/close/close-24px.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
 }
 
-@media (min-width: 768px) and (max-width: 1279px){
+@media (min-width: 768px) and (max-width: 1279px) {
   .modal-close-btn {
     top: 20px;
     right: 20px;
@@ -166,4 +172,3 @@
     right: 25px;
   }
 }
-
