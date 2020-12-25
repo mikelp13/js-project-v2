@@ -17,14 +17,21 @@ import './components/header/js/color-switch';
 import './components/product-info/index.js';
 import './components/header/js/newAdv';
 // import './components/ads/newAddForm/newAddForm.js';
+import { createMainMarkup } from './components/main/index';
+import {getSliderItems} from './components/hero/slider/slider';
 import { getAds } from './api/api';
 import './components/spinLoad/spinLoad';
-
 import { createСategories } from './components/catalog/categories-list-item/index.js';
 import { data } from './data/data';
-import { getCategories, getCategoriesSpesific, getRussianCategories } from './api/api';
+import {
+  getCategories,
+  getCategoriesSpesific,
+  getRussianCategories,
+} from './api/api';
 
 const getInitialData = async () => {
+  await createMainMarkup();
+  await getSliderItems();
   await getCategories();
   await getRussianCategories();
   await getCategoriesSpesific(data.calls.categories[0]);
@@ -35,3 +42,4 @@ const getInitialData = async () => {
   createСategories();
 };
 getInitialData();
+
