@@ -8,6 +8,7 @@ import login from './template/login.hbs'
 import { modalBackDrop } from '../modal/modalBackDrop';
 import { data } from '../../data/data';
 import {CreateCabinetMarkup} from './accCabinet';
+import mistakes from './template/mistakes.hbs';
 
 const url = 'https://callboard-backend.herokuapp.com';
 
@@ -31,20 +32,24 @@ function newUserEnter() {
     if (!localStorage.getItem('accessToken')) {
         data.auth.accessToken = '';
         data.auth.isAuth = false;
-        console.log(data);
         
-        const mediaQuery = window.matchMedia('(min-width: 768px)')
-        if (mediaQuery.matches) {
-            headerAuth.innerHTML = login();
-
-        } else {
-            headerAuthMobile.innerHTML = login();
-        }
+        const screenChng = () => {
+            if(window.innerWidth < 768) {
+                headerAuthMobile.innerHTML = login();
+            };
+            if(window.innerWidth > 768){
+                headerAuth.innerHTML = login();
+            };
+        
             const signUpHeader = document.querySelector('#signUpHeader');
             const signInHeader = document.querySelector('#signInHeader');
 
             signUpHeader.addEventListener('click', onHeaderSignUp);
             signInHeader.addEventListener('click', onHeaderSignUp);
+        };
+
+        screenChng();
+        window.addEventListener('resize', screenChng);
     
     } else { loggedUserEnter()};
     
@@ -56,18 +61,23 @@ function loggedUserEnter () {
         data.auth.isAuth = true;
         data.auth.accessToken = localStorage.getItem('accessToken')
 
-        const mediaQuery = window.matchMedia('(min-width: 768px)')
-        if (mediaQuery.matches) {
-            headerAuth.innerHTML = userLogged();
-        } else {
-            headerAuthMobile.innerHTML = userLogged();
-        };
-  
+     
+        const screenChng  =() => {
+            if (window.innerWidth < 767){
+                headerAuthMobile.innerHTML = userLogged();
+            };
+            if (window.innerWidth > 768){
+                headerAuth.innerHTML = userLogged();
+            };
+        
         const loggedUserCarts = document.querySelector('#loggedUser__carts');
         const loggedUserExit = document.querySelector('#loggedUser__exit');
+        loggedUserExit.addEventListener('click', logOutForm);
+        loggedUserCarts.addEventListener('click', CreateCabinetMarkup);
+        };
 
-    loggedUserExit.addEventListener('click', logOutForm)
-    loggedUserCarts.addEventListener('click', CreateCabinetMarkup)
+        screenChng();
+        window.addEventListener('resize', screenChng);
     
     } else { newUserEnter() };
 
@@ -97,7 +107,6 @@ function logOutForm() {
     authFormExit.addEventListener('click', onXclose);
 
     authFormLogOut.addEventListener('click', logOutUser);
-    console.log(data);
 };
 
 // ==================================ЗАЧИСТКА ЮЗЕРА===============================
@@ -107,7 +116,8 @@ function logOutUser() {
     data.auth.isAuth = false;
     newUserEnter();
     container.classList.remove('is-open');
-    console.log(data);
+    CreateCabinetMarkup();
+
 };
 
 // =================================РЕГИСТРАЦИЯ/ВХОД===================================
@@ -116,7 +126,6 @@ function onHeaderSignUp(e) {
     modalBackDrop(signUp());
     
     const authForm = document.forms.authForm;
-    console.log(authForm);
 
     const onXclose = () => {
         container.classList.remove('is-open');
@@ -149,7 +158,9 @@ function onHeaderSignUp(e) {
             authForm.logIn.classList.add('active');
             onLogInBtn();
         } catch (error) {
-            console.log('error', error.response.data);
+            modalBackDrop(mistakes())
+            const mistake = document.querySelector('.mistake');
+            mistakes.textContent = error;
         }
     };
 
@@ -183,7 +194,6 @@ function onHeaderSignUp(e) {
 
     authForm.addEventListener('submit', checkSubmit);
     authForm.addEventListener('input', gatherInfo);
-    console.log(data);
 };
 
 

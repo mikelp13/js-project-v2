@@ -21,15 +21,16 @@ import './components/spinLoad/spinLoad';
 
 import { createСategories } from './components/catalog/categories-list-item/index.js';
 import { data } from './data/data';
-import { getCategories } from './api/api';
-import { getCategoriesSpesific } from './api/api';
+import { getCategories, getCategoriesSpesific, getRussianCategories } from './api/api';
 
 const getInitialData = async () => {
   await getCategories();
+  await getRussianCategories();
   await getCategoriesSpesific(data.calls.categories[0]);
   await getCategoriesSpesific(data.calls.categories[1]);
   await getCategoriesSpesific(data.calls.categories[2]);
   await getCategoriesSpesific(data.calls.categories[3]);
+
   createСategories();
 };
 getInitialData();
