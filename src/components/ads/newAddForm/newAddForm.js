@@ -5,7 +5,7 @@ import newAddForm from '../newAddForm/templates/newAddForm.hbs';
 
 
 const createModalMarkup = document.querySelector('.markup_btn')
-createModalMarkup.innerHTML = newAddForm();
+// createModalMarkup.innerHTML = newAddForm();
 const inputWrapper = document.querySelector('.input_wrapper');
 const grays = document.querySelector('.grey-wrapper');
 const formAdv = document.forms.newAdvForm;
@@ -47,7 +47,7 @@ const createMarkupPlus = () => {
 }
 
 const createGreyMarkup = () => {
-  const markup = `<div class="file_load">
+  const markup = `<div class="file_load js-block">
                     <div class="label_load"></div>
                 </div>`;
   let resultMarkup = '';
@@ -75,6 +75,7 @@ const addPlus = async event => {
         const li = document
             .querySelector(`[data-id="${id}"]`);
         const label = li.querySelector('label');
+        console.log(event.target);
         const image = document.createElement('img')
         image.src = img;
         image.alt = `picture${id}`;
@@ -84,36 +85,28 @@ const addPlus = async event => {
         span.classList.add('invisible');
         newObjAdv.file.push(img)
     })
-    if (newObjAdv.file.length < 5) {
-        inputWrapper.insertAdjacentHTML('beforeend', createMarkupPlus())
-        grays.innerHTML = createGreyMarkup();
-        createSecondBlock();
-    }
-}
 
-const createSecondBlock = () => {
-    let greyWrapp = '';
-    const greyList = document.querySelector('.grey-wrapper');
-    for (let i = newObjAdv.file.length; i < 4; i+=1) {
-        greyWrapp += createGreyMarkup();
-    }
-    greyList.innerHTML = greyWrapp;
+    if (newObjAdv.file.length < 5) {
+    const block = document.querySelector('.js-block');
+    block.setAttribute('data-id', `${newObjAdv.file.length}`);
+
+    const newPlus = document.createElement('li');
+    newPlus.classList.add('file_load');
+    newPlus.dataset.id = `${newObjAdv.file.length}`;
+    newPlus.innerHTML = `
+    <label for="file_load${newObjAdv.file.length}" class="label_load">
+      <input id="file_load${newObjAdv.file.length}" type="file" class="input_load_file">
+      <span class="file_load-plus_load">+</span>
+    </label>
+    `;
+    block.replaceWith(newPlus)
+  }
 }
 
 const createBox = () => {
     inputWrapper.innerHTML = createMarkupPlus();
     const input = document.querySelector('.input_load_file');
-    grays.innerHTML = createGreyMarkup();
-    createSecondBlock()
-    // const createElemMarkup = () => {
-    //     let markUp = '';
-    //     for (let i = 0; i < 6; i += 1) {
-    //         markUp += createMarkupPlus()
-    //     }
-    //     return markUp;
-    // }
-    // inputWrapper.innerHTML = createElemMarkup();
-    
+    inputWrapper.insertAdjacentHTML('beforeend', createGreyMarkup())
 }
 
 const getFormData = event => {
