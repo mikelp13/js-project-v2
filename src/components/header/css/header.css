@@ -108,9 +108,9 @@
 .header__logo:focus .harry-fly {
   display: flex;
   background-size: cover;
-  width: 120px;
+  width: 160px;
   background-image: url(../images/magic-logo/harry-cat.gif);
-  height: 80px;
+  height: 110px;
   position: absolute;
   z-index: 5000;
   top: 0;
