@@ -108,32 +108,60 @@ export const getPagesCategories = (page = 1) => {
 /*
  Запрос, а так же добавляет и  удаляет избранное (id параметр в обьекте call)
 */
+const key = localStorage.getItem('accessToken')
 
-export const getFavourites = () => {
-  return axios.get(`${baseUrl}/call/favourites`);
+export const getFavourites = async () => {
+  try {
+    const result = await this.axios.get(`${baseUrl}/call/favourites`,  {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${key}`,
+      }
+    });
+    return result.data.user }
+  catch (error) {
+    console.log(error);
+  }
+
 };
 
 // getFavourites();
-const key = localStorage.getItem('accessToken');
+
 
 export const addFavourite = async (id) => {
-  if (data.user.favorites.length === 0){
+  try {
+  //if (data.user.favorites.length === 0){
     let result = await axios.post(`${baseUrl}/call/favourite/${id}`, {
      headers: {
        'Content-Type': 'multipart/form-data',
       Authorization: `Bearer ${key}`,
    }})
-  return result;
-  }
-    else {
-      return data.user.favorites
-    }
+
+//getFavourites().then(({ favorites }) => {
+//data.user.favorites = favorites});
+return result;
+//}
+}catch (error) {
+throw error;
+}
 };
 
 // addFavourite();
 
 export const delFavourite = id => {
-  return axios.delete(`${baseUrl}/call/favourite/${id}`);
+  try {
+    const result = axios.delete(`${baseUrl}/call/favourite/${id}`, {
+     headers: {
+       'Content-Type': 'multipart/form-data',
+      Authorization: `Bearer ${key}`,
+   }});
+   //this.getUserFavourites().then(({ favorites }) => {
+    //data.user.favorites = favorites});
+    return result;
+  }
+  catch (error) {
+    throw error;
+  }
 };
 
 // delFavourite();

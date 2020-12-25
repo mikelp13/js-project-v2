@@ -66,6 +66,7 @@ color: #000000;
   }
 
 .product-card__image__main {
+
   margin-bottom: 30px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -220,7 +221,7 @@ color: #878686;
 
 /*/////////////*/
 
-/*.slick-track {
+.slick-track {
   display: flex;
 
 }
@@ -251,4 +252,4 @@ color: #878686;
 .slick-dots li.slick-active button {
   border: none;
   background-color:#FF6B09;
-}*/
+}
