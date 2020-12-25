@@ -28,7 +28,7 @@ export const createMarkup = (i) => {
         categoryRefs.insertAdjacentHTML('beforeend', markup);
         data.renderedCategories.push(data.calls.categories[i]);  
         runSlider(i);    
-    // console.log(data.renderedCategories);
+     console.log(data.renderedCategories);
 };
 
 export const createСategories = () => {

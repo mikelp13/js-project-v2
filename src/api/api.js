@@ -1,9 +1,10 @@
 import { data } from '../data/data';
 import axios from 'axios';
+import {camelCase} from 'lodash';
 const token = localStorage.getItem('accessToken');
 axios.defaults.baseURL = 'https://callboard-backend.herokuapp.com';
 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
+ 
 export const getCategories = async () => {
   try {
     if (data.calls.categories.length) {
@@ -14,8 +15,9 @@ export const getCategories = async () => {
         'https://callboard-backend.herokuapp.com/call/categories',
       );
       data.calls.categories = [...result.data];
-      result.data.forEach(item => (data.calls.specificCategory[item] = []));
-      // console.log('getCategories API:', [...result.data]);
+      result.data.forEach(item => (data.calls.specificCategory[camelCase(item)] = []));
+      console.log('getCategories API:', [...result.data]);
+      console.log('result', data.calls.specificCategory);
       return result.data;
     }
   } catch (error) {}
@@ -27,7 +29,7 @@ export const getCategoriesSpesific = async categoryName => {
       `https://callboard-backend.herokuapp.com/call/specific/${categoryName}`,
     );
     data.calls.specificCategory[categoryName] = [...result.data];
-    // console.log('getCategoriesSpesific API:', [...result.data]);
+     console.log('getCategoriesSpesific API:', [...result.data]);
 
     return result.data;
   } catch (error) {}
