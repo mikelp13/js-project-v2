@@ -28,6 +28,18 @@
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .accent-color-switcher {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 74px;
+    border-radius: 40px;
+    transform: rotate(-7deg) translate(6px, 4px);
+  }
+}
+
 /* ============================================================= */
 
 .accent-color-switcher label .fa {

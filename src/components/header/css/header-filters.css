@@ -293,10 +293,20 @@
       2px 2px 6px rgba(0, 0, 0, 0.5);
   }
 
+  
   .filter-item-btn {
     box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.5);
   }
-
+  
+  .active-category {
+    color: #1f1e1d;
+    border-color: transparent;
+    color: var(--main-accent-color);
+    z-index: 100;
+    box-shadow: 0 0 10px var(--main-accent-color),
+      0 0 40px var(--main-accent-color), 0 0 80px var(--main-accent-color);
+  }
+  
   .categories-filter-item-opened {
     display: flex;
   }
