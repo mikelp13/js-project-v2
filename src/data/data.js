@@ -18,6 +18,7 @@ export const data = {
     allCategories: [],
     russianCategories: [],
     specificCategory: {},
+    originalCategories: [],
   },
   renderedCategories: [],
 };

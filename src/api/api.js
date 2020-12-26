@@ -10,8 +10,8 @@ export const getCategories = async () => {
       return data.calls.categories;
     } else {
       const res = await axios.get(`/call/categories`);
-      data.calls.categories = [...res.data.map(item => item)];
-
+      data.calls.categories = [...res.data];
+      data.calls.originalCategories = [...res.data];
       res.data.forEach(item => (data.calls.specificCategory[item] = []));
       return res.data;
     }
