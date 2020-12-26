@@ -6,13 +6,8 @@ import logOut from './template/logOut.hbs';
 // import userLogged from './template/userLogged.hbs';
 // import login from './template/login.hbs'
 import { modalBackDrop } from '../modal/modalBackDrop';
-import { data } from '../../data/data'; <<
-<< << < HEAD
-import { CreateCabinetMarkup } from './accCabinet'; ===
-=== =
-// import {CreateCabinetMarkup} from './accCabinet';
->>>
->>> > bd3b340e89e03918bd919f5db447f673d546e157
+import { data } from '../../data/data';
+import { CreateCabinetMarkup } from './accCabinet';
 import mistakes from './template/mistakes.hbs';
 
 const url = 'https://callboard-backend.herokuapp.com';
@@ -100,7 +95,7 @@ function loggedUserEnter() {
 };
 
 // ================================REGISTRATION===================================
-function regitsrationUser(event) {
+export function regitsrationUser(event) {
     modalBackDrop(signUp());
 
 

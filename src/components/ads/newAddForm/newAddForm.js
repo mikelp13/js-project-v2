@@ -36,20 +36,6 @@ export const createNewAdv = (adv) => {
         file: [],
     }
     const formData = new FormData();
-    console.log(data);
-
-    const createOptionsMarkup = () => {
-        return data.calls.originalCategories.reduce((acc, item, index) => {
-            acc += `<option value="${item}">${data.calls.russianCategories[index]}</option>`
-            return acc;
-        }, '')
-    }
-
-    const createSelectMarkup = () => {
-        return `<select name="category" class="form_input">${createOptionsMarkup()}</select>`
-    }
-    const select = document.querySelector('.form_field--select');
-    select.innerHTML = createSelectMarkup();
 
     const toDataURL = elem => {
         return new Promise((resolve) => {
@@ -80,50 +66,49 @@ export const createNewAdv = (adv) => {
     };
 
     const addPlus = async event => {
-        if (event.target.type === 'file') {
-            const id = event.target.closest('[data-id]').dataset.id;
+        if (event.target.type !== 'file') {
+            return
+        }
+        const id = event.target.closest('[data-id]').dataset.id;
 
-            if (Number(id) !== newObjAdv.file.length) {
-                event.target
-                    .closest(`[data-id]`)
-                    .querySelector('img')
-                    .src = await toDataURL(event.target);
-                return;
-            }
+        if (Number(id) !== newObjAdv.file.length) {
+            event.target
+                .closest(`[data-id]`)
+                .querySelector('img')
+                .src = await toDataURL(event.target);
+            return;
+        }
 
-            await toDataURL(event.target).then(img => {
-                const li = document
-                    .querySelector(`[data-id="${id}"]`);
-                const label = li.querySelector('label');
-                console.log(event.target);
-                const image = document.createElement('img')
-                image.src = img;
-                image.alt = `picture${id}`;
-                image.classList.add('img-adv-box');
-                label.append(image);
-                const span = label.querySelector('.file_load-plus_load')
-                span.classList.add('invisible');
-                newObjAdv.file.push(img)
-            })
+        await toDataURL(event.target).then(img => {
+            const li = document
+                .querySelector(`[data-id="${id}"]`);
+            const label = li.querySelector('label');
+            console.log(event.target);
+            const image = document.createElement('img')
+            image.src = img;
+            image.alt = `picture${id}`;
+            image.classList.add('img-adv-box');
+            label.append(image);
+            const span = label.querySelector('.file_load-plus_load')
+            span.classList.add('invisible');
+            newObjAdv.file.push(img)
+        })
 
-            if (newObjAdv.file.length < 5) {
-                const block = document.querySelector('.js-block');
-                block.setAttribute('data-id', `${newObjAdv.file.length}`);
+        if (newObjAdv.file.length < 5) {
+            const block = document.querySelector('.js-block');
+            block.setAttribute('data-id', `${newObjAdv.file.length}`);
 
-                const newPlus = document.createElement('li');
-                newPlus.classList.add('file_load');
-                newPlus.dataset.id = `${newObjAdv.file.length}`;
-                newPlus.innerHTML = `
+            const newPlus = document.createElement('li');
+            newPlus.classList.add('file_load');
+            newPlus.dataset.id = `${newObjAdv.file.length}`;
+            newPlus.innerHTML = `
                     <label for="file_load${newObjAdv.file.length}" class="label_load">
                     <input id="file_load${newObjAdv.file.length}" type="file" class="input_load_file">
                     <span class="file_load-plus_load">+</span>
                     </label>
                     `;
-                block.replaceWith(newPlus)
-            }
-        } else {
-            const { name, value } = event.target;
-            newObjAdv[name] = value;
+            block.replaceWith(newPlus)
+
         }
     }
 
@@ -136,13 +121,6 @@ export const createNewAdv = (adv) => {
         const { name, value, type } = event.target;
         if (type === 'file') return;
         newObjAdv[name] = value;
-    }
-    const getPrice = () => {
-        if (newObjAdv.category === "free" ||
-            newObjAdv.category === "work" ||
-            newObjAdv.category === "trade") {
-            return 0
-        } else return Number(newObjAdv.price)
     }
 
     const postNewAdv = async event => {
@@ -162,97 +140,21 @@ export const createNewAdv = (adv) => {
                     .append('file', allInputsFiles[i].files[0], `picture${i}.jpg`);
             }
         }
-        const result = await axios.post(baseURL, formData, { headers });
-        data.calls.specificCategory[newObjAdv.category] = [...data.calls.specificCategory[newObjAdv.category], result.data]
-    }
 
-    //============================ editAddForm =======================
-
-    const editAddForm = () => {
-        const editTitle = document.querySelector('.form_text');
-        const divDelete = document.querySelector('.form_delete');
-        editTitle.textContent = 'Редактировать объявление';
-
-        divDelete.innerHTML = `
-        <button class="btn_deleteAdv">Удалить объявление</button>
-        <p class="delete_text">Удалить объявление</p>
-        `
-        newObjAdv = {...newObjAdv, ...adv }
-        formAdv.title.value = newObjAdv.title
-        formAdv.description.value = newObjAdv.description
-        formAdv.category.value = newObjAdv.category
-        formAdv.price.value = newObjAdv.price
-        formAdv.phone.value = newObjAdv.phone
-
-        const createFotoMarkup = () => {
-            return newObjAdv.imageUrls.reduce((acc, item) => {
-                acc += `
-                    <li class="file_load" data-id="${newObjAdv.file.length}">
-                        <label for="file_load${newObjAdv.file.length}" class="label_load">
-                            <input id="file_load${newObjAdv.file.length}" type="file" class="input_load_file">
-                            <img src="${item}" alt="picture" class="img-adv-box"/>
-                        </label>
-                    </li>
-                `
-                newObjAdv.file.push(item)
-                    // formData.append('file', item, `picture${newObjAdv.file.length}.jpg`)
-                return acc;
-            }, '')
-        }
-        inputWrapper.innerHTML = createFotoMarkup();
-        const allInputsFiles = document.querySelectorAll('.input_load_file');
-
-        allInputsFiles.forEach((item, index) => {
-
-            // item.files[0] = new File(toDataURL(item), `picture${index}.jpg`)
-            const file = new File(item, `picture${index}.jpg`)
-            console.log(file);
-        })
-
-        if (newObjAdv.file.length < 5) {
-            inputWrapper.insertAdjacentHTML('beforeend', `
-                <li class="file_load" data-id="${newObjAdv.file.length}">
-                        <label for="file_load${newObjAdv.file.length}" class="label_load">
-                        <input id="file_load${newObjAdv.file.length}" type="file" class="input_load_file">
-                        <span class="file_load-plus_load">+</span>
-                        </label>
-                </li>
-                    `)
-        }
-        inputWrapper.insertAdjacentHTML('beforeend', createGreyMarkup())
+        const result = await axios.post(baseURL, formData, headers);
+        createBox();
     }
 
 
-
-    //================================================================
-    adv ? editAddForm() : createBox();
-
-    formAdv.addEventListener('input', getFormData);
-    formAdv.addEventListener('change', addPlus);
-    formAdv.addEventListener('submit', postNewAdv);
-
-}
-
-for (let i = 0; i < allInputsFiles.length; i += 1) {
-    if (allInputsFiles[i].files.length) {
-        formData
-            .append('file', allInputsFiles[i].files[0], `picture${i}.jpg`);
+    const getPrice = () => {
+        if (newObjAdv.category === "free" ||
+            newObjAdv.category === "work" ||
+            newObjAdv.category === "trade") {
+            return 0
+        } else return Number(newObjAdv.price)
     }
-}
-const result = await axios.post(baseURL, formData, headers);
-createBox();
-}
-
-
-const getPrice = () => {
-    if (newObjAdv.category === "free" ||
-        newObjAdv.category === "work" ||
-        newObjAdv.category === "trade") {
-        return 0
-    } else return Number(newObjAdv.price)
-}
-createBox();
-formAdv.addEventListener('input', getFormData)
-formAdv.addEventListener('change', addPlus)
-formAdv.addEventListener('submit', postNewAdv)
+    createBox();
+    formAdv.addEventListener('input', getFormData)
+    formAdv.addEventListener('change', addPlus)
+    formAdv.addEventListener('submit', postNewAdv)
 }

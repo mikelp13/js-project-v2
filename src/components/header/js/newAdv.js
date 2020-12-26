@@ -1,17 +1,17 @@
-import { newAdv } from '../../ads/newAddForm/newAddForm.js'
-import { onHeaderSignUp } from '../../../components/auth/auth.js'
+import { createNewAdv } from '../../ads/newAddForm/newAddForm.js'
+import { regitsrationUser } from '../../../components/auth/auth.js'
 
 const buttonNewAdv = document.querySelector('.header__create-ad-btn');
 let registered;
 
-const createAdv = () => {
+const createAdv = (e) => {
     console.log('Make your new adv');
-    newAdv();
+    createNewAdv(e);
 }
 
 const goToRegistrationForm = (e) => {
     console.log('You need to fill the registration form');
-    onHeaderSignUp(e);
+    regitsrationUser(e);
 }
 
 const checkRegistered = (e) => {
