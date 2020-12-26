@@ -1,27 +1,115 @@
+/* =========================FORM=========================== */
+
 .nonAuth {
   display: none;
 }
 
 .authForm {
-  background-color: white;
+  background-color: #031c33;
   width: 530px;
-  padding: 50px;
+  padding: 50px 45px;
   position: absolute;
+  border-radius: 8px;
   top: 160px;
   left: 50%;
   transform: translate(-50%);
 }
 
+.authForm__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.authForm__row100 {
+  position: relative;
+  width: 100%;
+  display: grid;
+  margin-top: 15px;
+  grid-template-columns: repeat(autofit, minmax(300px, 1fr));
+}
+
+.authForm__col {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 30px;
+  transition: 0.5s;
+}
+
+.authForm__inputBox {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  color: var(--main-accent-color);
+}
+
+.authForm__input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 0 10px;
+  z-index: 1;
+  color: #000;
+}
+
+.input-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 10px;
+  display: block;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.authForm__input:focus + .input-placeholder,
+.authForm__input:valid + .input-placeholder {
+  top: -25px;
+  left: -8px;
+}
+
+.input-line {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--main-accent-color);
+  transition: 0.5s;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.authForm__input:focus ~ .input-line,
+.authForm__input:valid ~ .input-line {
+  height: 100%;
+}
+
+.authForm__input:focus ~ .input-line,
+.authForm__input:invalid ~ .input-line {
+  height: 100%;
+  background-color: #e63131;
+}
+
 .logOut__wrap {
-  background-color: #fff;
+  background-color: #031c33;
   width: 650px;
   height: 230px;
   padding: 60px;
   position: absolute;
+  border-radius: 8px;
   top: 160px;
   left: 50%;
   transform: translate(-50%);
 }
+
 .authForm__btn_cls.logOut {
   top: 15px;
   right: 15px;
@@ -38,23 +126,13 @@
   outline: none;
   cursor: pointer;
   display: block;
-  background-image: url('../../images/auth/close-24px.svg');
+  background-image: url('../../components/header/images/close/close-24px.svg');
 }
 
-.authForm__input {
-  padding: 17px;
-  display: block;
-  width: 100%;
-  height: 56px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border: 1px solid #bbbbbb;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.214;
-  letter-spacing: 0.02em;
-  outline: none;
-  background-color: #fff;
+.authForm__btn_cls:hover,
+.authForm__btn_cls:focus {
+  transform: scale(1.2);
+  transition: 0.5s;
 }
 
 /* ==============GOOGLE===================== */
@@ -75,12 +153,12 @@
 
 .authForm__txt,
 .authForm__txt_out {
-  font-family: Montserrat;
+  font-family: MontserratMedium;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.214;
-  color: #000000;
+  color: var(--main-accent-color);
 }
 .authForm__txt_out {
   text-align: center;
@@ -93,12 +171,10 @@
   justify-content: space-between;
   margin-top: 30px;
 }
-.authForm__buttons {
+.logOut__wrap .authForm__buttons {
   max-width: 450px;
   margin-right: auto;
   margin-left: auto;
-  /* padding-top: 60px;
-  padding-bottom: 60px; */
 }
 
 .authForm__btn_signUp,
@@ -110,6 +186,7 @@
   background-color: #fff;
   border: 1px solid #bbbbbb;
   outline: none;
+  border-radius: 8px;
   cursor: pointer;
 
   font-weight: 700;
@@ -120,15 +197,28 @@
 
   box-shadow: 15px 15px 55px rgba(0, 0, 0, 0.3);
 }
-.authForm__btn_logOut,
-.authForm__btn_exit {
-  width: 210px;
+
+.authForm__btn_logIn {
+  margin-right: 20px;
+}
+
+.authForm__btn_logOut:hover,
+.authForm__btn_logOut:focus,
+.authForm__btn_exit:hover,
+.authForm__btn_exit:focus,
+.authForm__btn_signUp:hover,
+.authForm__btn_signUp:focus,
+.authForm__btn_logIn:hover,
+.authForm__btn_logIn:focus {
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 
 .active {
   color: #ffffff;
-  background-color: #ff6b09;
+  background-color: var(--main-accent-color);
   border: 1px solid transparent;
+  border-radius: 8px;
   box-shadow: none;
 }
 
@@ -193,11 +283,9 @@
     top: 5px;
     right: 5px;
   }
-  
+
   .authForm__btn_cls {
     top: 5px;
     right: 5px;
   }
-
 }
-
