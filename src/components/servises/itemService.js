@@ -1,9 +1,23 @@
 import axios from 'axios';
-import { data } from '../../data/data';
-// const token = localStorage.getItem('accessToken');
-// axios.defaults.baseURL = 'https://callboard-backend.herokuapp.com';
-// axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+import {data} from '../../data/data'
+const baseUrl = 'https://callboard-backend.herokuapp.com';
+const key = JSON.parse(localStorage.getItem('accessToken'))
 
+export const getUserData = async () => {
+
+  try
+  {
+    if (localStorage.getItem('accessToken')) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${key}`;
+      await axios.get("https://callboard-backend.herokuapp.com/user")
+  .then(response=> data.user = {...response.data})
+  console.log(data);
+   }
+  }
+  catch(error){
+    console.log(error);
+  }
+}
 //=== Call endpoints ===//
 
 /*
@@ -88,27 +102,88 @@ export const getPagesCategories = (page = 1) => {
  Запрос, а так же добавляет и  удаляет избранное (id параметр в обьекте call)
 */
 
-export const getFavourites = () => {
-  return axios.get(`/call/favourites`);
+export const getFavourites = async () => {
+  try {
+    const result = await this.axios.get(`${baseUrl}/call/favourites`,  {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${key}`,
+      }
+    });
+    return result.data.user }
+  catch (error) {
+    console.log(error);
+  }
 };
 
 // getFavourites();
 
-export const addFavourite = async id => {
-  if (loggedUser.logInUser.favorites.length) {
-    return loggedUser.logInUser.favorites;
-  } else {
-    const responce = await axios.post(`/call/favourite/${id}`);
-    loggedUser.logInUser.favorites = [...responce];
+export const addFavourite = async (id, favorItem, favorName) => {
+  axios.defaults.headers.common['Authorization'] = `Bearer ${key}`;
 
-    return responce;
+  try {
+    //const favorItem = document.querySelector('.heart');
+
+  if (localStorage.getItem('accessToken'))
+  {
+   if ( data.user.favourites.some(item => item._id === id))
+    {
+      await axios.delete(`${baseUrl}/call/favourite/${id}`)
+      data.user.favourites=[...data.user.favourites.filter(item => item._id !== id)]
+      favorItem.classList.toggle('activeicon')
+      favorName.classList.toggle('activename')
+    }
+    else { await axios.post(`${baseUrl}/call/favourite/${id}`)
+    .then(response => {
+      data.user.favourites = [...response.data.newFavourites]
+     // const favorItem = document.querySelector('.heart');
+      favorItem.classList.toggle('activeicon')
+      favorName.classList.toggle('activename')
+
+
+    }
+    )
+    console.log(data.user.favourites);
   }
+  }
+  else
+    {
+
+      if (localStorage.getItem('favorites'))
+
+      {
+        const localFavorites = JSON.parse(localStorage.getItem('favorites'))
+        if ( JSON.parse(localStorage.getItem('favorites')).some(item => item === id)) {
+
+          localStorage.setItem('favorites', JSON.stringify(localFavorites.filter(item => item !== id)))
+          favorItem.classList.toggle('activeicon')
+        }
+        else {localStorage.setItem('favorites', JSON.stringify([...localFavorites, id]))
+        favorItem.classList.toggle('activeicon')}
+      }
+      else {
+        localStorage.setItem('favorites', JSON.stringify([id]))
+      }
+    }
+
+}catch (error) {
+throw error;
+}
 };
 
 // addFavourite();
 
 export const delFavourite = id => {
-  return axios.delete(`/call/favourite/${id}`);
+  try {
+    const result = axios.delete(`${baseUrl}/call/favourite/${id}`, {
+     headers: {
+       'Content-Type': 'multipart/form-data',
+      Authorization: `Bearer ${key}`,
+   }});
+  }
+  catch (error) {
+    throw error;
+  }
 };
 
 // delFavourite();
@@ -137,7 +212,7 @@ export const getSearchQuery = searchQuery => {
 
 // getSearchQuery('Work');
 
-//===
+//===bra
 
 /*
  Получает список всех категорий товаров
