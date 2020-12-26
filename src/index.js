@@ -6,7 +6,7 @@ import './components/hero/slider-item/slider-item';
 import './components/footer/styles.js';
 import './components/card/index';
 import './components/auth/auth';
-import './components/product-info/index'
+import './components/product-info/index';
 import './components/search/index';
 import './components/modal/modalBackDrop.js';
 import './components/developers/js/index';
@@ -18,7 +18,7 @@ import './components/header/js/color-switch';
 import './components/product-info/index.js';
 import './components/header/js/newAdv';
 // import './components/ads/newAddForm/newAddForm.js';
-import {getUserData} from './components/servises/itemService'
+import { getUserData } from './api/api';
 import { createMainMarkup } from './components/main/index';
 import { getSliderItems } from './components/hero/slider/slider';
 import './components/spinLoad/spinLoad';
@@ -43,7 +43,6 @@ const getInitialData = async () => {
     getCategoriesSpecific(data.calls.categories[3]),
   ]);
   createСategories();
+  getUserData();
 };
 getInitialData();
-
-getUserData();

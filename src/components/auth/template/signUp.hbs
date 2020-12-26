@@ -20,10 +20,24 @@
         <p class="authForm__txt">
             Войдите в приложение используя e-mail и пароль:
         </p>
-        <p class="mistake__email"></p>
-        <input type="email" name="email" class="authForm__input" placeholder="Email" />
-        <p class="mistake__password"></p>
-        <input type="password" autocomplete="of" name="password" class="authForm__input" placeholder="Password" />
+        <div class="authForm__row100">
+            <div class="authForm__col">
+                <div class="authForm__inputBox">
+                    <p class="mistake__email"></p>
+                    <input type="email" name="email" class="authForm__input" />
+                    <span class="input-placeholder">Email</span>
+                    <span class="input-line"></span>
+                </div>
+            </div>
+            <div class="authForm__col">
+                <div class="authForm__inputBox">
+                    <input type="password" autocomplete="of" name="password" class="authForm__input" />
+                    <span class="input-placeholder">Password</span>
+                    <span class="input-line"></span>
+                    <p class="mistake__password"></p>
+                </div>
+            </div>
+        </div>
         <div class="authForm__buttons">
             <button type="submit" name="logIn" class="authForm__btn_logIn active">
                 Войти
