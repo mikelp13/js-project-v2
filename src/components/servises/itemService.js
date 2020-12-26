@@ -145,7 +145,7 @@ export const getFavourites = async () => {
 // getFavourites();
 
 
-export const addFavourite = async (id, favorItem) => {
+export const addFavourite = async (id, favorItem, favorName) => {
   axios.defaults.headers.common['Authorization'] = `Bearer ${key}`;
 
   try {
@@ -158,12 +158,14 @@ export const addFavourite = async (id, favorItem) => {
       await axios.delete(`${baseUrl}/call/favourite/${id}`)
       data.user.favourites=[...data.user.favourites.filter(item => item._id !== id)]
       favorItem.classList.toggle('activeicon')
+      favorName.classList.toggle('activename')
     }
     else { await axios.post(`${baseUrl}/call/favourite/${id}`)
     .then(response => {
       data.user.favourites = [...response.data.newFavourites]
      // const favorItem = document.querySelector('.heart');
       favorItem.classList.toggle('activeicon')
+      favorName.classList.toggle('activename')
 
 
     }

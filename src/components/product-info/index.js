@@ -8,18 +8,19 @@ import { addFavourite, delFavourite } from '../servises/itemService';
 import { data } from '../../data/data';
 import axios from 'axios';
 
-const card = document.querySelector('.img');
+
 
 export function productInfoMarkup (dataMy) {
   const markup = templateProductInfo(dataMy);
 
   modalBackDrop(markup);
-
+  const favorName = document.querySelector('.product-card__favorite')
   const favorItem = document.querySelector('.heart');
   if (localStorage.getItem('accessToken')) {
     if (data.user.favourites.some(item=> item._id === dataMy._id))
     {
-      favorItem.classList.add('activeicon')
+      favorItem.classList.add('activeicon');
+
     }
 
   }
@@ -28,6 +29,7 @@ export function productInfoMarkup (dataMy) {
   if (JSON.parse(localStorage.getItem('favorites')).some(item => item === dataMy._id))
   {
     favorItem.classList.add('activeicon')
+
   }}
  }
 
@@ -55,7 +57,7 @@ export function productInfoMarkup (dataMy) {
 
     const activeId = event.target.closest('[data-productid]').dataset.productid;
 
-      const result =  await addFavourite(activeId, favorItem)
+      const result =  await addFavourite(activeId, favorItem, favorName)
      // console.log(result);
 
     console.log(activeId);
