@@ -1,0 +1,15 @@
+{
+  "imageUrls": [
+    "https://storage.googleapis.com/kidslikev2_bucket/f515b58b-b191-4463-9b66-6e81a8755736.jpg",
+    "https://storage.googleapis.com/kidslikev2_bucket/3fd5fe60-ec11-41fe-8de6-7b988bbc8c4c.jpg"
+  ],
+  "_id": "5fd8a54dc298a200179c962a",
+  "title": "home4",
+  "description": "home4",
+  "category": "property",
+  "price": 8000000,
+  "phone": "+380987654321",
+  "isOnSale": false,
+  "userId": "5fd774f109d4b90017825531",
+  "__v": 0
+}
