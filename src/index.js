@@ -29,6 +29,7 @@ import {
   getCategoriesSpecific,
   getRussianCategories,
 } from './api/api';
+import './components/menu/profileMenu'
 
 const getInitialData = async () => {
   await createMainMarkup();
