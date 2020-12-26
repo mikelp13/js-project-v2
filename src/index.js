@@ -39,10 +39,6 @@ const getInitialData = async () => {
     getCategoriesSpecific(data.calls.categories[2]),
     getCategoriesSpecific(data.calls.categories[3]),
   ]);
-  data.renderedCategories.push(
-    data.calls.categories[0],
-    data.calls.categories[1],
-  );
   createСategories();
 };
 getInitialData();
