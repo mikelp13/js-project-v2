@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { data } from '../data/data';
-import { camelCase } from 'lodash';
 const token = JSON.parse(localStorage.getItem('accessToken'));
 axios.defaults.baseURL = 'https://callboard-backend.herokuapp.com';
 axios.defaults.headers.common['Authorization'] = token;
@@ -11,7 +10,8 @@ export const getCategories = async () => {
       return data.calls.categories;
     } else {
       const res = await axios.get(`/call/categories`);
-      data.calls.categories = [...res.data.map(item => camelCase(item))];
+      data.calls.categories = [...res.data.map(item => item)];
+
       res.data.forEach(item => (data.calls.specificCategory[item] = []));
       return res.data;
     }
@@ -120,15 +120,12 @@ export const getFavourites = async () => {
     } else {
       const res = await axios.get(`/call/favourites`);
       data.user.favourites = [...res.data.favourites];
-      console.log('db fav:', res.data.favourites);
-      console.log('data fav:', data.user.favourites);
       return res.data.favourites;
     }
   } catch (error) {
     console.log(error);
   }
 };
-getFavourites();
 
 export const favouriteApi = async (id, favorItem, favorName) => {
   try {
