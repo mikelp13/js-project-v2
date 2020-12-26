@@ -10,6 +10,7 @@
 html {
   --main-accent-color: #ff6b08;
   box-sizing: border-box;
+  font-family: 'MontserratRegular';
 }
 
 *,
