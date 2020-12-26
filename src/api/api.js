@@ -2,8 +2,9 @@ import { data } from '../data/data';
 import axios from 'axios';
 import { camelCase } from 'lodash';
 const token = JSON.parse(localStorage.getItem('accessToken'));
+console.log(token);
 axios.defaults.baseURL = 'https://callboard-backend.herokuapp.com';
-axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+axios.defaults.headers.common['Authorization'] = token;
 
 export const getCategories = async () => {
   try {
@@ -91,7 +92,7 @@ export const patchAdv = id => {
 };
 //===
 
-export const delAds = id => {
+export const delAdv = id => {
   return axios.delete(`/call/${id}`);
 };
 
@@ -164,7 +165,6 @@ export const getFavourites = async () => {
 export const getAds = async () => {
   try {
     if (data.calls.ads.length) {
-      // console.log('load ads:', data.calls.ads);
       return data.calls.ads;
     } else {
       const res = await axios.get(`/call/ads`);
