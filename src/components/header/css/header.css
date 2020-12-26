@@ -33,6 +33,17 @@
   margin: 0 auto;
 }
 
+.harry-say1,
+.harry-say2,
+.harry-say3,
+.harry-say4,
+.harry-say5,
+.harry-bomb,
+.harry-fly {
+  pointer-events: none;
+  cursor: default;
+}
+
 .header__logo:hover .hogvarts,
 .header__logo:focus .hogvarts {
   display: flex;
@@ -46,6 +57,8 @@
   padding-left: 22px;
   color: var(--main-accent-color);
   width: 250px;
+  pointer-events: none;
+  cursor: default;
   height: 50px;
   top: -30px;
   left: 20px;
@@ -59,6 +72,8 @@
   background: #fff;
   text-align: center;
   align-items: center;
+  pointer-events: none;
+  cursor: default;
   padding-right: 5px;
   padding-left: 22px;
   text-transform: uppercase;
@@ -109,6 +124,8 @@
   background: #fff;
   text-align: center;
   align-items: center;
+  pointer-events: none;
+  cursor: default;
   padding-right: 5px;
   padding-left: 5px;
   text-transform: uppercase;
@@ -157,6 +174,8 @@
   background: #fff;
   text-align: center;
   align-items: center;
+  pointer-events: none;
+  cursor: default;
   padding-right: 5px;
   padding-left: 5px;
   text-transform: uppercase;
@@ -205,6 +224,8 @@
   background: #fff;
   text-align: center;
   align-items: center;
+  pointer-events: none;
+  cursor: default;
   padding-right: 5px;
   padding-left: 5px;
   text-transform: uppercase;
@@ -253,6 +274,8 @@
   background: #fff;
   text-align: center;
   align-items: center;
+  pointer-events: none;
+  cursor: default;
   padding-right: 5px;
   padding-left: 5px;
   text-transform: uppercase;
@@ -300,6 +323,8 @@
   position: absolute;
   text-align: center;
   align-items: center;
+  pointer-events: none;
+  cursor: default;
   background-size: cover;
   width: 30px;
   height: 30px;
@@ -349,6 +374,8 @@
   align-items: center;
   background-size: cover;
   width: 200px;
+  pointer-events: none;
+  cursor: default;
   height: 200px;
   top: -10vh;
   left: 34vh;
@@ -391,6 +418,8 @@
   position: absolute;
   align-items: center;
   background-size: cover;
+  pointer-events: none;
+  cursor: default;
   width: 130px;
   height: 130px;
   top: -30px;
@@ -427,6 +456,8 @@
   position: absolute;
   align-items: center;
   background-size: cover;
+  pointer-events: none;
+  cursor: default;
   width: 90px;
   height: 90px;
   top: 10px;
