@@ -2,16 +2,26 @@ import './newAddForm.css';
 import validator from 'validator';
 import axios from 'axios';
 import { data } from '../../../data/data';
+import newAddForm from './newAddForm.hbs';
+import { modalBackDrop } from '../../modal/modalBackDrop'
 
 export const createNewAdv = (adv) => {
+    modalBackDrop(newAddForm());
+    const container = document.querySelector('.modal');
+    const btnXcls = document.querySelector('.modal-close-btn');
+    const onXclose = () => {
+        container.classList.remove('is-open');
+    };
+
+    btnXcls.addEventListener('click', onXclose);
     const inputWrapper = document.querySelector('.input_wrapper');
     const formAdv = document.forms.newAdvForm;
 
     const headers = {
-    'Content-Type': 'multipart/form-data',
+        'Content-Type': 'multipart/form-data',
         Authorization:
-            // 'Bearer ' + JSON.parse(localStorage.getItem('accessToken'))
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmUzMWQyMmE0ZjYyYzAwMTdhZWE3ZTciLCJzaWQiOiI1ZmU2MTZjMmRmZWQ1ZjAwMTdlZWY1NWUiLCJpYXQiOjE2MDg5MTQ2MjYsImV4cCI6MTYwODkxODIyNn0.fIedSUgbKU5mi7W7H3d117f_iPm-HHr5HG9C-o6CpzA',
+        // 'Bearer ' + JSON.parse(localStorage.getItem('accessToken'))
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmUzMWQyMmE0ZjYyYzAwMTdhZWE3ZTciLCJzaWQiOiI1ZmU2MTZjMmRmZWQ1ZjAwMTdlZWY1NWUiLCJpYXQiOjE2MDg5MTQ2MjYsImV4cCI6MTYwODkxODIyNn0.fIedSUgbKU5mi7W7H3d117f_iPm-HHr5HG9C-o6CpzA',
     };
 
     const baseURL = 'https://callboard-backend.herokuapp.com/call';
@@ -58,14 +68,14 @@ export const createNewAdv = (adv) => {
     }
 
     const createGreyMarkup = () => {
-    const markup = `<div class="file_load js-block">
+        const markup = `<div class="file_load js-block">
                         <div class="label_load"></div>
                     </div>`;
-    let resultMarkup = '';
-    for (let i = newObjAdv.file.length; i < 4; i += 1) {
-        resultMarkup += markup;
-    }
-    return resultMarkup;
+        let resultMarkup = '';
+        for (let i = newObjAdv.file.length; i < 4; i += 1) {
+            resultMarkup += markup;
+        }
+        return resultMarkup;
     };
 
     const addPlus = async event => {
@@ -79,7 +89,7 @@ export const createNewAdv = (adv) => {
                     .src = await toDataURL(event.target);
                 return;
             }
-        
+
             await toDataURL(event.target).then(img => {
                 const li = document
                     .querySelector(`[data-id="${id}"]`);
@@ -126,12 +136,12 @@ export const createNewAdv = (adv) => {
         if (type === 'file') return;
         newObjAdv[name] = value;
     }
-     const getPrice = () => {
-        if (newObjAdv.category === "free"
-            || newObjAdv.category === "work"
-            || newObjAdv.category === "trade") {
-                return 0
-            } else return Number(newObjAdv.price)
+    const getPrice = () => {
+        if (newObjAdv.category === "free" ||
+            newObjAdv.category === "work" ||
+            newObjAdv.category === "trade") {
+            return 0
+        } else return Number(newObjAdv.price)
     }
 
     const postNewAdv = async event => {
@@ -142,10 +152,10 @@ export const createNewAdv = (adv) => {
         formData.append('category', newObjAdv.category);
         formData.append('price', getPrice());
         formData.append('phone', newObjAdv.phone);
-        
+
         const allInputsFiles = document.querySelectorAll('.input_load_file');
-        
-        for (let i = 0; i < allInputsFiles.length; i += 1){
+
+        for (let i = 0; i < allInputsFiles.length; i += 1) {
             if (allInputsFiles[i].files.length) {
                 formData
                     .append('file', allInputsFiles[i].files[0], `picture${i}.jpg`);
@@ -156,7 +166,7 @@ export const createNewAdv = (adv) => {
     }
 
     //============================ editAddForm =======================
-    
+
     const editAddForm = () => {
         const editTitle = document.querySelector('.form_text');
         const divDelete = document.querySelector('.form_delete');
@@ -166,7 +176,7 @@ export const createNewAdv = (adv) => {
         <button class="btn_deleteAdv">Удалить объявление</button>
         <p class="delete_text">Удалить объявление</p>
         `
-        newObjAdv = { ...newObjAdv, ...adv }
+        newObjAdv = {...newObjAdv, ...adv }
         formAdv.title.value = newObjAdv.title
         formAdv.description.value = newObjAdv.description
         formAdv.category.value = newObjAdv.category
@@ -184,7 +194,7 @@ export const createNewAdv = (adv) => {
                     </li>
                 `
                 newObjAdv.file.push(item)
-                // formData.append('file', item, `picture${newObjAdv.file.length}.jpg`)
+                    // formData.append('file', item, `picture${newObjAdv.file.length}.jpg`)
                 return acc;
             }, '')
         }
@@ -211,14 +221,13 @@ export const createNewAdv = (adv) => {
         inputWrapper.insertAdjacentHTML('beforeend', createGreyMarkup())
     }
 
-   
-    
+
+
     //================================================================
     adv ? editAddForm() : createBox();
-  
+
     formAdv.addEventListener('input', getFormData);
     formAdv.addEventListener('change', addPlus);
     formAdv.addEventListener('submit', postNewAdv);
 
 }
-
