@@ -3,6 +3,7 @@ import { getAllCategories, getCategoriesSpecific } from '../../api/api';
 import findCard from '../../components/search/templatesSearch.hbs';
 import { data } from '../../data/data';
 import axios from 'axios';
+import cardTpl from '../catalog/categories-list-item/template/category.hbs'
 const baseUrl = 'https://callboard-backend.herokuapp.com';
 
 const main = document.querySelector('.main');
@@ -64,11 +65,12 @@ export const getSearchQuery = async query => {
 //
 //
 export const updateMarkup = goods => {
-  const searchMarkup = findCard(goods);
+  // const searchMarkup = findCard(goods);
   // main.insertAdjacentHTML('beforeend', searchMarkup);
+  console.log('goods :>> ', goods);
   main.innerHTML = `
     <div class="container">
-      <ul class="search-gallery">${searchMarkup}</ul>
+      <ul class="search-gallery">${cardTpl(goods)}</ul>
     </div>
   `;
 };
