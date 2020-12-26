@@ -30,14 +30,35 @@
           <input
             class="mobile-input-closed orange"
             type="search"
-            name ="query"
+            name="query"
             placeholder="Поиск товаров..."
           />
           <button class="mobile-input-cross"></button>
           <button class="mobile-input-btn"></button>
           <div class="mobile-menu-closed">
             <button class="close-menu close-menu-orange"></button>
-            <div class="header-auth-mobile"></div>
+            <div class="header-auth-mobile">
+              <div class ="authNewUser__mobile">
+                <button class="sign-in__btn logInAuth__mobile" data-btn="signin">Вход</button>
+                <span class="sign-in-up__stick"></span>
+                <button class="sign-up__btn signUpAuth__mobile" data-btn="signup">Регистрация</button>
+            </div>
+            <div class ="authLoggedUser__mobile">
+                <button class="sign-in__btn myCabAuth__mobile mobile-loggedUser__carts-orange" data-btn="signin">Мой кабинет</button>
+                <span class="sign-in-up__stick"></span>
+                <button class="sign-up__btn exitCabAut__mobile mobile-loggedUser__exit-orange" data-btn="signup">Exit</button>
+            </div>
+            <div class="acc-cabinet-menu__mobile">
+              <ul class="acc-cabinet-list">
+                  <li class="acc-cabinet-item">
+                      <p class="acc-cabinet-content">Мои объявления</p>
+                  </li>
+                  <li class="acc-cabinet-item">
+                      <p class="acc-cabinet-content">Избранное</p>
+                  </li>
+              </ul>
+          </div>
+            </div>
             <div class="mobile-buttons-wrapper">
               <div class="mobile-filters-wrapper">
                 <button
@@ -61,7 +82,9 @@
         <div class="tablet-upper-wrapper desktop-upper-wrapper">
           <a href="/" class="header__logo logo-orange"
             ><p class="hogvarts orange">Магия вне Хогвартса</p>
-            <span class="harry-fly"><p class="harry-say">Привет</p></span></a
+            <span class="harry-fly"
+              ><p class="harry-say">Вжух<br />(^・ｪ・^)</p></span
+            ></a
           >
           <form
             class="search-form js-search-form js-search-form-desk"
@@ -78,7 +101,30 @@
               type="submit"
             ></button>
           </form>
-          <div class="header-auth" style="position: relative"></div>
+          <div class="acc-cabinet-menu">
+              <ul class="acc-cabinet-list">
+                <li class="acc-cabinet-item">
+                    <p class="acc-cabinet-content">Мои объявления</p>
+                </li>
+                <li class="acc-cabinet-item">
+                    <p class="acc-cabinet-content">Избранное</p>
+                </li>
+            </ul>
+        </div>
+          <div class="header-auth" style="position: relative">
+            <div class ="authNewUser">
+              <button class="sign-in__btn logInAuth" data-btn="signin">Вход</button>
+              <span class="sign-in-up__stick"></span>
+              <button class="sign-up__btn signUpAuth" data-btn="signup">Регистрация</button>
+          </div>
+          <div class ="authLoggedUser">
+              <button class="sign-in__btn myCabAuth loggedUser__carts-orange" data-btn="signin">Мой кабинет</button>
+              <span class="sign-in-up__stick"></span>
+              <button class="sign-up__btn exitCabAut loggedUser__exit-orange" data-btn="signup">Exit</button>
+          </div>
+          
+
+          </div>
           <div class="accent-color-switcher">
             <label>
               <input class="orange-btn" type="radio" name="color" />
@@ -131,44 +177,7 @@
         <ul class="categories-filter-tablet"></ul>
       </div>
     </header>
-    <main class="main">
-      <button class="modal-btn orange"></button>
-      <section class="hero">
-        <div class="hero-wrapper">
-          <div class="slider-wrapper">
-            <ul class="slider" id="hero-slider"></ul>
-          </div>
-          <ul class="side-items"></ul>
-          <ul class="bottom-items"></ul>
-        </div>
-      </section>
-      <section class="categories">
-        <div class="container container-categories"></div>
-      </section>
-      <button class="loader loader__btn-hover">
-        <div class="loader-animation loader__btn">
-          <span class="left-loader-wave"></span>
-          <span class="left-loader-wave"></span>
-          <span class="left-loader-wave"></span>
-          <span class="left-loader-wave"></span>
-          <span class="left-loader-wave"></span>
-          <span class="left-loader-wave"></span>
-          <span class="left-loader-wave"></span>
-          <p type="button" class="loader__btn loader-text">Загрузить ещё</p>
-          <span class="right-loader-wave"></span>
-          <span class="right-loader-wave"></span>
-          <span class="right-loader-wave"></span>
-          <span class="right-loader-wave"></span>
-          <span class="right-loader-wave"></span>
-          <span class="right-loader-wave"></span>
-          <span class="right-loader-wave"></span>
-        </div>
-      </button>
-      <div class="modal-wrapper">
-        <div class="modal"></div>
-      </div>
-      <div class="spinner" id="spin"></div>
-    </main>
+    <main class="main"></main>
     <footer class="footer">
       <div class="modalContainer"></div>
       <div class="container">
@@ -191,4 +200,5 @@
       </div>
     </div>
   </body>
+
 </html>

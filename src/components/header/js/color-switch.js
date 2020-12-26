@@ -17,6 +17,7 @@ function themSwitcher() {
     const exitUserCard = document.querySelector('.loggedUser__exit-orange')
     const mobilelogedUserCard = document.querySelector('.mobile-loggedUser__carts-orange')
     const mobileexitUserCard = document.querySelector('.mobile-loggedUser__exit-orange')
+    const mobileSearch = document.querySelector('.mobile-search')
     // ===================================REFS==================================
     // =================================LISTENERS==============================
     blueBtn.addEventListener('change', () => {
@@ -35,6 +36,7 @@ function themSwitcher() {
         exitUserCard.classList.toggle("loggedUser__exit-blue");
         mobilelogedUserCard.classList.toggle("loggedUser__carts-blue");
         mobileexitUserCard.classList.toggle("loggedUser__exit-blue");
+        mobileSearch.classList.toggle("mobile-search-blue");
     })
     orangeBtn.addEventListener('change', () => {
         html.style.setProperty("--main-accent-color", "#ff6b08");
@@ -52,6 +54,7 @@ function themSwitcher() {
         exitUserCard.classList.remove("loggedUser__exit-blue");
         mobilelogedUserCard.classList.remove("loggedUser__carts-blue");
         mobileexitUserCard.classList.remove("loggedUser__exit-blue");
+        mobileSearch.classList.toggle("mobile-search-blue");
     })
     // =================================LISTENERS==============================
 }
