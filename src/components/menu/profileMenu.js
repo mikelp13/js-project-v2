@@ -1,4 +1,4 @@
-import {getUserAdv} from '../../api/api'
+import {getUserAdv, getFavourites} from '../../api/api'
 
 const refs = {
   mobileCabinet: document.querySelector('.acc-cabinet-list'),
