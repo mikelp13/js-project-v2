@@ -20,6 +20,10 @@ html {
   padding: 0;
 }
 
+.main {
+  min-height: calc(100vh - 133px); 
+}
+
 .container {
   max-width: 280px;
   margin: 0 auto;
