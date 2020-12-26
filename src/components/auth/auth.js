@@ -7,7 +7,7 @@ import logOut from './template/logOut.hbs';
 // import login from './template/login.hbs'
 import { modalBackDrop } from '../modal/modalBackDrop';
 import { data } from '../../data/data';
-// import {CreateCabinetMarkup} from './accCabinet';
+import { CreateCabinetMarkup } from './accCabinet';
 import mistakes from './template/mistakes.hbs';
 
 const url = 'https://callboard-backend.herokuapp.com';
@@ -40,13 +40,13 @@ const myCabAuth = document.querySelector('.myCabAuth');
 const exitCabAut = document.querySelector('.exitCabAut');
 
 const cabMenu = document.querySelector('.acc-cabinet-menu');
-const cabMenuMobile= document.querySelector('.acc-cabinet-menu__mobile')
+const cabMenuMobile = document.querySelector('.acc-cabinet-menu__mobile')
 
 // ===========================ОТРИСОВКА БЛОКА ВХОД/РЕГИСТРАЦИЯ=======================
 
 // =========================HEADER & MOBILE=====================================
 
-const resizeWindow =() => {
+const resizeWindow = () => {
 
     authNewUser.classList.add('nonAuth');
     authLoggedUser.classList.add('nonAuth');
@@ -55,23 +55,23 @@ const resizeWindow =() => {
     cabMenu.classList.add('nonAuth');
     cabMenuMobile.classList.add('nonAuth');
 
-    if (window.innerWidth < 767){
-        if(!localStorage.getItem('accessToken')) {
+    if (window.innerWidth < 767) {
+        if (!localStorage.getItem('accessToken')) {
             authNewUserMobile.classList.remove('nonAuth');
             newUserEnter();
         };
-        if(localStorage.getItem('accessToken')) {
+        if (localStorage.getItem('accessToken')) {
             authLoggedUserMobile.classList.remove('nonAuth');
             loggedUserEnter();
         };
         return;
     };
-    if (window.innerWidth >= 768){
-        if(!localStorage.getItem('accessToken')) {
+    if (window.innerWidth >= 768) {
+        if (!localStorage.getItem('accessToken')) {
             authNewUser.classList.remove('nonAuth');
             newUserEnter();
-         };
-        if(localStorage.getItem('accessToken')) {
+        };
+        if (localStorage.getItem('accessToken')) {
             authLoggedUser.classList.remove('nonAuth');
             loggedUserEnter();
         };
@@ -88,22 +88,22 @@ function newUserEnter() {
     // console.log('newUser', data.auth.isAuth, data.auth.accessToken);
 };
 
-function loggedUserEnter () {
+function loggedUserEnter() {
     data.auth.isAuth = true;
     data.auth.accessToken = localStorage.getItem('accessToken');
     // console.log('loggedUser', data.auth.isAuth, data.auth.accessToken);
 };
 
 // ================================REGISTRATION===================================
-function regitsrationUser(event) {
+export function regitsrationUser(event) {
     modalBackDrop(signUp());
-    
+
 
     // headerAuthMobile.classList.add('modal')
     // headerAuth.classList.add('modal')
     const container = document.querySelector('.modal');
 
-    
+
     const authForm = document.forms.authForm;
 
     if (event.target.dataset.btn === 'signup') {
@@ -111,7 +111,7 @@ function regitsrationUser(event) {
         authForm.signUp.classList.add('active');
     } else if (event.target.dataset.btn === 'signin') {
         authForm.signUp.classList.remove('active');
-        authForm.logIn.classList.add('active'); 
+        authForm.logIn.classList.add('active');
     };
 
     const onXclose = () => {
@@ -120,9 +120,9 @@ function regitsrationUser(event) {
     };
     const btnXcls = authForm.close;
     btnXcls.addEventListener('click', onXclose);
-  
 
-       
+
+
     const gatherInfo = () => {
         return user = {
             email: authForm.email.value,
@@ -130,26 +130,26 @@ function regitsrationUser(event) {
         };
     };
 
-    const onSignUpBtn = async () => {
+    const onSignUpBtn = async() => {
         try {
             authForm.logIn.classList.remove('active');
             authForm.signUp.classList.add('active');
-            const result = await axios.post(`${url}/auth/register`, { ...user });
+            const result = await axios.post(`${url}/auth/register`, {...user });
             authForm.signUp.classList.remove('active');
             authForm.logIn.classList.add('active');
             onLogInBtn();
         } catch (err) {
-           console.log(err)
+            console.log(err)
         }
     };
 
-    const onLogInBtn = async () => {
+    const onLogInBtn = async() => {
         try {
             authForm.signUp.classList.remove('active');
             authForm.logIn.classList.add('active');
-            const result = await axios.post(`${url}/auth/login`, { ...user });
+            const result = await axios.post(`${url}/auth/login`, {...user });
             localStorage.setItem('accessToken', JSON.stringify(`Bearer ${result.data.accessToken}`));
-            data.user = { ...result.data.user }
+            data.user = {...result.data.user }
             data.auth.accessToken = result.data.accessToken;
             data.auth.isAuth = true;
             onXclose();
@@ -160,7 +160,7 @@ function regitsrationUser(event) {
             console.log(err);
         }
     };
-            
+
 
     const checkSubmit = (event) => {
         event.preventDefault()
@@ -179,20 +179,20 @@ function regitsrationUser(event) {
 // ============================MY CABINET=========================================
 
 function onCabPress() {
-    if(!authLoggedUserMobile.classList.contains('nonAuth')) {
-        if(cabMenuMobile.classList.contains('nonAuth')) {
+    if (!authLoggedUserMobile.classList.contains('nonAuth')) {
+        if (cabMenuMobile.classList.contains('nonAuth')) {
             cabMenuMobile.classList.remove('nonAuth')
-        } else {cabMenuMobile.classList.add('nonAuth')}
+        } else { cabMenuMobile.classList.add('nonAuth') }
     };
-    if(!authLoggedUser.classList.contains('nonAuth')) {
-        if(cabMenu.classList.contains('nonAuth')) {
+    if (!authLoggedUser.classList.contains('nonAuth')) {
+        if (cabMenu.classList.contains('nonAuth')) {
             cabMenu.classList.remove('nonAuth')
-        } else {cabMenu.classList.add('nonAuth')}
+        } else { cabMenu.classList.add('nonAuth') }
     };
 };
 
 // ============================EXIT CABINET====================================
-function onCabExit () {
+function onCabExit() {
     modalBackDrop(logOut());
     const container = document.querySelector('.modal');
 
@@ -200,10 +200,10 @@ function onCabExit () {
     const authFormLogOut = document.querySelector('.authForm__btn_logOut');
     const authFormExit = document.querySelector('.authForm__btn_exit');
 
-    if(!cabMenuMobile.classList.contains('nonAuth')) {
+    if (!cabMenuMobile.classList.contains('nonAuth')) {
         cabMenuMobile.classList.add('nonAuth');
     };
-    if(!cabMenu.classList.contains('nonAuth')) {
+    if (!cabMenu.classList.contains('nonAuth')) {
         cabMenu.classList.add('nonAuth');
     };
 
@@ -218,12 +218,12 @@ function onCabExit () {
     authFormExit.addEventListener('click', onXclose);
 
     function logOutUser() {
-            localStorage.removeItem('accessToken');
-            data.auth.accessToken = '';
-            data.auth.isAuth = false;
-            resizeWindow();
-            container.classList.remove('is-open');
-            authFormLogOut.removeEventListener('click', logOutUser);
+        localStorage.removeItem('accessToken');
+        data.auth.accessToken = '';
+        data.auth.isAuth = false;
+        resizeWindow();
+        container.classList.remove('is-open');
+        authFormLogOut.removeEventListener('click', logOutUser);
     }
 
     authFormLogOut.addEventListener('click', logOutUser);
@@ -243,7 +243,7 @@ exitCabAutMobile.addEventListener('click', onCabExit);
 //         // const mistakeEmail = authForm.querySelector('.mistake__email');
 //         // const mistakePassword = authForm.querySelector('.mistake__password');
 //         // const options = { minLength: 6, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
-       
+
 //         // if (validator.isEmail(authForm.email.value)) {
 //         //     mistakeEmail.textContent = '';
 //         //     user.email = authForm.email.value;

@@ -1,25 +1,22 @@
-const newAdv = document.querySelector('.header__create-ad-btn');
+import { createNewAdv } from '../../ads/newAddForm/newAddForm.js'
+import { regitsrationUser } from '../../../components/auth/auth.js'
+
+const buttonNewAdv = document.querySelector('.header__create-ad-btn');
 let registered;
 
-
-const createAdv = () => {
+const createAdv = (e) => {
     console.log('Make your new adv');
-
-    // Добавить модальное окно "Создать объявление"
+    createNewAdv(e);
 }
 
-
-const goToRegistrationForm = () => {
+const goToRegistrationForm = (e) => {
     console.log('You need to fill the registration form');
-    // Добавить модальное окно "Зарегистрироваться"
-    registered = true;
-    localStorage.setItem('isAuth', JSON.stringify(registered));
-
+    regitsrationUser(e);
 }
 
-const addNewAdv = () => {
-    registered ? createAdv() : goToRegistrationForm();
+const checkRegistered = (e) => {
+    registered = localStorage.getItem('accessToken');
+    registered ? createAdv() : goToRegistrationForm(e);
 }
 
-
-newAdv.addEventListener('click', addNewAdv)
+buttonNewAdv.addEventListener('click', checkRegistered)
