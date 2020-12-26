@@ -30,6 +30,7 @@ import {
   getRussianCategories,
 } from './api/api';
 
+
 const getInitialData = async () => {
   await createMainMarkup();
   await getSliderItems();
@@ -43,5 +44,6 @@ const getInitialData = async () => {
   ]);
   createСategories();
   getUserData();
+
 };
 getInitialData();
