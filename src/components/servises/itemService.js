@@ -18,43 +18,20 @@ export const getUserData = async () => {
     console.log(error);
   }
 }
-
 //=== Call endpoints ===//
 
 /*
  Публикация, редактирование и удаление обьявления, получает такой обьект
 */
 
-// const newAds = {
-//     title: "string",
-//     description: "string",
-//     category: "string",
-//     price: "integer",
-//     phone: "string",
-//     file: "string($binary)",
-// };
-
-// export const postAds = (newAds) => {
-//   return axios.post(`${baseUrl}/call`, newAds);
-// };
-
-export const postAds = advertData => {
-  const { title, description, category, price, phone, file } = advertData;
-  return axios.post(`${baseUrl}/call`, {
-    title,
-    description,
-    category,
-    price,
-    phone,
-    file,
-  });
+export const postAds = newAds => {
+  return axios.post(`/call`, newAds);
 };
-
 // postAds();
 
 export const patchAds = (advertData, id) => {
   const { title, description, category, price, phone, file } = advertData;
-  return axios.patch(`${baseUrl}/call/${id}`, {
+  return axios.patch(`/call/${id}`, {
     title,
     description,
     category,
@@ -63,11 +40,10 @@ export const patchAds = (advertData, id) => {
     file,
   });
 };
-
 // patchAds();
 
 export const delAds = id => {
-  return axios.delete(`${baseUrl}/call/${id}`);
+  return axios.delete(`/call/${id}`);
 };
 
 // delAds();
@@ -115,7 +91,7 @@ export const delAds = id => {
 //   ],
 
 export const getPagesCategories = (page = 1) => {
-  return axios.get(`${baseUrl}/call?page=${page}`);
+  return axios.get(`/call?page=${page}`);
 };
 
 // getPagesCategories();
@@ -125,7 +101,6 @@ export const getPagesCategories = (page = 1) => {
 /*
  Запрос, а так же добавляет и  удаляет избранное (id параметр в обьекте call)
 */
-
 
 export const getFavourites = async () => {
   try {
@@ -139,11 +114,9 @@ export const getFavourites = async () => {
   catch (error) {
     console.log(error);
   }
-
 };
 
 // getFavourites();
-
 
 export const addFavourite = async (id, favorItem, favorName) => {
   axios.defaults.headers.common['Authorization'] = `Bearer ${key}`;
@@ -222,7 +195,7 @@ export const delFavourite = id => {
 */
 
 export const getUserCalls = () => {
-  return axios.get(`${baseUrl}/call/own}`);
+  return axios.get(`/call/own}`);
 };
 
 // getUserCalls();
@@ -234,10 +207,10 @@ export const getUserCalls = () => {
 */
 
 export const getSearchQuery = searchQuery => {
-  return axios.get(`${baseUrl}/call/find?search=${searchQuery}`);
+  return axios.get(`/call/find?search=${searchQuery}`);
 };
 
-// getSearchQuery();
+// getSearchQuery('Work');
 
 //===bra
 
@@ -246,22 +219,47 @@ export const getSearchQuery = searchQuery => {
 */
 
 // [
-//   "property",
-//   "transport",
-//   "work",
-//   "electronics",
-//   "business and services",
-//   "recreation and sport",
-//   "free",
-//   "trade",
+//   'Недвижимость',
+//   'Транспорт',
+//   'Работа',
+//   'Электроника',
+//   'Бизнес и услуги',
+//   'Отдых и спорт',
+//   'Отдам бесплатно',
+//   'Обмен',
 // ];
 
-export const getCategories = () => {
-  return axios.get(`${baseUrl}/call/categories`);
+// export const getCategories = async () => {
+//   if (data.call.allCategories.length) {
+//     return data.call.allCategories;
+//   } else {
+//     const res = await axios.get(`/call/categories`);
+//     data.call.allCategories = [...res];
+
+//     return res;
+//   }
+// };
+// console.log(data.call.allCategories);
+
+// // getCategories();
+
+const getCategories = async () => {
+  try {
+    const result = await axios.get(
+      'https://callboard-backend.herokuapp.com/call/categories',
+    );
+    console.log(result);
+    data.calls.categories = [...result.data];
+    // console.log(data.calls.categories);
+    result.data.forEach(item => (data.calls.categoriesList[item] = []));
+    // console.log(data.calls.categoriesList);
+    // console.log(data.calls);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // getCategories();
-
 //===
 
 /*
@@ -269,10 +267,10 @@ export const getCategories = () => {
 */
 
 export const getOneCategory = cat => {
-  return axios.get(`${baseUrl}/call/specific/${cat}`);
+  return axios.get(`/call/specific/${cat}`);
 };
 
-// getOneCategory("work");
+// getOneCategory();
 
 //===
 
@@ -295,10 +293,48 @@ export const getOneCategory = cat => {
 //   },
 // ];
 
-export const getAds = () => {
-  return axios.get(`${baseUrl}/call/ads`);
-};
+// export const getAds = () => {
+//   return axios.get(`/call/ads`);
+// };
 
-getAds();
+// getAds();
+
+// export const getAds = async () => {
+//   try {
+//     if (data.calls.ads.length) {
+//       console.log('load ads:', data.calls.ads);
+//       return data.calls.ads;
+//     } else {
+//       const res = await axios.get(`/call/ads`);
+//       data.calls.ads = [...res.data];
+//       console.log('get ads:', data.calls.ads);
+//       return res.data;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// getAds();
+// getAds();
+
+// export const getCategories = async () => {
+//   try {
+//     if (data.calls.categories.length) {
+//       console.log('if result:', data.calls.categories);
+//       return data.calls.categories;
+//     } else {
+//       const result = await axios.get(
+//         'https://callboard-backend.herokuapp.com/call/categories',
+//       );
+//       data.calls.categories = [...createCamelCase(result.data)];
+//       result.data.forEach(
+//         item => (data.calls.specificCategory[createCamelCase(item)] = []),
+//       );
+//       console.log('getCategories API:', [...result.data]);
+//       return result.data;
+//     }
+//   } catch (error) {}
+// };
 
 //===

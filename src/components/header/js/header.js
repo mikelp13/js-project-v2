@@ -84,7 +84,8 @@ function activeCategory(e) {
         if (e.target.classList.contains('active-category')) {
             return;
     }
-    e.target.classList.add('active-category');
+        e.target.classList.add('active-category');
+        e.target.classList.add('orange');
     }
 }
 
