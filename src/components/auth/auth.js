@@ -9,6 +9,7 @@ import { modalBackDrop } from '../modal/modalBackDrop';
 import { data } from '../../data/data';
 import { CreateCabinetMarkup } from './accCabinet';
 import mistakes from './template/mistakes.hbs';
+import { getUserData } from '../../api/api';
 
 const url = 'https://callboard-backend.herokuapp.com';
 
@@ -152,6 +153,7 @@ export function regitsrationUser(event) {
             data.user = {...result.data.user }
             data.auth.accessToken = result.data.accessToken;
             data.auth.isAuth = true;
+            getUserData();
             onXclose();
             resizeWindow()
             authForm.removeEventListener('submit', checkSubmit);

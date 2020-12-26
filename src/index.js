@@ -29,20 +29,19 @@ import {
   getCategoriesSpecific,
   getRussianCategories,
 } from './api/api';
-import './components/menu/profileMenu'
+import './components/menu/profileMenu';
 
 const getInitialData = async () => {
-  await createMainMarkup();
-  await getSliderItems();
   await getCategories();
-  await getRussianCategories();
   const catSpecPromise = await Promise.all([
+    getRussianCategories(),
     getCategoriesSpecific(data.calls.categories[0]),
     getCategoriesSpecific(data.calls.categories[1]),
     getCategoriesSpecific(data.calls.categories[2]),
     getCategoriesSpecific(data.calls.categories[3]),
   ]);
+  createMainMarkup();
   createСategories();
-  getUserData();
+  getSliderItems();
 };
 getInitialData();

@@ -10,8 +10,8 @@ export const getCategories = async () => {
       return data.calls.categories;
     } else {
       const res = await axios.get(`/call/categories`);
-      data.calls.categories = [...res.data.map(item => item)];
-
+      data.calls.categories = [...res.data];
+      data.calls.originalCategories = [...res.data];
       res.data.forEach(item => (data.calls.specificCategory[item] = []));
       return res.data;
     }
@@ -22,8 +22,8 @@ export const getCategories = async () => {
 
 export const getCategoriesSpecific = async categoryName => {
   try {
-    if (data.calls.specificCategory.length) {
-      return data.calls.specificCategory;
+    if (data.calls.specificCategory[categoryName].length) {
+      return data.calls.specificCategory[categoryName];
     } else {
       const res = await axios.get(`/call/specific/${categoryName}`);
       data.calls.specificCategory[categoryName] = [...res.data];

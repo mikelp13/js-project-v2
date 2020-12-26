@@ -1,5 +1,8 @@
-import { createNewAdv } from '../../ads/newAddForm/newAddForm.js'
-import { regitsrationUser } from '../../../components/auth/auth.js'
+import { createNewAdv } from '../../ads/newAddForm/newAddForm';
+import { modalBackDrop } from '../../modal/modalBackDrop';
+import newAddForm from '../../ads/newAddForm/newAddForm.hbs';
+import { data } from '../../../data/data';
+
 
 const buttonNewAdv = document.querySelector('.header__create-ad-btn');
 let registered;
@@ -16,7 +19,10 @@ const goToRegistrationForm = (e) => {
 
 const checkRegistered = (e) => {
     registered = localStorage.getItem('accessToken');
-    registered ? createAdv() : goToRegistrationForm(e);
+    modalBackDrop(newAddForm());
+    // createNewAdv();
+    createNewAdv(data.calls.specificCategory.property[39]);
+    // registered ? createAdv() : goToRegistrationForm(e);
 }
 
 buttonNewAdv.addEventListener('click', checkRegistered)
