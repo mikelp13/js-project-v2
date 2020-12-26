@@ -69,11 +69,6 @@
   pointer-events: none;
 }
 
-.authForm__input:focus + .input-placeholder,
-.authForm__input:valid + .input-placeholder {
-  top: -25px;
-  left: -8px;
-}
 
 .input-line {
   position: absolute;
@@ -87,16 +82,22 @@
   pointer-events: none;
 }
 
-.authForm__input:focus ~ .input-line,
+.authForm__input:focus + .input-placeholder, 
+.authForm__input:valid + .input-placeholder {
+  top: -25px;
+  left: -8px;
+}
+
+.authForm__input:focus ~ .input-line, 
 .authForm__input:valid ~ .input-line {
   height: 100%;
 }
 
-.authForm__input:focus ~ .input-line,
+/* .authForm__input:focus ~ .input-line,
 .authForm__input:invalid ~ .input-line {
   height: 100%;
   background-color: #e63131;
-}
+} */
 
 .logOut__wrap {
   background-color: #031c33;

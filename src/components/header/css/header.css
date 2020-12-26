@@ -47,8 +47,8 @@
   color: var(--main-accent-color);
   width: 250px;
   height: 50px;
-  top: -3vh;
-  left: 2vh;
+  top: -30px;
+  left: 20px;
   border-radius: 40%;
 }
 
@@ -403,6 +403,42 @@
 }
 
 @keyframes animateBOMB3 {
+  0% {
+    opacity: 0;
+  }
+
+  61% {
+    opacity: 0;
+  }
+
+  62% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.header__logo:hover .booom-fire2,
+.header__logo:focus .booom-fire2 {
+  display: flex;
+  text-align: center;
+  position: absolute;
+  align-items: center;
+  background-size: cover;
+  width: 90px;
+  height: 90px;
+  top: 10px;
+  left: 275px;
+  opacity: 1;
+  background-image: url(../images/magic-logo/bomb/29985c89065e8e08f4e74f2604559352_w200.gif);
+  z-index: 5000;
+  animation: animateBOMB4 15s linear 1;
+  transition: 0.5s;
+}
+
+@keyframes animateBOMB4 {
   0% {
     opacity: 0;
   }
