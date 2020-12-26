@@ -157,15 +157,15 @@ export const addFavourite = async (id, favorItem, favorName) => {
     {
       await axios.delete(`${baseUrl}/call/favourite/${id}`)
       data.user.favourites=[...data.user.favourites.filter(item => item._id !== id)]
-      favorItem.classList.toggle('activeicon')
-      favorName.classList.toggle('activename')
+      favorItem.classList.toggle('active-icon')
+      favorName.classList.toggle('active-icon')
     }
     else { await axios.post(`${baseUrl}/call/favourite/${id}`)
     .then(response => {
       data.user.favourites = [...response.data.newFavourites]
      // const favorItem = document.querySelector('.heart');
-      favorItem.classList.toggle('activeicon')
-      favorName.classList.toggle('activename')
+      favorItem.classList.toggle('active-icon')
+      favorName.classList.toggle('active-icon')
 
 
     }
@@ -183,10 +183,13 @@ export const addFavourite = async (id, favorItem, favorName) => {
         if ( JSON.parse(localStorage.getItem('favorites')).some(item => item === id)) {
 
           localStorage.setItem('favorites', JSON.stringify(localFavorites.filter(item => item !== id)))
-          favorItem.classList.toggle('activeicon')
+          favorItem.classList.toggle('active-icon')
+          favorName.classList.toggle('active-icon')
         }
         else {localStorage.setItem('favorites', JSON.stringify([...localFavorites, id]))
-        favorItem.classList.toggle('activeicon')}
+        favorItem.classList.toggle('active-icon')
+        favorName.classList.toggle('active-icon')
+      }
       }
       else {
         localStorage.setItem('favorites', JSON.stringify([id]))

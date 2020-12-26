@@ -1,3 +1,4 @@
+
 *, ::after, ::before {
   box-sizing: border-box;
 }
@@ -16,11 +17,21 @@ h1, h2,h3, h4, h5, h6, p {
   background-color: white;
 }
 
-.activeicon {
+.icon {
+  fill: #878686;
+}
+
+.name {
+  margin-right: 13px;
+  fill: #878686;
+}
+
+.active-icon {
   fill:  #FF6B09;
 
 }
-.activename{
+
+.active-name {
   color: #FF6B09;
   font-size: 30px;
 }
@@ -45,12 +56,13 @@ product-card__image__secondary
 
 .product-card__list {
 padding: 55px 16px 61px 18px;
-font-family: Montserrat, sans-serif;
+font-family: 'MontserratLight', sans-serif;
 font-style: normal;
 list-style: none;
 }
 
 .product-card__title__name {
+font-family: 'MontserratBold', sans-serif;
 margin-bottom: 5px;
 font-weight: 700;
 font-size: 18px;
@@ -161,12 +173,7 @@ color: #878686;
   }
   }
 
-  /*@media screen and (max-width: 767px) {
-    .product-card__image__main {
-      width: 281px;
-      height: 333px;
-  }}*/
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .product-card__image__main {
       display: none;}
     }
@@ -181,6 +188,10 @@ color: #878686;
 
     /*background-color: yellow;*/
     }
+    .product-card__image__main {
+      width: 281px;
+      height: 333px;
+  }
     .product-card__list {
       display: flex;
       min-width: 0;
@@ -214,10 +225,10 @@ color: #878686;
       padding: 54px 61px;
     }
 
-   /* .product-card__image__main {
+    .product-card__image__main {
       width: 428px;
       height: 465px;;
-    }*/
+    }
 
     .image__secondary__list {
       width: 77.5px;
