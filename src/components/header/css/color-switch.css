@@ -83,3 +83,17 @@
               0 0 30px var(--main-accent-color),
               0 0 40px var(--main-accent-color);
 }
+
+@media (max-width: 767px) {
+  .accent-color-switcher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    border-radius: 40px;
+    transform: rotate(0deg);
+  }
+}
