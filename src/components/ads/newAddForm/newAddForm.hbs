@@ -5,18 +5,11 @@
 
     <div class="form_field">
         <label class="name_product">Название товара</label>
-            <input class="form_input form_name_product" name="title" type="text" >
+            <input class="form_input form_name_product" placeholder="Название" name="title" type="text" >
     </div>
-
-    <div class="form_field">
-        <label class="name_product">Фото</label>
-    </div>
-
-        <ul class="input_wrapper"></ul>
-    
     <div class="form_field">
         <label class="name_product">Описание товара</label>
-        <textarea class="form_input" name="description" ></textarea>
+        <textarea class="form_input description_product" name="description" ></textarea>
     </div>
 
     <div class="form_field">
@@ -39,7 +32,10 @@
         {{!-- pattern="[\+]\d{2}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" --}}
         placeholder="+38 (0--) --- -- --" >
     </div>
-    
+    <div class="form_field">
+        <label class="name_product">Фото</label>
+        <ul class="input_wrapper"></ul>
+    </div>
     <div class="form_delete"></div>
     
     <div class="btn">

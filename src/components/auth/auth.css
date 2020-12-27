@@ -38,6 +38,10 @@
   transition: 0.5s;
 }
 
+.authForm__col:nth-child(1) {
+  margin-bottom: 35px;
+}
+
 .authForm__inputBox {
   position: relative;
   width: 100%;
@@ -47,6 +51,7 @@
 
 .authForm__input {
   position: absolute;
+  left: 0;
   width: 100%;
   height: 100%;
   background: transparent;
@@ -64,6 +69,7 @@
   top: 0;
   left: 0;
   padding: 0 10px;
+  font-size: 16px;
   display: block;
   transition: 0.5s;
   pointer-events: none;
@@ -156,6 +162,7 @@
 .authForm__txt_out {
   font-family: MontserratMedium;
   font-style: normal;
+  text-align: start;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.214;
@@ -201,6 +208,12 @@
 
 .authForm__btn_logIn {
   margin-right: 20px;
+}
+
+.mistake__email,
+.mistake__password {
+  position: absolute;
+  top: 41px;
 }
 
 .authForm__btn_logOut:hover,
