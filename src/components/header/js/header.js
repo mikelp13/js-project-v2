@@ -11,8 +11,14 @@ export const refreshMain = () => {
   createMainMarkup();
   createСategories();
   getSliderItems();
-  const activeCategory = document.querySelector('.categories-filter').querySelector('.active-category')
-  activeCategory && activeCategory.classList.toggle('active-category')
+  const activeCategory = document
+    .querySelector('.categories-filter')
+    .querySelector('.active-category');
+  activeCategory && activeCategory.classList.toggle('active-category');
+  const tabletFilters = document.querySelector('.categories-filter-tablet');
+  if (tabletFilters) {
+    tabletFilters.style.display = 'none';
+  }
 };
 
 export const createHeader = () => {
@@ -64,8 +70,11 @@ export const createHeader = () => {
     if (tabletFilters.innerHTML === '') {
       tabletFilters.style.display = 'flex';
       tabletFilters.innerHTML = createCategoriesMarkup();
+
       // renderCategory(event);
-      tabletFilters.addEventListener('click', renderCategory(event))
+      // console.log('object :>> ',  tabletFilters.parentNode);
+      // document.querySelector('.')
+      // document.querySelector('.categories-filter-tablet').addEventListener('click', renderCategory(event))
     } else {
       tabletFilters.style.display = 'none';
       tabletFilters.innerHTML = '';
@@ -105,6 +114,8 @@ export const createHeader = () => {
 
   function activeCategory(e) {
     if (e.target.nodeName === 'A') {
+      renderCategory(e);
+      document.querySelector('.slider-container').innerHTML = '';
       clearActiveCategory();
       if (e.target.classList.contains('active-category')) {
         return;
@@ -119,9 +130,6 @@ export const createHeader = () => {
   categoriesMobileList.addEventListener('click', activeCategory);
   clearCategoryBtn.addEventListener('click', clearActiveCategory);
   clearCategoryMobileBtn.addEventListener('click', clearActiveCategory);
-
-
-
 
   function clearActiveCategory() {
     if (document.querySelector('.active-category')) {
@@ -140,8 +148,11 @@ export const createHeader = () => {
     console.log('event.currentTarget :>> ', event.currentTarget);
     console.log(event.target.closest('[data-category]').dataset.category);
     const category = event.target.closest('[data-category]').dataset.category;
-    console.log('data.calls.specificCategory[category] :>> ', data.calls.specificCategory[category]);
-    openByCategory(await getCategoriesSpecific(category))
+    console.log(
+      'data.calls.specificCategory[category] :>> ',
+      data.calls.specificCategory[category],
+    );
+    openByCategory(await getCategoriesSpecific(category));
   };
 
   navigation.addEventListener('click', renderCategory);
