@@ -39,7 +39,7 @@ input::-webkit-search-results-decoration {
   font-family: 'MontserratMedium', sans-serif;
   outline: none;
   color: var(--main-accent-color);
-  background: #112437;
+  background: var(--main-base-color);
   border: none;
   border-radius: 40px;
   font-size: 12px;
@@ -58,7 +58,7 @@ input::-webkit-search-results-decoration {
   font-family: 'MontserratMedium', sans-serif;
   outline: none;
   color: var(--main-accent-color);
-  background: #112437;
+  background: var(--main-base-color);
   border: none;
   border-radius: 40px;
   font-size: 12px;

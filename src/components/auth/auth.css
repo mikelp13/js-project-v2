@@ -5,7 +5,7 @@
 }
 
 .authForm {
-  background-color: #031c33;
+  background-color: var(--modal-bg-color);
   width: 530px;
   padding: 50px 45px;
   position: absolute;
@@ -106,7 +106,7 @@
 } */
 
 .logOut__wrap {
-  background-color: #031c33;
+  background-color: var(--modal-bg-color);
   width: 650px;
   height: 230px;
   padding: 60px;

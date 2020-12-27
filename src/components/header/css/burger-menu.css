@@ -12,7 +12,7 @@
   align-items: baseline;
   width: 93.75vw;
   height: 100vh;
-  background-color: #031c33;
+  background-color: var(--modal-bg-color);
   transition: 0.5s;
   z-index: 3;
 }
