@@ -31,6 +31,10 @@ export const openByCategory = async (data) => {
             btnByCategoryRef.addEventListener('click', () => {
                 byCategoryRef.style.display = 'block';
                 sectionCategoryRef.style.display = 'none';
+                window.scrollTo({
+                    top: document.documentElement.offsetHeight - 2935,
+                    behavior: 'smooth'
+                });  
             });
             
         };
