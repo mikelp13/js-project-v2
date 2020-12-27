@@ -3,7 +3,8 @@ import { getAllCategories, getCategoriesSpecific } from '../../api/api';
 import findCard from '../../components/search/templatesSearch.hbs';
 import { data } from '../../data/data';
 import axios from 'axios';
-import cardTpl from '../catalog/categories-list-item/template/category.hbs'
+import cardTpl from '../catalog/categories-list-item/template/category.hbs';
+import { refreshMain } from '../header/js/header';
 const baseUrl = 'https://callboard-backend.herokuapp.com';
 
 const main = document.querySelector('.main');
@@ -19,34 +20,32 @@ export const getSearchQuery = async query => {
       return data.calls.specificCategory[category];
     } else {
       console.log(getCategoriesSpecific(category));
-      const result = await getCategoriesSpecific(category)
+      const result = await getCategoriesSpecific(category);
       console.log('result :>> ', result);
-      return result.data
+      return result.data;
     }
-   
   } else {
     // const result = await getAllCategories(query)
-    const result = await axios.get(`${baseUrl}/call/find?search=${query}`)
+    const result = await axios.get(`${baseUrl}/call/find?search=${query}`);
     console.log('result :>> ', result);
-    return result.data
+    return result.data;
   }
-}
-  //   await getCategoriesSpesific(
-  //     data.calls.specificCategory.find(item => item.includes(query)),
-  //   );
-  //   console.log(data.calls.specificOneCategory);
-  //   updateMarkup();
+};
+//   await getCategoriesSpesific(
+//     data.calls.specificCategory.find(item => item.includes(query)),
+//   );
+//   console.log(data.calls.specificOneCategory);
+//   updateMarkup();
 
-  //   // console.log(data.calls.specificCategory[query]);
-  //   //const allCategories = await getCategories();
-  //   // allCategories.find(item => item.includes(query));
-  //   // // return data.calls.categories;
-  // } else {
-  //   return fetch(`${baseUrl}/call/find?search=${query}`).then(response =>
-  //     response.json().then(data => data),
-  //   );
-  // }
-
+//   // console.log(data.calls.specificCategory[query]);
+//   //const allCategories = await getCategories();
+//   // allCategories.find(item => item.includes(query));
+//   // // return data.calls.categories;
+// } else {
+//   return fetch(`${baseUrl}/call/find?search=${query}`).then(response =>
+//     response.json().then(data => data),
+//   );
+// }
 
 //=========data=!!!=====end==========
 //========
@@ -70,9 +69,11 @@ export const updateMarkup = goods => {
   console.log('goods :>> ', goods);
   main.innerHTML = `
     <div class="search-container">
+    <button class="close-search-btn" type="button">закрити</button>
       <ul class="search-gallery">${cardTpl(goods)}</ul>
     </div>
   `;
+  getCloseBtn();
 };
 
 const getSearchItem = event => {
@@ -88,7 +89,6 @@ const inMobileEnter = inputValue => {
   if (inputValue.length >= 1) {
     getSearchQuery(inputValue)
       .then(goods => {
-       
         updateMarkup(goods);
       })
       .catch(error => console.log(error));
@@ -134,3 +134,10 @@ searchForm.addEventListener('submit', getSearchItem);
 searchForm2.addEventListener('submit', getSearchItem);
 mainInputMob.addEventListener('change', getSearchItemMobile);
 document.addEventListener('keydown', onPressEnterSearch);
+
+//===================closeBtn=============================
+
+  const getCloseBtn = () => {
+    const closeBtn = document.querySelector('.close-search-btn');
+    closeBtn.addEventListener('click', refreshMain);
+};
