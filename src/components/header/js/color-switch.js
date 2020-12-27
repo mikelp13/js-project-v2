@@ -20,7 +20,8 @@ function themSwitcher() {
     const mobileSearch = document.querySelector('.mobile-search')
     // ===================================REFS==================================
     // =================================LISTENERS==============================
-    blueBtn.addEventListener('change', () => {
+    orangeBtn.addEventListener('change', () => {
+        if(orangeBtn.checked) {
         html.style.setProperty("--main-accent-color", "#00bcd4");
         headerLogo.classList.toggle("blue");
         headerLogoMobile.classList.toggle("blue");
@@ -37,8 +38,7 @@ function themSwitcher() {
         mobilelogedUserCard.classList.toggle("loggedUser__carts-blue");
         mobileexitUserCard.classList.toggle("loggedUser__exit-blue");
         mobileSearch.classList.toggle("mobile-search-blue");
-    })
-    orangeBtn.addEventListener('change', () => {
+        } else {
         html.style.setProperty("--main-accent-color", "#ff6b08");
         headerLogo.classList.remove("blue");
         headerLogoMobile.classList.remove("blue");
@@ -55,8 +55,7 @@ function themSwitcher() {
         mobilelogedUserCard.classList.remove("loggedUser__carts-blue");
         mobileexitUserCard.classList.remove("loggedUser__exit-blue");
         mobileSearch.classList.toggle("mobile-search-blue");
+        }
     })
-    // =================================LISTENERS==============================
 }
-
 themSwitcher()
