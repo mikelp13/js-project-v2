@@ -1,5 +1,4 @@
 import { getCategoriesSpecific } from '../../../api/api';
-import { data } from '../../../data/data';
 import { createCategoriesMarkup } from '../../../utils/categories';
 import { openByCategory } from '../../catalog/categories-list';
 import { createСategories } from '../../catalog/categories-list-item';
@@ -23,7 +22,6 @@ export const refreshMain = () => {
 };
 
 export const createHeader = () => {
-  const categoriesMarkup = categories();
   const categoriesList = document.querySelector('.categories-filter');
   categoriesList.insertAdjacentHTML('beforeend', createCategoriesMarkup());
   const categoriesTabletList = document.querySelector(
@@ -32,8 +30,6 @@ export const createHeader = () => {
   const categoriesMobileList = document.querySelector(
     '.categories-filter-mobile',
   );
-  const filterItem = document.querySelectorAll('.filter-item');
-
   // ===========================REFS===================================
 
   const mobileFilters = document.querySelector('.categories-filter-mobile');
@@ -71,11 +67,6 @@ export const createHeader = () => {
     if (tabletFilters.innerHTML === '') {
       tabletFilters.style.display = 'flex';
       tabletFilters.innerHTML = createCategoriesMarkup();
-
-      // renderCategory(event);
-      // console.log('object :>> ',  tabletFilters.parentNode);
-      // document.querySelector('.')
-      // document.querySelector('.categories-filter-tablet').addEventListener('click', renderCategory(event))
     } else {
       tabletFilters.style.display = 'none';
       tabletFilters.innerHTML = '';
@@ -146,7 +137,6 @@ export const createHeader = () => {
   const navigation = document.querySelector('.categories-filter');
 
   const renderCategory = async event => {
-    console.log(event.target.closest('[data-category]').dataset.category);
     const category = event.target.closest('[data-category]').dataset.category;
     openByCategory(await getCategoriesSpecific(category));
   };
