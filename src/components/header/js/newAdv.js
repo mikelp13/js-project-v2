@@ -2,6 +2,7 @@ import { createNewAdv } from '../../ads/newAddForm/newAddForm';
 import { modalBackDrop } from '../../modal/modalBackDrop';
 import newAddForm from '../../ads/newAddForm/newAddForm.hbs';
 import { data } from '../../../data/data';
+import { regitsrationUser } from '../../auth/auth';
 
 
 const buttonNewAdv = document.querySelector('.header__create-ad-btn');
