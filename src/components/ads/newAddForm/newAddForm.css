@@ -282,9 +282,9 @@
     align-items: center;
   }
   .form {
-    width: 724px;
-    height: 698px;
-    padding: 50px;
+    width: 665px;
+    height: 655px;
+    padding: 35px;
   }
   .name_product {
     width: 115px;
@@ -313,8 +313,8 @@
 
 @media screen and (min-width: 1200px) {
   .form {
-    width: 950px;
-    height: 698px;
+    width: 695px;
+    height: 655px;
   }
   .img-adv-box {
     width: 78px;
