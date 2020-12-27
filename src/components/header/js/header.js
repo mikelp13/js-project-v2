@@ -138,7 +138,6 @@ export const createHeader = () => {
     if (document.querySelector('.active-category')) {
       let activeCategoryATM = document.querySelector('.active-category');
       activeCategoryATM.classList.remove('active-category');
-      // closeCategory();
     }
     refreshMain();
   }
@@ -149,10 +148,6 @@ export const createHeader = () => {
   const renderCategory = async event => {
     console.log(event.target.closest('[data-category]').dataset.category);
     const category = event.target.closest('[data-category]').dataset.category;
-    console.log(
-      'data.calls.specificCategory[category] :>> ',
-      data.calls.specificCategory[category],
-    );
     openByCategory(await getCategoriesSpecific(category));
   };
 
