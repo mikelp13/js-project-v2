@@ -111,6 +111,7 @@
   position: relative;
   padding: 0px 12px;
   min-width: 0px;
+  /* background-color: #ff6b09; */
 }
 
 .sliders .slick-arrow {
@@ -168,11 +169,19 @@
 /* Слайдер */
 .sliders.slick-slider {
   margin: 0px auto;
+  /* background-color: aqua; */
+  /* padding-top: 20px; */
 }
-
+/* Слайдер запущен */
+.slick-slider.slick-initialized {
+}
+/* Слайдер с точками */
+.slick-slider.slick-dotted {
+}
 /* Ограничивающая оболочка */
 .sliders .slick-list {
   overflow: hidden;
+  /* background-color: orange; */
 }
 
 /* Лента слайдов */
@@ -180,7 +189,33 @@
   display: flex;
   align-items: flex-start;
 }
-
+/* Слайд */
+.slick-slide {
+}
+/* Слайд активный (показывается) */
+.slick-slide.slick-active {
+}
+/* Слайд основной */
+.slick-slide.slick-current {
+}
+/* Слайд по центру */
+.slick-slide.slick-center {
+}
+/* Клонированный слайд */
+.slick-slide.slick-cloned {
+}
+/* Стрелка */
+.slick-arrow {
+}
+/* Стрелка влево */
+.slick-arrow.slick-prev {
+}
+/* Стрелка вправо */
+.slick-arrow.slick-next {
+}
+/* Стрелка не активная */
+.slick-arrow.slick-disabled {
+}
 /* Точки (булиты) */
 .sliders .slick-dots {
   display: flex;
@@ -192,7 +227,9 @@
   list-style: none;
   margin: 0px 5px;
 }
-
+/* Активная точка */
+.slick-dots li.slick-active {
+}
 /* Элемент точки */
 .sliders .slick-dots li button {
   font-size: 0px;
@@ -212,6 +249,7 @@
 
 .sliders-item {
   text-align: center;
+  /* outline: 2px solid red; */
   margin: 5px;
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.05);
 }
