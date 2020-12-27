@@ -52,6 +52,7 @@
   font-size: 10px;
   color: #818181;
   transition: 0.5s;
+  user-select: none;
 }
 
 .mobile-buttons-wrapper .header__clear-filter {
