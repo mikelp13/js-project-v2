@@ -34,14 +34,8 @@ export const createMarkup = (i) => {
     const linkCategoryRef = document.getElementById(`${data.calls.categories[i]}`);
 
     linkCategoryRef.addEventListener('click', () => { 
-        const byCategoryRef = document.querySelector('.main');
         openByCategory(data.calls.specificCategory[data.calls.categories[i]]);
-        byCategoryRef.style.display = 'none';
-
     });
-
-
-
 };
 
 export const createСategories = () => {
