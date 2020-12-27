@@ -16,7 +16,7 @@ import './components/auth/accCabinet';
 import './components/header/js/color-switch';
 // import './components/spinner/spin';
 import './components/product-info/index.js';
-import './components/header/js/newAdv';
+import { newAdv } from './components/header/js/newAdv';
 // import './components/ads/newAddForm/newAddForm.js';
 import { getUserData } from './api/api';
 import { createMainMarkup } from './components/main/index';
@@ -25,23 +25,24 @@ import './components/spinLoad/spinLoad';
 import { createСategories } from './components/catalog/categories-list-item/index.js';
 import { data } from './data/data';
 import {
-  getCategories,
-  getCategoriesSpecific,
-  getRussianCategories,
+    getCategories,
+    getCategoriesSpecific,
+    getRussianCategories,
 } from './api/api';
 import './components/menu/profileMenu';
 
-const getInitialData = async () => {
-  await getCategories();
-  const catSpecPromise = await Promise.all([
-    getRussianCategories(),
-    getCategoriesSpecific(data.calls.categories[0]),
-    getCategoriesSpecific(data.calls.categories[1]),
-    getCategoriesSpecific(data.calls.categories[2]),
-    getCategoriesSpecific(data.calls.categories[3]),
-  ]);
-  createMainMarkup();
-  createСategories();
-  getSliderItems();
+const getInitialData = async() => {
+    await getCategories();
+    const catSpecPromise = await Promise.all([
+        getRussianCategories(),
+        getCategoriesSpecific(data.calls.categories[0]),
+        getCategoriesSpecific(data.calls.categories[1]),
+        getCategoriesSpecific(data.calls.categories[2]),
+        getCategoriesSpecific(data.calls.categories[3]),
+    ]);
+    createMainMarkup();
+    createСategories();
+    getSliderItems();
+    newAdv();
 };
 getInitialData();
