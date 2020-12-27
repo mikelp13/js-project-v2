@@ -1,3 +1,6 @@
+import { createСategories } from '../../catalog/categories-list-item';
+import { getSliderItems } from '../../hero/slider/slider';
+import { createMainMarkup } from '../../main';
 import categories from '../templates/categories.hbs';
 const categoriesMarkup = categories()
 const categoriesList = document.querySelector('.categories-filter')
@@ -95,10 +98,19 @@ categoriesMobileList.addEventListener('click', activeCategory)
 clearCategoryBtn.addEventListener('click', clearActiveCategory)
 clearCategoryMobileBtn.addEventListener('click', clearActiveCategory)
 
+// ===========================REFRESH===========================
+
+export const refreshMain = () =>{
+  createMainMarkup();
+  createСategories();
+  getSliderItems();
+}
+
 function clearActiveCategory() {
   if (document.querySelector('.active-category')) {
     let activeCategoryATM = document.querySelector('.active-category');
     activeCategoryATM.classList.remove('active-category');
     // closeCategory();
   }
+  refreshMain();
 }
