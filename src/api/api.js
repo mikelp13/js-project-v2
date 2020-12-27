@@ -79,8 +79,9 @@ export const getUserAdv = async () => {
       return data.user.adv;
     } else {
       const res = await axios.get(`/call/own`);
-      data.user.adv = [...res.data];
-      return res.data;
+      data.user.adv = [...res.data.favourites];
+      return res.data.favourites;
+
     }
   } catch (error) {
     console.log(error);
