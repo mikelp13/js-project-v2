@@ -67,6 +67,7 @@ export const createHeader = () => {
     if (tabletFilters.innerHTML === '') {
       tabletFilters.style.display = 'flex';
       tabletFilters.innerHTML = createCategoriesMarkup();
+      
     } else {
       tabletFilters.style.display = 'none';
       tabletFilters.innerHTML = '';
@@ -110,7 +111,6 @@ export const createHeader = () => {
       document.querySelector('.slider-container').innerHTML = '';
       const burgerWrapper = document.querySelector('.mobile-menu-closed');
       burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
-      clearActiveCategory();
       if (e.target.classList.contains('active-category')) {
         return;
       }
