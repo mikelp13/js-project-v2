@@ -7,9 +7,9 @@ import { data } from '../../../data/data';
 const buttonNewAdv = document.querySelector('.header__create-ad-btn');
 let registered;
 
-const createAdv = (e) => {
+const createAdv = () => {
     console.log('Make your new adv');
-    createNewAdv(e);
+    createNewAdv();
 }
 
 const goToRegistrationForm = (e) => {
@@ -21,8 +21,8 @@ const checkRegistered = (e) => {
     registered = localStorage.getItem('accessToken');
     modalBackDrop(newAddForm());
     // createNewAdv();
-    createNewAdv(data.calls.specificCategory.property[39]);
-    // registered ? createAdv() : goToRegistrationForm(e);
+    // createNewAdv(data.calls.specificCategory.property[39]);
+    registered ? createAdv() : goToRegistrationForm(e);
 }
 
 buttonNewAdv.addEventListener('click', checkRegistered)
