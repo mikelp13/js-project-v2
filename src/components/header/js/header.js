@@ -1,3 +1,6 @@
+import { createСategories } from '../../catalog/categories-list-item';
+import { getSliderItems } from '../../hero/slider/slider';
+import { createMainMarkup } from '../../main';
 import categories from '../templates/categories.hbs';
 const categoriesMarkup = categories()
 const categoriesList = document.querySelector('.categories-filter')
@@ -102,3 +105,25 @@ function clearActiveCategory() {
     // closeCategory();
   }
 }
+
+
+// ===========================REFRESH===========================
+const refs = {
+  mobileRefresh: document.querySelector('.header__clear-filter'),
+  refresh: document.querySelector('#refresh'),
+}
+console.log(refs.refresh);
+
+const refreshMain = () =>{
+  createMainMarkup();
+  createСategories();
+  getSliderItems();
+}
+
+
+refs.refresh.addEventListener('click', () => {
+  console.log("refresh");
+})
+
+refs.mobileRefresh.addEventListener('click', refreshMain)
+ 
