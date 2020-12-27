@@ -8,7 +8,7 @@ import logOut from './template/logOut.hbs';
 import { modalBackDrop } from '../modal/modalBackDrop';
 import { data } from '../../data/data';
 import { CreateCabinetMarkup } from './accCabinet';
-import mistakes from './template/mistakes.hbs';
+// import mistakes from './template/mistakes.hbs';
 import { getUserData } from '../../api/api';
 
 const url = 'https://callboard-backend.herokuapp.com';
@@ -18,10 +18,7 @@ let user = {
     password: '',
 };
 
-// const container = document.querySelector('.modal');
-// headerAuthMobile.classList.add('modal')
-// headerAuth.classList.add('modal')
-
+// ======================BASE REFS===================================
 const headerAuthMobile = document.querySelector('.header-auth-mobile');
 const headerAuth = document.querySelector('.header-auth');
 
@@ -42,8 +39,6 @@ const exitCabAut = document.querySelector('.exitCabAut');
 
 const cabMenu = document.querySelector('.acc-cabinet-menu');
 const cabMenuMobile = document.querySelector('.acc-cabinet-menu__mobile')
-
-// ===========================ОТРИСОВКА БЛОКА ВХОД/РЕГИСТРАЦИЯ=======================
 
 // =========================HEADER & MOBILE=====================================
 
@@ -99,14 +94,12 @@ function loggedUserEnter() {
 export function regitsrationUser(event) {
     modalBackDrop(signUp());
 
-
-    // headerAuthMobile.classList.add('modal')
-    // headerAuth.classList.add('modal')
     const container = document.querySelector('.modal');
-
-
     const authForm = document.forms.authForm;
-
+    const mistakeEmail = document.querySelector('.mistake__email');
+    const mistakePassword = document.querySelector('.mistake__password');
+   
+    
     if (event.target.dataset.btn === 'signup') {
         authForm.logIn.classList.remove('active');
         authForm.signUp.classList.add('active');
@@ -123,46 +116,90 @@ export function regitsrationUser(event) {
     btnXcls.addEventListener('click', onXclose);
 
 
-
-    const gatherInfo = () => {
-        return user = {
-            email: authForm.email.value,
-            password: authForm.password.value,
+    const gatherInfo = (event) => {
+        if (event.target === authForm.email) {
+            mistakeEmail.textContent = '';
+            //console.log('zero', mistakeEmail.textContent);
+            const options = {allow_utf8_local_part: false}; 
+             if(validator.isEmail(authForm.email.value, options)){
+                 user.email = authForm.email.value;
+                 mistakeEmail.textContent = '';
+                 //console.log("OK", mistakeEmail.textContent);
+            } else {
+                mistakeEmail.textContent = 'Введите корректный e-mail';
+                //console.log("mistake", mistakeEmail.textContent);
+                return;
+            };
         };
-    };
+        if (event.target === authForm.password) {
+            mistakePassword.textContent = '';
+            //console.log("zero",mistakePassword.textContent);
+            //mistakePassword.textContent = 'Пароль не меньше 6 символов содержит буквы и/или цифры';
+            //console.log(validator.isAlphanumeric(authForm.password.value, ['en-US']) && authForm.password.value.length >= 6)
+            if(validator.isAlphanumeric(authForm.password.value, ['en-US']) && authForm.password.value.length >= 6){
+                user.password = authForm.password.value;
+                mistakePassword.textContent = '';
+                // console.log("ok",mistakePassword.textContent);
+            }else {
+                mistakePassword.textContent = 'Пароль не короче 6 символов содержит буквы и/или цифры';
+                // console.log("mistake", mistakePassword.textContent);
+                return;
+            };
+         }
+        return user;
+    };   
+
 
     const onSignUpBtn = async() => {
-        try {
-            authForm.logIn.classList.remove('active');
-            authForm.signUp.classList.add('active');
-            const result = await axios.post(`${url}/auth/register`, {...user });
-            authForm.signUp.classList.remove('active');
-            authForm.logIn.classList.add('active');
-            onLogInBtn();
-        } catch (err) {
-            console.log(err)
-        }
+        if(!user.email){
+            mistakeEmail.textContent = 'Введите корректный e-mail';
+            // console.log("mistake", mistakeEmail.textContent);
+        } else if (!user.password) {
+            mistakePassword.textContent = 'Пароль не короче 6 символов содержит буквы и/или цифры';
+            // console.log("mistake", mistakePassword.textContent);
+        }else {
+            try {
+                authForm.logIn.classList.remove('active');
+                authForm.signUp.classList.add('active');
+                const result = await axios.post(`${url}/auth/register`, {...user });
+                authForm.signUp.classList.remove('active');
+                authForm.logIn.classList.add('active');
+                onLogInBtn();
+            } catch (err) {
+                mistakePassword.textContent = err.response.data.message;
+                // console.log('err', mistakePassword.textContent);
+            };
+         };
     };
 
     const onLogInBtn = async() => {
-        try {
-            authForm.signUp.classList.remove('active');
-            authForm.logIn.classList.add('active');
-            const result = await axios.post(`${url}/auth/login`, {...user });
-            localStorage.setItem('accessToken', JSON.stringify(`Bearer ${result.data.accessToken}`));
-            data.user = {...result.data.user }
-            data.auth.accessToken = result.data.accessToken;
-            data.auth.isAuth = true;
-            getUserData();
-            onXclose();
-            resizeWindow()
-            authForm.removeEventListener('submit', checkSubmit);
-            authForm.removeEventListener('input', gatherInfo);
-        } catch (err) {
-            console.log(err);
-        }
+        if(!user.email){
+            mistakeEmail.textContent = 'Введите корректный e-mail';
+            console.log("mistake", mistakeEmail.textContent);
+        } else if (!user.password) {
+            mistakePassword.textContent = 'Пароль не короче 6 символов содержит буквы и/или цифры';
+            // console.log("mistake", mistakePassword.textContent);
+        }else {
+            try {
+                authForm.signUp.classList.remove('active');
+                authForm.logIn.classList.add('active');
+                const result = await axios.post(`${url}/auth/login`, {...user });
+                localStorage.setItem('accessToken', JSON.stringify(`Bearer ${result.data.accessToken}`));
+                data.user = {...result.data.user }
+                data.auth.accessToken = result.data.accessToken;
+                data.auth.isAuth = true;
+                getUserData();
+                onXclose();
+                resizeWindow()
+                authForm.removeEventListener('submit', checkSubmit);
+                authForm.removeEventListener('input', gatherInfo);
+            } catch (err) {
+                mistakePassword.textContent = err.response.data.message;
+                // console.log('err', mistakePassword.textContent);
+                // console.log(err.response.data.message)
+            };
+        };
     };
-
 
     const checkSubmit = (event) => {
         event.preventDefault()
@@ -174,7 +211,7 @@ export function regitsrationUser(event) {
         };
     };
     authForm.addEventListener('submit', checkSubmit);
-    authForm.addEventListener('input', gatherInfo);
+    authForm.addEventListener('input', _.debounce((event) => gatherInfo(event),1000));
 };
 // ============================MISTAKES=============================
 
@@ -231,7 +268,6 @@ function onCabExit() {
     authFormLogOut.addEventListener('click', logOutUser);
 };
 
-
 logInAuth.addEventListener('click', regitsrationUser);
 signUpAuth.addEventListener('click', regitsrationUser);
 myCabAuth.addEventListener('click', onCabPress);
@@ -242,18 +278,3 @@ myCabAuthMobile.addEventListener('click', onCabPress);
 exitCabAutMobile.addEventListener('click', onCabExit);
 
 
-//         // const mistakeEmail = authForm.querySelector('.mistake__email');
-//         // const mistakePassword = authForm.querySelector('.mistake__password');
-//         // const options = { minLength: 6, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
-
-//         // if (validator.isEmail(authForm.email.value)) {
-//         //     mistakeEmail.textContent = '';
-//         //     user.email = authForm.email.value;
-//         // } else { mistakeEmail.textContent = "gadkiy ya"
-//         // };
-//         // if (validator.isStrongPassword(authForm.password.value, options)) {
-//         //     mistakePassword.textContent = '';
-//         //     user.password= authForm.password.value;
-//         // } else { mistakePassword.textContent = "gadkiy ty"
-//         // };
-//         // return user
