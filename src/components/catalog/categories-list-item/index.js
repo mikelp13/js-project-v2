@@ -2,6 +2,7 @@ import './styles.css';
 import { data } from "../../../data/data";
 import categoryTemplate from './template/category.hbs';
 import { runLoader } from '../../loader/index';
+import { openByCategory } from '../categories-list/index';
 
 
 export const runSlider = (i) => {
@@ -13,8 +14,8 @@ export const runSlider = (i) => {
             speed: 500,
             easing: 'ease',
             infinite: true,
-            autoplay: true,
-            autoplaySpeed: 3500, 
+            // autoplay: true,
+            // autoplaySpeed: 3500, 
         });
 };
 
@@ -22,12 +23,25 @@ export const createMarkup = (i) => {
 
     const categoryRefs = document.querySelector('.container-categories');
     const markup = `<div class="category visible"><div class="category-header"><h2 class="category-title">${data.calls.russianCategories[i]}
-            </h2><a href="" class="category-link" data-category="category">Смотреть все</a></div>
+            </h2><a href="#" class="category-link" id="${data.calls.categories[i]}">Смотреть все</a></div>
             <ul class="category-list sliders sliders-slick${i}"> 
             ${categoryTemplate(data.calls.specificCategory[data.calls.categories[i]].slice(0, 10))} </ul> </div>`
         categoryRefs.insertAdjacentHTML('beforeend', markup);
         data.renderedCategories.push(data.calls.categories[i]);  
-        runSlider(i);    
+    runSlider(i);    
+    
+
+    const linkCategoryRef = document.getElementById(`${data.calls.categories[i]}`);
+
+    linkCategoryRef.addEventListener('click', () => { 
+        const byCategoryRef = document.querySelector('.main');
+        openByCategory(data.calls.specificCategory[data.calls.categories[i]]);
+        byCategoryRef.style.display = 'none';
+
+    });
+
+
+
 };
 
 export const createСategories = () => {
@@ -38,17 +52,7 @@ export const createСategories = () => {
 }
 
 
-console.log(data.calls.specificCategory);
-// =============================================================================
-// const getСategory = async () => { 
-//     return await fetch('https://callboard-backend.herokuapp.com/call/specific/work')
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-//     })
-// }
-// getСategory();
-// ===============================================================================
+
 
 
 
