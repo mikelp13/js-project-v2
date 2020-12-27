@@ -79,7 +79,7 @@
 .filter-item-active {
   display: inline-block;
   height: 32px;
-  border: solid #112437 1px;
+  border: solid var(--main-base-color) 1px;
 }
 
 .mobile-clear-filters-wrapper:hover .header__clear-filter,
@@ -124,7 +124,7 @@
   height: 30px;
   text-decoration: none;
   color: #818181;
-  background: #112437;
+  background: var(--main-base-color);
   overflow: hidden;
   transition: 0.2s;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
@@ -282,7 +282,7 @@
     align-items: center;
     height: 100px;
     width: 676px;
-    background: #112437;
+    background: var(--main-base-color);
     flex-wrap: wrap;
     transform: translate(8px);
     padding-left: 15px;

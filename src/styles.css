@@ -9,6 +9,9 @@
 
 html {
   --main-accent-color: #ff6b08;
+  --main-base-color: #112437;
+  --modal-bg-color: #031c33;
+  /* #031c33 */
   box-sizing: border-box;
   font-family: 'MontserratRegular';
 }

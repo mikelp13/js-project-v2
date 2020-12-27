@@ -5,7 +5,7 @@
   width: 150px;
   height: 44px;
   border-radius: 40px;
-  background: #112437;
+  background: var(--main-base-color);
   box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.05),
     inset 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
@@ -108,7 +108,7 @@
     width: 150px;
     height: 44px;
     border-radius: 40px;
-    background: #031c33;
+    background: var(--modal-bg-color);
     margin-right: 14px;
     box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.05),
       inset 2px 2px 6px rgba(0, 0, 0, 0.5);
