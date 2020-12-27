@@ -98,32 +98,19 @@ categoriesMobileList.addEventListener('click', activeCategory)
 clearCategoryBtn.addEventListener('click', clearActiveCategory)
 clearCategoryMobileBtn.addEventListener('click', clearActiveCategory)
 
+// ===========================REFRESH===========================
+
+export const refreshMain = () =>{
+  createMainMarkup();
+  createСategories();
+  getSliderItems();
+}
+
 function clearActiveCategory() {
   if (document.querySelector('.active-category')) {
     let activeCategoryATM = document.querySelector('.active-category');
     activeCategoryATM.classList.remove('active-category');
     // closeCategory();
   }
+  refreshMain();
 }
-
-
-// ===========================REFRESH===========================
-const refs = {
-  mobileRefresh: document.querySelector('.header__clear-filter'),
-  refresh: document.querySelector('#refresh'),
-}
-console.log(refs.refresh);
-
-const refreshMain = () =>{
-  createMainMarkup();
-  createСategories();
-  getSliderItems();
-}
-
-
-refs.refresh.addEventListener('click', () => {
-  console.log("refresh");
-})
-
-refs.mobileRefresh.addEventListener('click', refreshMain)
- 
