@@ -6,6 +6,8 @@ import { refreshMain } from '../../header/js/header';
 import { getSliderItems } from '../../hero/slider/slider';
 import { createMarkup, createСategories } from '../categories-list-item';
 import { createMainMarkup } from '../../main';
+import { modalBackDrop } from '../../modal/modalBackDrop';
+import { createNewAdv } from '../../ads/newAddForm/newAddForm';
 
 const createEditableCard = data => {
   return data.reduce((acc, item) => {
@@ -14,7 +16,7 @@ const createEditableCard = data => {
   <p class="category-card__name">${item.title}</p>
   <div class="category-card__prices">
       <p class="category-card__price--new">${item.price} €</p>
-      <button>Edit</button>
+      <button type="button" data-editablebtn="editBtn">Edit</button>
   </div>
 </li>`;
     return acc;
@@ -41,6 +43,18 @@ export const openByCategory = async (data, editable = false) => {
         </section>`;
 
   byCategoryRef.innerHTML = markup;
+
+  //===================================EDIT ADV ========================================
+  const categorySection = document.querySelector('.by-category')
+  const editAdv = (event)=>{
+    if(event.target.closest('[data-editablebtn="editBtn"]')){
+      const id = event.target.closest('[data-callid]').dataset.callid
+      console.log('id :>> ', id);
+      // modalBackDrop(createNewAdv())
+    }
+  }
+  categorySection.addEventListener('click', editAdv)
+  //====================================================================================
 
   const btnByCategoryRef = document.querySelector('.by-categories__btn');
   const itemsByCategoryRef = document.querySelector('.by-categories__list');
