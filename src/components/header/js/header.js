@@ -16,9 +16,10 @@ export const refreshMain = () => {
     .querySelector('.active-category');
   activeCategory && activeCategory.classList.toggle('active-category');
   const tabletFilters = document.querySelector('.categories-filter-tablet');
-  if (tabletFilters) {
-    tabletFilters.style.display = 'none';
-  }
+  tabletFilters && (tabletFilters.style.display = 'none');
+
+  const burgerWrapper = document.querySelector('.mobile-menu-closed');
+  burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
 };
 
 export const createHeader = () => {
@@ -66,7 +67,7 @@ export const createHeader = () => {
   const mediaTabletMin = window.matchMedia('(min-width: 768px)');
   const mediaTabletMax = window.matchMedia('(max-width: 1279px)');
 
-  function tabletCategoriesOpen(event) {
+  function tabletCategoriesOpen() {
     if (tabletFilters.innerHTML === '') {
       tabletFilters.style.display = 'flex';
       tabletFilters.innerHTML = createCategoriesMarkup();
@@ -116,6 +117,8 @@ export const createHeader = () => {
     if (e.target.nodeName === 'A') {
       renderCategory(e);
       document.querySelector('.slider-container').innerHTML = '';
+      const burgerWrapper = document.querySelector('.mobile-menu-closed');
+      burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
       clearActiveCategory();
       if (e.target.classList.contains('active-category')) {
         return;
@@ -144,8 +147,6 @@ export const createHeader = () => {
   const navigation = document.querySelector('.categories-filter');
 
   const renderCategory = async event => {
-    console.log('event.target :>> ', event.target);
-    console.log('event.currentTarget :>> ', event.currentTarget);
     console.log(event.target.closest('[data-category]').dataset.category);
     const category = event.target.closest('[data-category]').dataset.category;
     console.log(
