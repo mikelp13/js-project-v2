@@ -41,7 +41,7 @@
   font-size: 14px;
   background-color: #131419;
   border-color: transparent;
-  color: var(--main-accent-color);
+  color: #ccc;
   border-radius: 40px;
   outline: none;
   cursor: pointer;
