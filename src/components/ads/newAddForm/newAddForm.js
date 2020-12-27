@@ -205,7 +205,6 @@ export const createNewAdv = adv => {
 
     divDelete.innerHTML = `
         <button class="btn_deleteAdv">Удалить объявление</button>
-        <p class="delete_text">Удалить объявление</p>
         `;
     newObjAdv = { ...newObjAdv, ...adv };
     formAdv.title.value = newObjAdv.title;

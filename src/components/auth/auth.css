@@ -38,6 +38,10 @@
   transition: 0.5s;
 }
 
+.authForm__col:nth-child(1) {
+  margin-bottom: 35px;
+}
+
 .authForm__inputBox {
   position: relative;
   width: 100%;
@@ -201,6 +205,12 @@
 
 .authForm__btn_logIn {
   margin-right: 20px;
+}
+
+.mistake__email,
+.mistake__password {
+  position: absolute;
+  top: 41px;
 }
 
 .authForm__btn_logOut:hover,

@@ -28,6 +28,35 @@
   transform: scale(1.1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 0);
 }
+
+.form_delete {
+  margin-bottom: 20px;
+}
+
+.btn_deleteAdv {
+  display: block;
+  width: 220px;
+  height: 25px;
+  font-family: 'MontserratRegular';
+  font-size: 14px;
+  background-color: #131419;
+  border-color: transparent;
+  color: var(--main-accent-color);
+  border-radius: 40px;
+  outline: none;
+  cursor: pointer;
+  margin-left: 100px;
+  box-shadow: -2px -2px 6px rgba(255,255,255,0.1),
+   2px 2px 6px rgba(0,0,0,0.8);
+   transition: 0.5s;
+}
+
+.btn_deleteAdv:hover,
+.btn_deleteAdv:focus {
+  box-shadow: inset -2px -2px 6px rgba(255,255,255,0.1),
+   inset 2px 2px 6px rgba(0,0,0,0.8);
+}
+
 @media (min-width: 768px) and (max-width: 1279px){
   .modal-close-btn {
     top: 20px;
@@ -39,7 +68,7 @@
   display: none; 
 } */
 .form {
-  background-color: #031c33;
+  background-color: #131419;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -50,8 +79,6 @@
   height: 845px;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: -5px -5px 10px rgba(255,255,255,0.05),
-   5px 5px 15px rgba(0,0,0,0.5);
 }
 
 
@@ -87,18 +114,20 @@
   color: var(--main-accent-color);
 }
 .form_input {
+  -webkit-appearance: none;
   height: 56px;
   width: 100%;
+  font-family: 'MontserratLight';
   margin-bottom: 20px;
   padding-left: 23px;
-  background-color: #031c33;
+  background-color: #131419;
   resize: none;
   display: block;
   border: none;
   border-radius: 40px;
-  color: var(--main-accent-color);
+  color: #ccc;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   outline: none;
   box-shadow: inset -2px -2px 6px rgba(255,255,255,0.1),
   inset 2px 2px 6px rgba(0,0,0,0.8);
@@ -110,24 +139,33 @@
 
 /* photo */
 .input_wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  border-radius: 8px;
+  box-shadow: -2px -2px 6px rgba(255,255,255,0.05),
+  2px 2px 6px rgba(0,0,0,0.5);
 }
+
+.file_load {
+  margin-top: 10px;
+}
+
 .price_label,
 .tel_label {
   margin-bottom: 13px;
 }
-.tel_input {
-  margin-bottom: 40px;
-}
+
 .btn_push {
   display: block;
   margin: 0 auto;
   width: 251px;
   height: 50px;
   font-family: 'MontserratMedium';;
-  background-color: #031c33;
+  background-color: #131419;
   border-color: transparent;
   color: var(--main-accent-color);
   border-radius: 40px;
@@ -185,14 +223,36 @@
     left: 0;
     right: 0;
     margin: auto;
+    height: 750px;
   }
+
   .form_input {    
-    height: 50px;
+    height: 30px;
     margin-top: 7px;
+    font-size: 13px;
+    margin-bottom: 12px;
+    padding-left: 15px;
+  }
+
+  .description_product {
+    padding-left: 15px;
+  }
+
+  .form_text {
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+
+  .btn_deleteAdv {
+    margin: auto;
+  }
+
+  .name_product {
+    font-size: 13px;
   }
 
   .form_field {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .grey-wrapper {
@@ -236,8 +296,7 @@
     width: 100%;
   }
   .form_field--category {
-    width: 152px;
-    margin-right: 73px;
+    width: 114.50px;
   }
   /* .btn {
     margin-bottom: 60px;
