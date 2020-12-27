@@ -69,7 +69,7 @@ export const updateMarkup = goods => {
   // main.insertAdjacentHTML('beforeend', searchMarkup);
   console.log('goods :>> ', goods);
   main.innerHTML = `
-    <div class="container">
+    <div class="search-container">
       <ul class="search-gallery">${cardTpl(goods)}</ul>
     </div>
   `;
