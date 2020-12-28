@@ -8,7 +8,7 @@ import { openByCategory } from '../../catalog/categories-list';
 import { getUserAdv } from '../../../api/api';
 
 export const createNewAdv = adv => {
-  modalBackDrop(newAddForm());
+  // modalBackDrop(newAddForm());
   const container = document.querySelector('.modal');
 
   const btnClose = document.querySelector('.modal-close-btn');
@@ -41,7 +41,7 @@ export const createNewAdv = adv => {
     file: [],
   };
   const formData = new FormData();
-
+  newObjAdv = { ...newObjAdv, ...adv };
   const createOptionsMarkup = () => {
     return data.calls.originalCategories.reduce((acc, item, index) => {
       acc += `<option value="${item}">${data.calls.russianCategories[index]}</option>`;
@@ -173,10 +173,7 @@ export const createNewAdv = adv => {
         ...data.calls.specificCategory[newObjAdv.category],
         result.data,
       ];
-      data.user.adv = [
-        ...data.user.adv,
-        result.data,
-      ];
+      data.user.adv = [...data.user.adv, result.data];
       console.log('data.user.adv :>> ', data.user.adv);
       openByCategory(await getUserAdv(), true);
     } else {
@@ -194,14 +191,18 @@ export const createNewAdv = adv => {
       const result = await axios.patch(`${baseURL}/${adv._id}`, formData, {
         headers,
       });
-      console.log('result :>> ', result.data);
-      data.calls.specificCategory[newObjAdv.category] = [...data.calls.specificCategory[newObjAdv.category].map(item =>
-        item._id === newObjAdv._id ? { ...result.data } : item,
-      )]
-        data.user.adv = [...data.user.adv.map(item =>
+      console.log('resffffffult :>> ', result.data);
+      data.calls.specificCategory[newObjAdv.category] = [
+        ...data.calls.specificCategory[newObjAdv.category].map(item =>
           item._id === newObjAdv._id ? { ...result.data } : item,
-        )]
-        console.log('data.user.adv :>> ', data.user.adv);
+        ),
+      ];
+      data.user.adv = [
+        ...data.user.adv.map(item =>
+          item._id === newObjAdv._id ? { ...item, ...result.data } : item,
+        ),
+      ];
+      console.log('data.user.adv :>> ', data.user.adv);
       openByCategory(await getUserAdv(), true);
     }
   };
@@ -265,15 +266,12 @@ export const createNewAdv = adv => {
         ];
 
         data.user.adv = [
-          ...data.user.adv.filter(
-            item => item._id !== newObjAdv._id,
-          ),
+          ...data.user.adv.filter(item => item._id !== newObjAdv._id),
         ];
         openByCategory(await getUserAdv(), true);
       }
-      
     };
-    
+
     formAdv.addEventListener('click', deleteAdv);
   };
 
