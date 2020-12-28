@@ -209,8 +209,12 @@ export function regitsrationUser(event) {
         if (event.submitter === authForm.signUp) {
             onSignUpBtn();
         };
+        if(event.key === 'Enter') {
+            onLogInBtn()
+        }
     };
     authForm.addEventListener('submit', checkSubmit);
+    authForm.addEventListener('keyup', checkSubmit);
     authForm.addEventListener('input', _.debounce((event) => gatherInfo(event),1000));
 };
 // ============================MISTAKES=============================
