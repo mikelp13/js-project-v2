@@ -6,6 +6,7 @@ import { getCategoriesSpecific } from '../../api/api';
 export const runLoader = () => {
   const buttonLoaderRef = document.querySelector('.loader__btn');
   const colorLoaderRef = document.querySelector('.loader');
+  document.querySelector('.slider-container').innerHTML = '';
   const loaderCategory = async () => {
     await getCategoriesSpecific(
       data.calls.categories[data.renderedCategories.length],

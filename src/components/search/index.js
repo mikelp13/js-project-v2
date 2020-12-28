@@ -88,9 +88,9 @@ const getSearchItem = event => {
 const inMobileEnter = inputValue => {
   if (inputValue.length >= 1) {
     getSearchQuery(inputValue)
-      .then(goods => {
-        updateMarkup(goods);
-        document.querySelector('.slider-container').innerHTML = '';
+    .then(goods => {
+      updateMarkup(goods);
+      document.querySelector('.slider-container').innerHTML = '';
       })
       .catch(error => console.log(error));
   }
