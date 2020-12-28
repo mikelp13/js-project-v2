@@ -9,6 +9,30 @@
 .slick-active {
   outline: none;
 }
+
+.category-card__prices {
+  position: relative;
+}
+
+.category-card__prices button {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  right: 11px;
+  top: -5px;
+}
+
+.fa-pencil-square-o {
+  font-size: 34px;
+}
+
+.category-card__prices button:hover .fa-pencil-square-o,
+.category-card__prices button:focus .fa-pencil-square-o {
+  color: var(--main-accent-color);
+}
+
 @media (max-width: 767px) {
   .side-items {
     display: none;
