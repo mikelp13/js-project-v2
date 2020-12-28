@@ -14,6 +14,7 @@ export const createNewAdv = adv => {
   const btnClose = document.querySelector('.modal-close-btn');
   const btnAdd = document.querySelector('.btn_push');
 
+
   const onXclose = () => {
     container.classList.remove('is-open');
     btnClose.removeEventListener('click', onXclose);
@@ -218,6 +219,7 @@ export const createNewAdv = adv => {
     divDelete.innerHTML = `<button class="btn_deleteAdv" data-btn="delite-btn">
                             <span class="btnDelete_text">Удалить объявление</span>
                           </button>`;
+    divDelete.addEventListener('click', onXclose);
     newObjAdv = { ...newObjAdv, ...adv };
     formAdv.title.value = newObjAdv.title;
     formAdv.description.value = newObjAdv.description;
