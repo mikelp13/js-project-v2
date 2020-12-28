@@ -106,7 +106,7 @@ export const createHeader = () => {
 
   function activeCategory(e) {
     if (e.target.nodeName === 'A') {
-      clearActiveCategory();
+      // clearActiveCategory();
       renderCategory(e);
       document.querySelector('.slider-container').innerHTML = '';
       const burgerWrapper = document.querySelector('.mobile-menu-closed');
@@ -114,6 +114,8 @@ export const createHeader = () => {
       if (e.target.classList.contains('active-category')) {
         return;
       }
+      const activeCategory = document.querySelector('.active-category');
+      activeCategory && activeCategory.classList.remove('active-category')
       e.target.classList.add('active-category');
       e.target.classList.add('orange');
     }

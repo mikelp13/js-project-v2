@@ -99,12 +99,6 @@
   height: 100%;
 }
 
-/* .authForm__input:focus ~ .input-line,
-.authForm__input:invalid ~ .input-line {
-  height: 100%;
-  background-color: #e63131;
-} */
-
 .logOut__wrap {
   background-color: var(--modal-bg-color);
   width: 650px;
@@ -214,6 +208,9 @@
 .mistake__password {
   position: absolute;
   top: 41px;
+  font-size: 12px;
+  font-family: "MontserratMedium";
+  color: #e63131;
 }
 
 .authForm__btn_logOut:hover,

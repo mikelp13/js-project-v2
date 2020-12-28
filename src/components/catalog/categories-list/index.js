@@ -13,7 +13,7 @@ const createEditableCard = data => {
   <p class="category-card__name">${item.title}</p>
   <div class="category-card__prices">
       <p class="category-card__price--new">${item.price} €</p>
-      <button type="button" data-editablebtn="editBtn">Edit</button>
+      <button type="button" data-editablebtn="editBtn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
   </div>
 </li>`;
     return acc;

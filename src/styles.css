@@ -60,3 +60,20 @@ img {
   text-decoration: none;
   color: inherit;
 }
+
+.none-product{
+  display: block;
+  font-family: 'MontserratRegular';
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-left: 20px;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .none-product{
+    font-size: 14px;
+  }
+}
