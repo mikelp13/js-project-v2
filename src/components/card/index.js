@@ -13,6 +13,9 @@ const getCall = e => {
   );
     if (e[0].target.dataset.editablebtn) {
       modalBackDrop(newAddForm());
+      const call = data.user.adv.find(
+        elem => elem._id === callid,
+      );
       createNewAdv(call)
     } else {
       productInfoMarkup(call);

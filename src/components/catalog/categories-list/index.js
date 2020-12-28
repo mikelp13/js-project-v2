@@ -1,13 +1,10 @@
 import './styles.css';
-import { data } from '../../../data/data';
+
 import itemTemplate from '../categories-list-item/template/category.hbs';
-import { getCategories, getCategoriesSpecific } from '../../../api/api';
-import { refreshMain } from '../../header/js/header';
 import { getSliderItems } from '../../hero/slider/slider';
-import { createMarkup, createСategories } from '../categories-list-item';
+import { createСategories } from '../categories-list-item';
 import { createMainMarkup } from '../../main';
-import { modalBackDrop } from '../../modal/modalBackDrop';
-import { createNewAdv } from '../../ads/newAddForm/newAddForm';
+
 
 const createEditableCard = data => {
   return data.reduce((acc, item) => {
@@ -25,8 +22,6 @@ const createEditableCard = data => {
 
 export const openByCategory = async (data, editable = false) => {
   const byCategoryRef = document.querySelector('.categories-container');
-  // const mainCards = document.querySelector('.main-cards')
-  // byCategoryRef.style.display = 'none';
   document.querySelector('.slider-container').innerHTML = '';
   let i = 12;
   const markup = `<section class="by-category">
@@ -44,21 +39,8 @@ export const openByCategory = async (data, editable = false) => {
 
   byCategoryRef.innerHTML = markup;
 
-  //===================================EDIT ADV ========================================
-  const categorySection = document.querySelector('.by-category')
-  const editAdv = (event)=>{
-    if(event.target.closest('[data-editablebtn="editBtn"]')){
-      const id = event.target.closest('[data-callid]').dataset.callid
-      console.log('id :>> ', id);
-      // modalBackDrop(createNewAdv())
-    }
-  }
-  categorySection.addEventListener('click', editAdv)
-  //====================================================================================
-
   const btnByCategoryRef = document.querySelector('.by-categories__btn');
   const itemsByCategoryRef = document.querySelector('.by-categories__list');
-  const sectionCategoryRef = document.querySelector('.by-category');
   const categoriesList = document.querySelector('.categories-filter');
   data.length > 12 &&
     btnByCategoryRef.addEventListener('click', () => {
@@ -67,9 +49,6 @@ export const openByCategory = async (data, editable = false) => {
       if (i > data.length) {
         btnByCategoryRef.textContent = 'Вернуться на главную страницу';
         btnByCategoryRef.addEventListener('click', () => {
-          // byCategoryRef.style.display = 'block';
-          // sectionCategoryRef.style.display = 'none';
-          // getSliderItems();
           createMainMarkup();
           createСategories();
           getSliderItems();

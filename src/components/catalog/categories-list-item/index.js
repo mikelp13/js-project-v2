@@ -28,7 +28,7 @@ export const createMarkup = (i) => {
             ${categoryTemplate(data.calls.specificCategory[data.calls.categories[i]].slice(0, 10))} </ul> </div>`
         categoryRefs.insertAdjacentHTML('beforeend', markup);
         data.renderedCategories.push(data.calls.categories[i]);  
-    runSlider(i);    
+    runSlider(i); 
     
 
     const linkCategoryRef = document.getElementById(`${data.calls.categories[i]}`);

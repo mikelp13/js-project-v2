@@ -1,7 +1,8 @@
 import { createNewAdv } from '../../ads/newAddForm/newAddForm';
 import { modalBackDrop } from '../../modal/modalBackDrop';
 import newAddForm from '../../ads/newAddForm/newAddForm.hbs';
-import { regitsrationUser } from '../../auth/auth'
+import { regitsrationUser } from '../../auth/auth';
+
 
 export const newAdv = () => {
 

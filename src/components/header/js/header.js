@@ -1,5 +1,4 @@
 import { getCategoriesSpecific } from '../../../api/api';
-import { data } from '../../../data/data';
 import { createCategoriesMarkup } from '../../../utils/categories';
 import { openByCategory } from '../../catalog/categories-list';
 import { createСategories } from '../../catalog/categories-list-item';
@@ -7,10 +6,10 @@ import { getSliderItems } from '../../hero/slider/slider';
 import { createMainMarkup } from '../../main';
 import categories from '../templates/categories.hbs';
 
-export const refreshMain = () => {
+export const refreshMain = (hero = true) => {
   createMainMarkup();
   createСategories();
-  getSliderItems();
+  hero && getSliderItems();
   const activeCategory = document
     .querySelector('.categories-filter')
     .querySelector('.active-category');
@@ -23,7 +22,6 @@ export const refreshMain = () => {
 };
 
 export const createHeader = () => {
-  const categoriesMarkup = categories();
   const categoriesList = document.querySelector('.categories-filter');
   categoriesList.insertAdjacentHTML('beforeend', createCategoriesMarkup());
   const categoriesTabletList = document.querySelector(
@@ -32,8 +30,6 @@ export const createHeader = () => {
   const categoriesMobileList = document.querySelector(
     '.categories-filter-mobile',
   );
-  const filterItem = document.querySelectorAll('.filter-item');
-
   // ===========================REFS===================================
 
   const mobileFilters = document.querySelector('.categories-filter-mobile');
@@ -71,11 +67,6 @@ export const createHeader = () => {
     if (tabletFilters.innerHTML === '') {
       tabletFilters.style.display = 'flex';
       tabletFilters.innerHTML = createCategoriesMarkup();
-
-      // renderCategory(event);
-      // console.log('object :>> ',  tabletFilters.parentNode);
-      // document.querySelector('.')
-      // document.querySelector('.categories-filter-tablet').addEventListener('click', renderCategory(event))
     } else {
       tabletFilters.style.display = 'none';
       tabletFilters.innerHTML = '';
@@ -115,11 +106,11 @@ export const createHeader = () => {
 
   function activeCategory(e) {
     if (e.target.nodeName === 'A') {
+      clearActiveCategory();
       renderCategory(e);
       document.querySelector('.slider-container').innerHTML = '';
       const burgerWrapper = document.querySelector('.mobile-menu-closed');
       burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
-      clearActiveCategory();
       if (e.target.classList.contains('active-category')) {
         return;
       }
@@ -131,22 +122,26 @@ export const createHeader = () => {
   categoriesList.addEventListener('click', activeCategory);
   categoriesTabletList.addEventListener('click', activeCategory);
   categoriesMobileList.addEventListener('click', activeCategory);
-  clearCategoryBtn.addEventListener('click', clearActiveCategory);
-  clearCategoryMobileBtn.addEventListener('click', clearActiveCategory);
+  clearCategoryBtn.addEventListener('click', () => {
+    clearActiveCategory(true);
+  });
+  clearCategoryMobileBtn.addEventListener('click', () => {
+    clearActiveCategory(true);
+  });
 
-  function clearActiveCategory() {
+  function clearActiveCategory(hero = false) {
     if (document.querySelector('.active-category')) {
       let activeCategoryATM = document.querySelector('.active-category');
-      activeCategoryATM.classList.remove('active-category');
+      activeCategoryATM &&
+        activeCategoryATM.classList.remove('active-category');
     }
-    refreshMain();
+    refreshMain(hero);
   }
   // ===========================FILTER-BTN===========================
 
   const navigation = document.querySelector('.categories-filter');
 
   const renderCategory = async event => {
-    console.log(event.target.closest('[data-category]').dataset.category);
     const category = event.target.closest('[data-category]').dataset.category;
     openByCategory(await getCategoriesSpecific(category));
   };
