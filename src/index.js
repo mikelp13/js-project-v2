@@ -1,6 +1,6 @@
 import '../node_modules/normalize.css/normalize.css';
 import './styles.css';
-import './components/header/js/header';
+// import './components/header/js/header';
 import './components/hero/slider/slider';
 import './components/hero/slider-item/slider-item';
 import './components/footer/styles.js';
@@ -30,6 +30,7 @@ import {
     getRussianCategories,
 } from './api/api';
 import './components/menu/profileMenu';
+import { createHeader } from './components/header/js/header';
 
 const getInitialData = async() => {
     await getCategories();
@@ -44,5 +45,6 @@ const getInitialData = async() => {
     createСategories();
     getSliderItems();
     newAdv();
+    createHeader();
 };
 getInitialData();

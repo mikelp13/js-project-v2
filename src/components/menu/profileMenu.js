@@ -1,41 +1,36 @@
-import {getUserAdv, getFavourites} from '../../api/api'
+import { getUserAdv, getFavourites } from '../../api/api';
+import { openByCategory } from '../catalog/categories-list';
 
 const refs = {
   mobileCabinet: document.querySelector('.acc-cabinet-list'),
   desktopCabinet: document.querySelector('[data-id="desk"]'),
-  burgerMenu: document.querySelector('.mobile-menu-closed'), 
-  main: document.querySelector('.main'),
+  burgerMenu: document.querySelector('.mobile-menu-closed'),
+  main: document.querySelector('.profile-container'),
 };
 
-const onMobCabinetClick = (event)=>{
-  const {id} = event.target.dataset;
-  if(id === 'mobAdv'){
-    refs.burgerMenu.classList.remove('mobile-menu-opened')
-    refs.main.innerHTML = '';
+const onMobCabinetClick = async event => {
+  const { id } = event.target.dataset;
+  if (id === 'mobAdv') {
+    openByCategory(await getUserAdv(), true);
+    const burgerWrapper = document.querySelector('.mobile-menu-closed');
+    burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
   }
-  if(id === 'mobFav'){
-    refs.burgerMenu.classList.remove('mobile-menu-opened')
-    refs.main.innerHTML = '';
+  if (id === 'mobFav') {
+    openByCategory(await getFavourites());
+    const burgerWrapper = document.querySelector('.mobile-menu-closed');
+    burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
   }
-}
+};
 
-const onDesktopCabinetClick = (event)=>{
-  const {id} = event.target.dataset;
-  if(id === 'adv'){
-    refs.main.innerHTML = '';
+const onDesktopCabinetClick = async event => {
+  const { id } = event.target.dataset;
+  if (id === 'adv') {
+    openByCategory(await getUserAdv(), true);
   }
-  if(id === 'fav'){
-    refs.main.innerHTML = '';
+  if (id === 'fav') {
+    openByCategory(await getFavourites());
   }
-}
+};
 
-
-// const getMyAds = async () =>{
-//  const userAdv = await getUserAdv();
-//  console.log('userAdv', userAdv);
-// }
-// getMyAds();
-
-refs.mobileCabinet.addEventListener('click', onMobCabinetClick)
-refs.desktopCabinet.addEventListener('click', onDesktopCabinetClick)
-
+refs.mobileCabinet.addEventListener('click', onMobCabinetClick);
+refs.desktopCabinet.addEventListener('click', onDesktopCabinetClick);

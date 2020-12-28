@@ -7,7 +7,7 @@ import cardTpl from '../catalog/categories-list-item/template/category.hbs';
 import { refreshMain } from '../header/js/header';
 const baseUrl = 'https://callboard-backend.herokuapp.com';
 
-const main = document.querySelector('.main');
+const main = document.querySelector('.categories-container');
 const searchForm = document.querySelector('.js-search-form-desk');
 const searchForm2 = document.querySelector('.js-search-form-tablet');
 //=========data=!!!=====start========
@@ -88,8 +88,9 @@ const getSearchItem = event => {
 const inMobileEnter = inputValue => {
   if (inputValue.length >= 1) {
     getSearchQuery(inputValue)
-      .then(goods => {
-        updateMarkup(goods);
+    .then(goods => {
+      updateMarkup(goods);
+      document.querySelector('.slider-container').innerHTML = '';
       })
       .catch(error => console.log(error));
   }

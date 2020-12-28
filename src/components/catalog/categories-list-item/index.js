@@ -28,20 +28,14 @@ export const createMarkup = (i) => {
             ${categoryTemplate(data.calls.specificCategory[data.calls.categories[i]].slice(0, 10))} </ul> </div>`
         categoryRefs.insertAdjacentHTML('beforeend', markup);
         data.renderedCategories.push(data.calls.categories[i]);  
-    runSlider(i);    
+    runSlider(i); 
     
 
     const linkCategoryRef = document.getElementById(`${data.calls.categories[i]}`);
 
     linkCategoryRef.addEventListener('click', () => { 
-        const byCategoryRef = document.querySelector('.main');
         openByCategory(data.calls.specificCategory[data.calls.categories[i]]);
-        byCategoryRef.style.display = 'none';
-
     });
-
-
-
 };
 
 export const createСategories = () => {
