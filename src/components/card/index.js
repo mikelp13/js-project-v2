@@ -11,13 +11,19 @@ const getCall = e => {
   const call = data.calls.specificCategory[category].find(
     elem => elem._id === callid,
   );
-    if (e[0].target.dataset.editablebtn) {
-      modalBackDrop(newAddForm());
-     
-      createNewAdv(call)
-    } else {
-      productInfoMarkup(call);
-    }
+  if (e[0].target.dataset.editablebtn) {
+    modalBackDrop(newAddForm());
+    // data.user.adv = [
+    //   ...data.user.adv.map(item =>
+    //     item.id ? { ...item, _id: item.id } : item,
+    //   ),
+    // ];
+    const call = data.user.adv.find(elem => elem._id === callid);
+    console.log('call :>> ', call);
+    createNewAdv(call);
+  } else {
+    productInfoMarkup(call);
+  }
 };
 
 $(function () {

@@ -7,8 +7,9 @@ import { newAdv } from '../../header/js/newAdv';
 import { openByCategory } from '../../catalog/categories-list';
 import { getUserAdv } from '../../../api/api';
 
+
 export const createNewAdv = adv => {
-  // modalBackDrop(newAddForm());
+  console.log('adv :>> ', adv);
   const container = document.querySelector('.modal');
 
   const btnClose = document.querySelector('.modal-close-btn');
@@ -171,9 +172,10 @@ export const createNewAdv = adv => {
       const result = await axios.post(baseURL, formData, { headers });
       data.calls.specificCategory[newObjAdv.category] = [
         ...data.calls.specificCategory[newObjAdv.category],
-        result.data,
+        {...result.data, _id:result.data.id},
       ];
-      data.user.adv = [...data.user.adv, result.data];
+      data.user.adv = [...data.user.adv, {...result.data, _id:result.data.id}];
+      console.log('result :>> ', result);
       console.log('data.user.adv :>> ', data.user.adv);
       openByCategory(await getUserAdv(), true);
     } else {
