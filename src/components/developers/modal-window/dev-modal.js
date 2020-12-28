@@ -9,7 +9,7 @@ import TatianaUlrich from '../img-portret/TatianaUlrich.jpg';
 import IgorVasylytsya from '../img-portret/IgorVasylytsya.jpg';
 import KostyaPanasiuk from '../img-portret/KostyaPanasiuk.jpg';
 import YuliyaChyzhkova from '../img-portret/YuliyaChyzhkova.jpg';
-import ZaharSkyba from '../img-portret/ZaharSkyba.jpg';
+import vjuh from '../img-portret/vjuh.jpg';
 import ValentinaManankova from '../img-portret/ValentinaManankova.jpg';
 
 export const modalBackDrop = innerElement => {
@@ -151,12 +151,12 @@ export const modalBackDrop = innerElement => {
         <div class="students-modal-imgBx">
           <img
             class="student-modal-avatar"
-            src="${ZaharSkyba}"
+            src="${vjuh}"
             alt="Захар Скиба"
           />
         </div>
         <div class="students-modal-content">
-          <h2>Захар Скиба<br /><span>Developer</span></h2>
+          <h2>Гит Краш<br /><span>Destroyer</span></h2>
         </div>
       </div>
       <!-- ============================================= -->
