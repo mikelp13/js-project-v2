@@ -3,18 +3,20 @@ import axios from 'axios';
 import { data } from '../../../data/data';
 import { modalBackDrop } from '../../modal/modalBackDrop';
 import newAddForm from './newAddForm.hbs';
-
+import { newAdv } from '../../header/js/newAdv';
+import { openByCategory } from '../../catalog/categories-list';
+import { getUserAdv } from '../../../api/api';
 
 export const createNewAdv = adv => {
-  modalBackDrop(newAddForm())
+  modalBackDrop(newAddForm());
   const container = document.querySelector('.modal');
 
   const btnClose = document.querySelector('.modal-close-btn');
   const btnAdd = document.querySelector('.btn_push');
 
   const onXclose = () => {
-    container.classList.remove('is-open')
-    btnClose.removeEventListener('click', onXclose)
+    container.classList.remove('is-open');
+    btnClose.removeEventListener('click', onXclose);
   };
   btnClose.addEventListener('click', onXclose);
   btnAdd.addEventListener('click', onXclose);
@@ -24,8 +26,7 @@ export const createNewAdv = adv => {
 
   const headers = {
     'Content-Type': 'multipart/form-data',
-    Authorization:
-      JSON.parse(localStorage.getItem('accessToken'))
+    Authorization: JSON.parse(localStorage.getItem('accessToken')),
   };
   console.log(data);
 
@@ -172,6 +173,12 @@ export const createNewAdv = adv => {
         ...data.calls.specificCategory[newObjAdv.category],
         result.data,
       ];
+      data.user.adv = [
+        ...data.user.adv,
+        result.data,
+      ];
+      console.log('data.user.adv :>> ', data.user.adv);
+      openByCategory(await getUserAdv(), true);
     } else {
       const allInputsFiles = document.querySelectorAll('.input_load_file');
 
@@ -187,7 +194,15 @@ export const createNewAdv = adv => {
       const result = await axios.patch(`${baseURL}/${adv._id}`, formData, {
         headers,
       });
-      console.log('result', result);
+      console.log('result :>> ', result.data);
+      data.calls.specificCategory[newObjAdv.category] = [...data.calls.specificCategory[newObjAdv.category].map(item =>
+        item._id === newObjAdv._id ? { ...result.data } : item,
+      )]
+        data.user.adv = [...data.user.adv.map(item =>
+          item._id === newObjAdv._id ? { ...result.data } : item,
+        )]
+        console.log('data.user.adv :>> ', data.user.adv);
+      openByCategory(await getUserAdv(), true);
     }
   };
 
@@ -240,11 +255,25 @@ export const createNewAdv = adv => {
       );
     }
     inputWrapper.insertAdjacentHTML('beforeend', createGreyMarkup());
-    const deleteAdv = (event) => {
+    const deleteAdv = async event => {
       if (event.target.closest('[data-btn="delite-btn"]')) {
-        axios.delete(`${baseURL}/${adv._id}`)
+        await axios.delete(`${baseURL}/${adv._id}`);
+        data.calls.specificCategory[newObjAdv.category] = [
+          ...data.calls.specificCategory[newObjAdv.category].filter(
+            item => item._id !== newObjAdv._id,
+          ),
+        ];
+
+        data.user.adv = [
+          ...data.user.adv.filter(
+            item => item._id !== newObjAdv._id,
+          ),
+        ];
+        openByCategory(await getUserAdv(), true);
       }
-    }
+      
+    };
+    
     formAdv.addEventListener('click', deleteAdv);
   };
 

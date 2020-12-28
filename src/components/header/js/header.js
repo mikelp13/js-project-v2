@@ -6,10 +6,10 @@ import { getSliderItems } from '../../hero/slider/slider';
 import { createMainMarkup } from '../../main';
 import categories from '../templates/categories.hbs';
 
-export const refreshMain = () => {
+export const refreshMain = (hero = true) => {
   createMainMarkup();
   createСategories();
-  getSliderItems();
+  hero && getSliderItems();
   const activeCategory = document
     .querySelector('.categories-filter')
     .querySelector('.active-category');
@@ -67,7 +67,6 @@ export const createHeader = () => {
     if (tabletFilters.innerHTML === '') {
       tabletFilters.style.display = 'flex';
       tabletFilters.innerHTML = createCategoriesMarkup();
-      
     } else {
       tabletFilters.style.display = 'none';
       tabletFilters.innerHTML = '';
@@ -107,6 +106,7 @@ export const createHeader = () => {
 
   function activeCategory(e) {
     if (e.target.nodeName === 'A') {
+      clearActiveCategory();
       renderCategory(e);
       document.querySelector('.slider-container').innerHTML = '';
       const burgerWrapper = document.querySelector('.mobile-menu-closed');
@@ -122,15 +122,20 @@ export const createHeader = () => {
   categoriesList.addEventListener('click', activeCategory);
   categoriesTabletList.addEventListener('click', activeCategory);
   categoriesMobileList.addEventListener('click', activeCategory);
-  clearCategoryBtn.addEventListener('click', clearActiveCategory);
-  clearCategoryMobileBtn.addEventListener('click', clearActiveCategory);
+  clearCategoryBtn.addEventListener('click', () => {
+    clearActiveCategory(true);
+  });
+  clearCategoryMobileBtn.addEventListener('click', () => {
+    clearActiveCategory(true);
+  });
 
-  function clearActiveCategory() {
+  function clearActiveCategory(hero = false) {
     if (document.querySelector('.active-category')) {
       let activeCategoryATM = document.querySelector('.active-category');
-      activeCategoryATM.classList.remove('active-category');
+      activeCategoryATM &&
+        activeCategoryATM.classList.remove('active-category');
     }
-    refreshMain();
+    refreshMain(hero);
   }
   // ===========================FILTER-BTN===========================
 
