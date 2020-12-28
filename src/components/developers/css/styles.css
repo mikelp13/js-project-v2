@@ -157,6 +157,25 @@
   z-index: 1;
 }
 
+.students-modal-card .students-modal-content h2,
+.students-modal-card .students-modal-content h2 {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.students-modal-card .students-modal-content h2 span,
+.students-modal-card .students-modal-content h2 span {
+  font-size: 14px;
+  color: rgb(131, 128, 128);
+  font-weight: 200;
+  letter-spacing: 2px;
+  z-index: 1;
+}
+
 .students-modal-card:hover .students-modal-content,
 .students-modal-card:focus .students-modal-content {
   opacity: 1;
@@ -175,7 +194,7 @@
 
 .students-modal-card:hover .students-modal-content h2 span,
 .students-modal-card:focus .students-modal-content h2 span {
-  font-size: 12px;
+  font-size: 14px;
   color: rgb(131, 128, 128);
   font-weight: 200;
   letter-spacing: 2px;
