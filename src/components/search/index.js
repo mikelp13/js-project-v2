@@ -68,8 +68,8 @@ export const updateMarkup = goods => {
   // main.insertAdjacentHTML('beforeend', searchMarkup);
   console.log('goods :>> ', goods);
   main.innerHTML = `
+    <button class="close-search-btn" type="button"><i class="fa fa-times" aria-hidden="true"></i></button>
     <div class="search-container">
-    <button class="close-search-btn" type="button">закрити</button>
       <ul class="search-gallery">${cardTpl(goods)}</ul>
     </div>
   `;

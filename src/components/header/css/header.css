@@ -44,6 +44,16 @@
   cursor: default;
 }
 
+.harry-say1,
+.harry-say2,
+.harry-say3,
+.harry-say4,
+.harry-say5 {
+  padding-top: 2px;
+  opacity: 0;
+  border: 1px solid black;
+}
+
 .header__logo:hover .hogvarts,
 .header__logo:focus .hogvarts {
   display: flex;
@@ -540,7 +550,7 @@
 
 
   100% {
-    transform: translate(-60vh, -2.5vh) rotate(80deg) scale(-1, 1);
+    transform: translate(-60vh, -2.5vh) rotate(-1000deg) scale(-1, 1);
   }
 }
 
