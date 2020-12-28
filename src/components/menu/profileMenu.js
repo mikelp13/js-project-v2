@@ -11,24 +11,59 @@ const refs = {
 const onMobCabinetClick = async event => {
   const { id } = event.target.dataset;
   if (id === 'mobAdv') {
-    openByCategory(await getUserAdv(), true);
-    const burgerWrapper = document.querySelector('.mobile-menu-closed');
-    burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
+    const result = await getUserAdv();
+    if (!result.length) {
+      document.querySelector('.slider-container').innerHTML = '';
+      document.querySelector(
+        '.categories-container',
+      ).innerHTML = `<p class ="none-product">Нет добавленных товаров</p>`;
+      const burgerWrapper = document.querySelector('.mobile-menu-closed');
+      burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
+    } else {
+      openByCategory(result, true);
+      const burgerWrapper = document.querySelector('.mobile-menu-closed');
+      burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
+    }
   }
   if (id === 'mobFav') {
-    openByCategory(await getFavourites());
-    const burgerWrapper = document.querySelector('.mobile-menu-closed');
-    burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
+    const result = await getFavourites();
+    if (!result.length) {
+      document.querySelector('.slider-container').innerHTML = '';
+      document.querySelector(
+        '.categories-container',
+      ).innerHTML = `<p class ="none-product">Нет избранных товаров</p>`;
+      const burgerWrapper = document.querySelector('.mobile-menu-closed');
+      burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
+    } else {
+      openByCategory(result);
+      const burgerWrapper = document.querySelector('.mobile-menu-closed');
+      burgerWrapper && burgerWrapper.classList.remove('mobile-menu-opened');
+    }
   }
 };
-
 const onDesktopCabinetClick = async event => {
   const { id } = event.target.dataset;
   if (id === 'adv') {
-    openByCategory(await getUserAdv(), true);
+    const result = await getUserAdv();
+    if (!result.length) {
+      document.querySelector('.slider-container').innerHTML = '';
+      document.querySelector(
+        '.categories-container',
+      ).innerHTML = `<p class ="none-product">Нет добавленных товаров</p>`;
+    } else {
+      openByCategory(result, true);
+    }
   }
   if (id === 'fav') {
-    openByCategory(await getFavourites());
+    const result = await getFavourites();
+    if (!result.length) {
+      document.querySelector('.slider-container').innerHTML = '';
+      document.querySelector(
+        '.categories-container',
+      ).innerHTML = `<p class ="none-product">Нет избранных товаров</p>`;
+    } else {
+      openByCategory(result);
+    }
   }
 };
 

@@ -11,7 +11,7 @@ const getCall = e => {
   const call = data.calls.specificCategory[category].find(
     elem => elem._id === callid,
   );
-  if (e[0].target.dataset.editablebtn) {
+  if (e[0].target.closest('[data-editablebtn]')) {
     modalBackDrop(newAddForm());
     // data.user.adv = [
     //   ...data.user.adv.map(item =>

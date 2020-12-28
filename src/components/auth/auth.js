@@ -3,12 +3,9 @@ import validator from 'validator';
 import './auth.css';
 import signUp from './template/signUp.hbs';
 import logOut from './template/logOut.hbs';
-// import userLogged from './template/userLogged.hbs';
-// import login from './template/login.hbs'
 import { modalBackDrop } from '../modal/modalBackDrop';
 import { data } from '../../data/data';
 import { CreateCabinetMarkup } from './accCabinet';
-// import mistakes from './template/mistakes.hbs';
 import { getUserData } from '../../api/api';
 
 const url = 'https://callboard-backend.herokuapp.com';
@@ -81,13 +78,11 @@ window.addEventListener('resize', resizeWindow);
 function newUserEnter() {
     data.auth.accessToken = '';
     data.auth.isAuth = false;
-    // console.log('newUser', data.auth.isAuth, data.auth.accessToken);
 };
 
 function loggedUserEnter() {
     data.auth.isAuth = true;
     data.auth.accessToken = localStorage.getItem('accessToken');
-    // console.log('loggedUser', data.auth.isAuth, data.auth.accessToken);
 };
 
 // ================================REGISTRATION===================================
@@ -188,7 +183,7 @@ export function regitsrationUser(event) {
                 data.user = {...result.data.user }
                 data.auth.accessToken = result.data.accessToken;
                 data.auth.isAuth = true;
-                getUserData();
+                // getUserData();
                 onXclose();
                 resizeWindow()
                 authForm.removeEventListener('submit', checkSubmit);
