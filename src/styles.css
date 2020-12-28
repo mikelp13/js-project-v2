@@ -1,0 +1,79 @@
+@import './components/fonts/fonts.css';
+@import './components/header/css/header.css';
+@import './components/header/css/input.css';
+@import './components/header/css/burger-menu.css';
+@import './components/header/css/header-filters.css';
+@import './components/header/css/header-auth.css';
+@import './components/auth/accCabinet.css';
+@import './components/header/css/color-switch.css';
+
+html {
+  --main-accent-color: #ff6b08;
+  --main-base-color: #112437;
+  --modal-bg-color: #031c33;
+  /* #031c33 */
+  box-sizing: border-box;
+  font-family: 'MontserratRegular';
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  min-height: calc(100vh - 133px); 
+}
+
+.container {
+  max-width: 280px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 688px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.none-product{
+  display: block;
+  font-family: 'MontserratRegular';
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-left: 20px;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .none-product{
+    font-size: 14px;
+  }
+}

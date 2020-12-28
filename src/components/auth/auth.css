@@ -1,0 +1,302 @@
+/* =========================FORM=========================== */
+
+.nonAuth {
+  display: none;
+}
+
+.authForm {
+  background-color: var(--modal-bg-color);
+  width: 530px;
+  padding: 50px 45px;
+  position: absolute;
+  border-radius: 8px;
+  top: 160px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.authForm__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.authForm__row100 {
+  position: relative;
+  width: 100%;
+  display: grid;
+  margin-top: 15px;
+  grid-template-columns: repeat(autofit, minmax(300px, 1fr));
+}
+
+.authForm__col {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 30px;
+  transition: 0.5s;
+}
+
+.authForm__col:nth-child(1) {
+  margin-bottom: 35px;
+}
+
+.authForm__inputBox {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  color: var(--main-accent-color);
+}
+
+.authForm__input {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 0 10px;
+  z-index: 1;
+  color: #000;
+}
+
+.input-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 10px;
+  font-size: 16px;
+  display: block;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+
+.input-line {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--main-accent-color);
+  transition: 0.5s;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.authForm__input:focus + .input-placeholder, 
+.authForm__input:valid + .input-placeholder {
+  top: -25px;
+  left: -8px;
+}
+
+.authForm__input:focus ~ .input-line, 
+.authForm__input:valid ~ .input-line {
+  height: 100%;
+}
+
+.logOut__wrap {
+  background-color: var(--modal-bg-color);
+  width: 650px;
+  height: 230px;
+  padding: 60px;
+  position: absolute;
+  border-radius: 8px;
+  top: 160px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.authForm__btn_cls.logOut {
+  top: 15px;
+  right: 15px;
+}
+
+.authForm__btn_cls {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  background-image: url('../../components/header/images/close/close-24px.svg');
+}
+
+.authForm__btn_cls:hover,
+.authForm__btn_cls:focus {
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+
+/* ==============GOOGLE===================== */
+.authForm__google {
+  display: none;
+}
+.authForm__google_svg {
+  fill: black;
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+.authForm__btn_google {
+  width: 150px;
+  height: 50px;
+}
+/* ==============END===================== */
+
+.authForm__txt,
+.authForm__txt_out {
+  font-family: MontserratMedium;
+  font-style: normal;
+  text-align: start;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.214;
+  color: var(--main-accent-color);
+}
+.authForm__txt_out {
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+.authForm__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.logOut__wrap .authForm__buttons {
+  max-width: 450px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.authForm__btn_signUp,
+.authForm__btn_logIn,
+.authForm__btn_logOut,
+.authForm__btn_exit {
+  width: 203px;
+  height: 60px;
+  background-color: #fff;
+  border: 1px solid #bbbbbb;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  box-shadow: 15px 15px 55px rgba(0, 0, 0, 0.3);
+}
+
+.authForm__btn_logIn {
+  margin-right: 20px;
+}
+
+.mistake__email,
+.mistake__password {
+  position: absolute;
+  top: 41px;
+  font-size: 12px;
+  font-family: "MontserratMedium";
+  color: #e63131;
+}
+
+.authForm__btn_logOut:hover,
+.authForm__btn_logOut:focus,
+.authForm__btn_exit:hover,
+.authForm__btn_exit:focus,
+.authForm__btn_signUp:hover,
+.authForm__btn_signUp:focus,
+.authForm__btn_logIn:hover,
+.authForm__btn_logIn:focus {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.active {
+  color: #ffffff;
+  background-color: var(--main-accent-color);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* .authForm__btn_exit:hover,
+.authForm__btn_exit:focus {
+  color: #ffffff;
+  background-color: #ff6b09;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+.authForm__btn_exit:hover .authForm__btn_logOut,
+.authForm__btn_exit:focus .authForm__btn_logOut {
+  background-color: #fff;
+  border: 1px solid #bbbbbb;
+  outline: none;
+  box-shadow: 15px 15px 55px rgba(0, 0, 0, 0.3);
+} */
+
+@media screen and (max-width: 1270px) {
+  .authForm {
+    top: 247px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .authForm {
+    top: 43px;
+    width: 290px;
+    padding: 50px 20px;
+    position: relative;
+  }
+  .logOut__wrap {
+    width: 290px;
+    height: 205px;
+    padding: 45px 20px;
+    position: relative;
+  }
+  .authForm__btn_signUp,
+  .authForm__btn_logIn {
+    width: 117px;
+    height: 50px;
+  }
+  .authForm__btn_logOut {
+    margin-right: 15px;
+  }
+
+  .authForm__btn_signUp,
+  .authForm__btn_logIn {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+  .authForm__input {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+  .authForm__txt {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .authForm__btn_cls.logOut {
+    top: 5px;
+    right: 5px;
+  }
+
+  .authForm__btn_cls {
+    top: 5px;
+    right: 5px;
+  }
+}

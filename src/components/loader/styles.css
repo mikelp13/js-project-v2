@@ -1,0 +1,256 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #02172a;
+  width: 100%;
+}
+
+.loader.hide {
+  display: none;
+}
+
+/* =======================================ANIMATION================================== */
+
+.loader-animation {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+/* =====================================Right-Wave================================== */
+.loader-animation:hover .right-loader-wave,
+.loader-animation:focus .right-loader-wave {
+  width: 50px;
+  height: 80%;
+  margin: 0 20px;
+  background: #02172a;
+  animation: animate1 1.4s linear infinite;
+}
+
+.loader-animation:hover span:nth-child(9),
+.loader-animation:focus span:nth-child(9) {
+  animation-delay: 0s;
+}
+.loader-animation:hover span:nth-child(8),
+.loader-animation:focus span:nth-child(8) {
+  animation-delay: 0.2s;
+}
+.loader-animation:hover span:nth-child(7),
+.loader-animation:focus span:nth-child(7) {
+  animation-delay: 0s;
+}
+.loader-animation:hover span:nth-child(6),
+.loader-animation:focus span:nth-child(6) {
+  animation-delay: 0.2s;
+}
+.loader-animation:hover span:nth-child(5),
+.loader-animation:focus span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.loader-animation:hover span:nth-child(4),
+.loader-animation:focus span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.loader-animation:hover span:nth-child(3),
+.loader-animation:focus span:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.loader-animation:hover span:nth-child(2),
+.loader-animation:focus span:nth-child(2) {
+  animation-delay: 1s;
+}
+.loader-animation:hover span:nth-child(1),
+.loader-animation:focus span:nth-child(1) {
+  animation-delay: 1.2s;
+}
+
+@keyframes animate1 {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+    transform: translateX(-50px) scale(1);
+  }
+  50% {
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    transform: translateX(0px) scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+    transform: translateX(50px) scale(1);
+  }
+}
+
+/* ==================================Left-Wave=========================================== */
+.loader-animation:hover .left-loader-wave,
+.loader-animation:focus .left-loader-wave {
+  width: 50px;
+  height: 80%;
+  margin: 0 20px;
+  background: #02172a;
+  animation: animate2 1.4s linear infinite;
+}
+
+.loader-animation:hover span:nth-child(10),
+.loader-animation:focus span:nth-child(10) {
+  animation-delay: 0s;
+}
+.loader-animation:hover span:nth-child(11),
+.loader-animation:focus span:nth-child(11) {
+  animation-delay: 0.2s;
+}
+.loader-animation:hover span:nth-child(12),
+.loader-animation:focus span:nth-child(12) {
+  animation-delay: 0.4s;
+}
+.loader-animation:hover span:nth-child(13),
+.loader-animation:focus span:nth-child(13) {
+  animation-delay: 0.6s;
+}
+.loader-animation:hover span:nth-child(14),
+.loader-animation:focus span:nth-child(14) {
+  animation-delay: 0.8s;
+}
+.loader-animation:hover span:nth-child(15),
+.loader-animation:focus span:nth-child(15) {
+  animation-delay: 1s;
+}
+.loader-animation:hover span:nth-child(16),
+.loader-animation:focus span:nth-child(16) {
+  animation-delay: 1.2s;
+}
+.loader-animation:hover span:nth-child(17),
+.loader-animation:focus span:nth-child(17) {
+  animation-delay: 1.4s;
+}
+.loader-animation:hover span:nth-child(18),
+.loader-animation:focus span:nth-child(18) {
+  animation-delay: 1.6s;
+}
+
+@keyframes animate2 {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+    transform: translateX(50px) scale(1);
+  }
+  50% {
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    transform: translateX(0px) scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+    transform: translateX(-50px) scale(1);
+  }
+}
+/* ====================================Break-points======================================= */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .loader-animation:hover .right-loader-wave {
+    display: none;
+  }
+
+  .loader-animation:hover .left-loader-wave {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .loader-animation:hover .right-loader-wave {
+    display: none;
+  }
+
+  .loader-animation:hover .left-loader-wave {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loader-animation:hover .right-loader-wave {
+    width: 2%;
+    height: 80%;
+    margin: 0 20px;
+    background: #02172a;
+    animation: animate1 1.4s linear infinite;
+  }
+
+  .loader-animation:hover .left-loader-wave {
+    width: 2%;
+    height: 80%;
+    margin: 0 20px;
+    background: #02172a;
+    animation: animate2 1.4s linear infinite;
+  }
+}
+/* =======================================ANIMATION================================== */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .loader {
+    height: 70px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .loader {
+    height: 96px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loader {
+    height: 106px;
+  }
+}
+
+.loader__btn {
+  display: flex;
+  outline: none;
+  margin: auto;
+  font-family: MontserratSemiBold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  background: #02172a;
+  color: #ffffff;
+  border: none;
+  opacity: 1;
+  cursor: pointer;
+  margin: 0;
+  transition-property: opacity;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loader__btn-hover {
+  display: block;
+  outline: none;
+  margin: auto;
+  line-height: 1.2;
+  background: #02172a;
+  border: none;
+  opacity: 1;
+  cursor: pointer;
+  transition-property: opacity;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.loader__btn.hide {
+  display: none;
+}
+
+.loader-animation:hover .loader__btn,
+.loader-animation:focus .loader__btn,
+.loader-animation:active .loader__btn {
+  color: var(--main-accent-color);
+  opacity: 0.8;
+  cursor: pointer;
+  outline: none;
+}
+
+.loader-text {
+  margin: 0 30px;
+}

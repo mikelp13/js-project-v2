@@ -1,0 +1,52 @@
+<form class="form" name="newAdvForm" >
+    <button type="button" class="modal-close-btn" name="close"></button>
+    <b class="form_text">Создать объявление</b>
+
+    <div class="all-inputs">
+        <div class="form_field">
+        <label class="name_product">Название товара</label>
+            <input class="form_input form_name_product" name="title" type="text" >
+        </div>
+
+        <div class="form_field">
+            <label class="name_product">Фото</label>
+            <ul class="input_wrapper"></ul>
+        </div>
+
+        
+        <div class="form_field">
+            <label class="name_product">Описание товара</label>
+            <textarea class="form_input input_textarea" name="description" ></textarea>
+        </div>
+
+        <div class="form_field">
+            <div class="form_field--category">
+                <label class="name_product">Категория товара </label>
+            </div>
+
+            <div class="form_field--select"></div>
+        </div>
+
+        <div class="form_field">
+            <label class="name_product price_label">Цена</label>
+            <input class="form_input price_input" name="price" type="number"  
+                placeholder="0.00 &euro;">
+        </div>
+
+        <div class="form_field">
+        <label class="name_product tel_label">Телефон</label>
+        <input class="form_input tel_input" name="phone" type="tel"  
+            {{!-- pattern="[\+]\d{2}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" --}}
+            placeholder="+38 (0--) --- -- --" >
+        </div>
+    </div>
+
+    <div class="form_delete"></div>
+    
+    <div class="btn">
+        <button type="submit" class="btn_push">
+            <span class="btn_text">Добавить</span>
+        </button>
+    </div>
+</form>
+

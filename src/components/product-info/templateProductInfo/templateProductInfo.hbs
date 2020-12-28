@@ -1,0 +1,52 @@
+<li class="product-card__list" data-productid={{_id}}>
+  <button type="button" class="modal-close-btn"></button>
+  <div class="product-card__image">
+    <img src="" alt="item" width="281px" height="465px" class="product-card__image__main">
+    <div class="product-card__image__secondary">
+      {{#each imageUrls}}
+      <img src={{this}} class="image__secondary__list" data-id={{@index}} width="52px" height="56px" alt="">
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="product-card__info">
+    <div class="product-card__title">
+      <h3 class="product-card__title__name">{{title}}</h3>
+      <p class="product-card__code">Код товару | 105-С</p>
+    </div>
+    <p class="product-card__price">{{price}} €</p>
+    <button class="product-card__btn" type="button">Информация о продавце </button>
+    <div class="product-card__user__settings">
+      <div class="product-card__favorite">
+        <span class="product-card__favorite title">В избранное</span>
+        <!--<img src="../img/Vector.jpg" class="icon-favorite" width="14px" height="14px" alt="">
+                <div class="favor-input">
+    <input type="checkbox" value="1" id="btnfavorite" name="checkbox">
+    <label for="btnfavorite" class="js-favorite">
+      <div class="favor-input" data-id={{id}}>-->
+
+        <svg class="heart" data-id={{_id}} version="1.1" xmlns="http://www.w3.org/2000/svg" width="14" height="13"
+          viewBox="0 0 37 32">
+          <title>icon-favorite</title>
+          <path
+            d="M18.286 29.714c-0.456 0-0.895-0.159-1.237-0.448-1.293-1.089-2.539-2.112-3.639-3.015l-0.006-0.005c-3.224-2.647-6.008-4.933-7.945-7.184-2.165-2.517-3.174-4.904-3.174-7.511 0-2.533 0.902-4.87 2.539-6.581 1.656-1.731 3.929-2.684 6.401-2.684 1.847 0 3.539 0.563 5.028 1.672 0.751 0.56 1.433 1.245 2.033 2.045 0.6-0.799 1.281-1.485 2.033-2.045 1.489-1.11 3.181-1.672 5.028-1.672 2.471 0 4.744 0.953 6.401 2.684 1.637 1.711 2.538 4.048 2.538 6.581 0 2.607-1.008 4.994-3.174 7.511-1.937 2.252-4.721 4.538-7.944 7.184-1.102 0.904-2.35 1.929-3.645 3.021-0.342 0.288-0.782 0.447-1.237 0.447zM11.225 4.092c-1.942 0-3.725 0.747-5.023 2.102-1.317 1.376-2.042 3.279-2.042 5.357 0 2.193 0.846 4.154 2.743 6.359 1.833 2.131 4.56 4.37 7.717 6.962l0.006 0.005c1.104 0.906 2.355 1.934 3.657 3.031 1.31-1.099 2.563-2.128 3.669-3.036 3.157-2.592 5.883-4.831 7.717-6.962 1.896-2.205 2.742-4.166 2.742-6.359 0-2.078-0.725-3.981-2.042-5.357-1.297-1.356-3.081-2.102-5.023-2.102-1.422 0-2.728 0.436-3.881 1.295-1.028 0.766-1.743 1.734-2.163 2.411-0.216 0.348-0.596 0.556-1.016 0.556s-0.801-0.208-1.016-0.556c-0.419-0.677-1.135-1.646-2.163-2.411-1.153-0.859-2.459-1.295-3.881-1.295z">
+          </path>
+        </svg>
+
+      </div>
+      <div class="product-card__share">
+        <span class="product-card__share title">Поделиться</span>
+        <!-- <svg width= 14.77px height= 16px class="icon-favorite">-->
+        <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="14.77" height="16"
+          viewBox="0 0 32 32">
+          <title>icon-share</title>
+          <path
+            d="M25.436 21.333c-1.623 0-3.079 0.73-4.058 1.878l-9.632-5.955c0.098-0.403 0.151-0.824 0.151-1.256s-0.053-0.853-0.151-1.256l9.632-5.955c0.979 1.148 2.434 1.878 4.058 1.878 2.941 0 5.333-2.393 5.333-5.333s-2.393-5.333-5.333-5.333-5.333 2.393-5.333 5.333c0 0.433 0.053 0.853 0.151 1.256l-9.632 5.955c-0.979-1.148-2.434-1.878-4.058-1.878-2.941 0-5.333 2.393-5.333 5.333s2.393 5.333 5.333 5.333c1.624 0 3.079-0.73 4.058-1.878l9.631 5.955c-0.098 0.403-0.151 0.824-0.151 1.256 0 2.941 2.392 5.333 5.333 5.333s5.333-2.393 5.333-5.333c0-2.941-2.393-5.333-5.333-5.333zM25.436 2.462c1.584 0 2.872 1.288 2.872 2.872s-1.288 2.872-2.872 2.872c-1.583 0-2.872-1.288-2.872-2.872s1.288-2.872 2.872-2.872zM6.564 18.872c-1.583 0-2.872-1.288-2.872-2.872s1.288-2.872 2.872-2.872c1.583 0 2.872 1.288 2.872 2.872s-1.288 2.872-2.872 2.872zM25.436 29.538c-1.583 0-2.872-1.288-2.872-2.872s1.288-2.872 2.872-2.872c1.584 0 2.872 1.288 2.872 2.872s-1.288 2.872-2.872 2.872z">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <p class="product-card__description__title title">Описание</p>
+    <p class="product-card__description title"> {{description}}</p>
+  </div>
+</li>

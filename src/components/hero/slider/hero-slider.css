@@ -1,0 +1,164 @@
+.hero{
+  margin-bottom: 50px;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hero{
+    margin-bottom: 60px;
+  }
+}
+@media (min-width: 1280px) {
+  .hero{
+    margin-bottom: 72px;
+  }
+}
+
+.hero-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.slider-wrapper {
+  display: flex;
+  width: 100%;
+  background-color: #122438;
+}
+
+@media (min-width: 1280px) {
+  .slider-wrapper {
+    width: 66.6%;
+  
+  }
+}
+
+/* +++++++++++++++++++++ slick slider ++++++++++++++++++++++++++++ */
+
+.slick-track{
+  display: flex;
+}
+
+.slider{
+  min-width: 0; /* without it slider doesn't work!!!*/
+  position: relative;
+  padding: 0 10px;
+}
+.slider .slick-arrow{
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  font-size: 0;
+}
+.slider .slick-arrow.slick-prev{
+  left: 0;
+}
+
+.slider .slick-arrow.slick-next{
+  right: 0;
+}
+
+
+.slider .slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+  .slider .slick-dots{
+    bottom: 25px;
+  }
+}
+
+.slider .slick-dots li{
+  list-style: none;
+  margin: 0 8px;
+}
+.slider .slick-dots button{
+  width: 6px;
+  height: 6px;
+  background-color: #5E6671;
+  border: none;
+  outline: none;
+}
+.slider .slick-dots li.slick-active button {
+  background-color: #FFFFFF;
+}
+
+.slider__item{
+  display: flex;
+  align-items: center;
+  width: 320px;
+  height: 366px;
+ justify-content: space-evenly;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .slider__item{
+    height: 370px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .slider__item {
+    height: 485px;
+  }
+}
+
+.slider__img {
+  max-width: 150px;
+}
+@media screen and (min-width: 768px) {
+  .slider__img {
+    max-width: 250px;
+  }
+}
+
+.slider__title {
+  position: relative;
+  text-align: right;
+  margin: 0;
+  font-family: 'MontserratBold';
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  
+}
+
+@media (min-width: 768px) {
+  .slider__title {
+    font-size: 40px;
+  }
+}
+
+.slider__price {
+  font-family: 'MontserratBold';
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.22;
+  text-align: right;
+  letter-spacing: -0.02em;
+  color: #ff6b09;
+}
+
+.slider__price::before {
+  content: '€';
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-align: right;
+  vertical-align: super;
+  margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+  .slider__price {
+    font-size: 54px;
+  }
+  .slider__price::before {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,131 @@
+.header-auth-mobile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  left: 46.875vw;
+  top: 14.4vh;
+  height: 30px;
+}
+
+.authNewUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authNewUser__mobile {
+  display: flex;
+  flex-direction: column;
+  margin-top: 31px;
+  height: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .authLoggedUser__mobile .sign-in-up__stick {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 20px;
+      background: url(../images/stick.svg);
+      transition: 0.5s ease-in-out;
+  }
+
+  .sign-in-up__stick {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background: url(../images/stick.svg);
+    transition: 0.5s ease-in-out;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-auth {
+    display: flex;
+    width: 150px;
+    align-items: center;
+    justify-content: space-around;
+    height: 26px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header-auth {
+    width: 170px;
+  }
+}
+
+/* .header-auth-mobile .sign-up__btn {
+  color: #818181;
+}
+
+.header-auth-mobile .sign-in__btn {
+  color: #818181;
+} */
+
+.sign-up__btn {
+  display: inline-block;
+  font-family: 'MontserratMedium', sans-serif;
+  line-height: 26px;
+  font-size: 12px;
+  color: #818181;
+  transition: 0.5s;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.sign-in__btn {
+  font-family: 'MontserratMedium', sans-serif;
+  line-height: 26px;
+  font-size: 12px;
+  color: #818181;
+  transition: 0.5s;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.sign-up__btn:hover,
+.sign-up__btn:focus {
+  cursor: pointer;
+  color: var(--main-accent-color);
+}
+
+.sign-in__btn:hover,
+.sign-in__btn:focus {
+  cursor: pointer;
+  color: var(--main-accent-color);
+}
+
+.sign-in-up__stick {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  margin: 0 10px;
+  background: url(../images/stick.svg);
+  transition: 0.5s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .sign-in-up__stick {
+    transform: translate(0px, 0px);
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background: url(../images/stick.svg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .sign-in-up__stick {
+    margin: 0 15px;
+  }
+}

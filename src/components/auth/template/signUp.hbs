@@ -1,0 +1,50 @@
+<form class="authForm" name="authForm">
+    <button type="button" class="authForm__btn_cls" name="close">
+        {{!-- <svg class="authForm__slsBtn_svg" width="14px" height="14px">
+            <use href="./images/auth/close-24px.svg" class="authForm__svg"></use>
+        </svg> --}}
+        <img src="{{./images/auth/close-24px.svg}}" alt="">
+    </button>
+    <div class="authForm__google">
+        <p class="authForm__txt">
+            Для авторизации можете использовать Google Account:
+        </p>
+        <button type="submit" name="authForm__btn_google">
+            <svg class="authForm__google_svg" width="18px" height="18px">
+                <use href="./images/auth/google-symbol.svg"></use>
+            </svg>
+            Google
+        </button>
+    </div>
+    <div class="authForm__main">
+        <p class="authForm__txt">
+            Войдите в приложение используя e-mail и пароль:
+        </p>
+        <div class="authForm__row100">
+            <div class="authForm__col">
+                <div class="authForm__inputBox">
+                    <p class="mistake__email"></p>
+                    <input type="text" name="email" required="required" class="authForm__input" />
+                    <span class="input-placeholder">Email</span>
+                    <span class="input-line"></span>
+                </div>
+            </div>
+            <div class="authForm__col">
+                <div class="authForm__inputBox">
+                    <input type="password" autocomplete="of" required="required" name="password" class="authForm__input" />
+                    <span class="input-placeholder">Password</span>
+                    <span class="input-line"></span>
+                    <p class="mistake__password"></p>
+                </div>
+            </div>
+        </div>
+        <div class="authForm__buttons">
+            <button type="submit" name="logIn" class="authForm__btn_logIn active">
+                Войти
+            </button>
+            <button type="submit" name="signUp" class="authForm__btn_signUp">
+                Регистрация
+            </button>
+        </div>
+    </div>
+</form>

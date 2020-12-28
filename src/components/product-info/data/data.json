@@ -1,0 +1,15 @@
+{
+  "title": "Red Shirt",
+  "description": "New red shirt, made from cotton",
+  "category": "trade",
+  "price": 0,
+  "phone": "+380000000000",
+  "imageUrls": [
+    "https://s1.eda.ru/StaticContent/Photos/140812180013/140820212258/p_O.jpg",
+    "https://www.go-cook.ru/wp-content/uploads/2014/11/magribskij-tomatnyj-sup.jpg",
+    "https://s1.eda.ru/StaticContent/Photos/120131111301/140324110953/p_O.jpg"
+  ],
+  "isOnSale": false,
+  "userId": "507f1f77bcf86cd799439011",
+  "_id": "507f1f77bcf86cd799439012"
+}

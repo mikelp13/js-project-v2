@@ -1,0 +1,257 @@
+.footer__our-students {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--main-accent-color);
+  cursor: pointer;
+}
+
+.footer__our-students:hover,
+.footer__our-students:focus {
+  color: #fff;
+}
+
+.student-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background: #010615;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 80px;
+}
+
+@media (min-width: 1400px) {
+  .student-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background: #010615;
+    padding-right: 180px;
+    padding-left: 180px;
+    padding-top: 80px;
+  }
+}
+
+.student-modal__form--title {
+  position: absolute;
+  top: 4%;
+  font-family: 'MontserratBold';
+  font-size: px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.89);
+  line-height: 1.2;
+  text-align: start;
+  margin-bottom: 10px;
+  margin-left: 18px;
+  text-align: center;
+  text-shadow: -5px -5px 10px rgba(69, 107, 102, 0.747),
+    5px 5px 15px rgba(131, 153, 69, 0.89);
+}
+
+.student-modal__close-btn {
+  position: absolute;
+  background-color: #010615;
+  background-image: url('../../../images/icons/close/close-24px-white.svg');
+  top: 15px;
+  right: 15px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: -5px -5px 10px rgba(241, 238, 4, 0.747),
+    5px 5px 15px rgba(5, 180, 250, 0.89);
+}
+
+.student-modal__close-btn:hover,
+.student-modal__close-btn:focus {
+  box-shadow: -5px -5px 20px rgb(13, 240, 5), 5px 5px 30px rgb(0, 236, 253);
+  background-image: url('../../../images/icons/close/close-24px-green.svg');
+}
+
+.students-modal-card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 30px 10px 30px;
+  transition: 0.5s;
+}
+
+.students-modal-card:hover,
+.students-modal-card:focus {
+  height: 260px;
+}
+
+.students-modal-card .students-modal-imgBx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background: #060c21;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.students-modal-card .students-modal-imgBx .student-modal-avatar {
+  min-width: 100%;
+  height: 178px;
+  opacity: 0.1;
+  transition: 0.5s;
+}
+
+.students-modal-card:hover .students-modal-imgBx .student-modal-avatar,
+.students-modal-card:focus .students-modal-imgBx .student-modal-avatar {
+  opacity: 1;
+}
+
+.students-modal-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #fff;
+  z-index: 0;
+}
+
+.students-modal-card::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: 0;
+  background: #fff;
+  filter: blur(40px);
+}
+
+.students-modal-card .students-modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.students-modal-card .students-modal-content h2,
+.students-modal-card .students-modal-content h2 {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.students-modal-card .students-modal-content h2 span,
+.students-modal-card .students-modal-content h2 span {
+  font-size: 14px;
+  color: rgb(131, 128, 128);
+  font-weight: 200;
+  letter-spacing: 2px;
+  z-index: 1;
+}
+
+.students-modal-card:hover .students-modal-content,
+.students-modal-card:focus .students-modal-content {
+  opacity: 1;
+  z-index: 1;
+}
+
+.students-modal-card:hover .students-modal-content h2,
+.students-modal-card:focus .students-modal-content h2 {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.students-modal-card:hover .students-modal-content h2 span,
+.students-modal-card:focus .students-modal-content h2 span {
+  font-size: 14px;
+  color: rgb(131, 128, 128);
+  font-weight: 200;
+  letter-spacing: 2px;
+  z-index: 1;
+}
+
+.students-modal-card::before,
+.students-modal-card::after {
+  background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+}
+
+.students-modal-card:nth-child(2):before,
+.students-modal-card:nth-child(2):after {
+  background: linear-gradient(235deg, #ff0000, #010615, #dceb08);
+}
+
+.students-modal-card:nth-child(3):before,
+.students-modal-card:nth-child(3):after {
+  background: linear-gradient(235deg, #00aeff, #010615, #df9711);
+}
+
+.students-modal-card:nth-child(4)::before,
+.students-modal-card:nth-child(4)::after {
+  background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+}
+
+.students-modal-card:nth-child(5):before,
+.students-modal-card:nth-child(5):after {
+  background: linear-gradient(235deg, #ff0000, #010615, #dceb08);
+}
+
+.students-modal-card:nth-child(6):before,
+.students-modal-card:nth-child(6):after {
+  background: linear-gradient(235deg, #00aeff, #010615, #df9711);
+}
+
+.students-modal-card:nth-child(7)::before,
+.students-modal-card:nth-child(7)::after {
+  background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+}
+
+.students-modal-card:nth-child(8):before,
+.students-modal-card:nth-child(8):after {
+  background: linear-gradient(235deg, #ff0000, #010615, #dceb08);
+}
+
+.students-modal-card:nth-child(9):before,
+.students-modal-card:nth-child(9):after {
+  background: linear-gradient(235deg, #00aeff, #010615, #df9711);
+}
+
+.students-modal-card:nth-child(10)::before,
+.students-modal-card:nth-child(10)::after {
+  background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+}
+
+.students-modal-card:nth-child(11):before,
+.students-modal-card:nth-child(11):after {
+  background: linear-gradient(235deg, #ff0000, #010615, #dceb08);
+}

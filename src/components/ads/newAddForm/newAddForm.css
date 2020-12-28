@@ -1,0 +1,374 @@
+/* newAddForm */
+.form-flex {
+  display: flex;
+}
+.grey-wrapper {
+  display: flex;
+}
+.invisible {
+  visibility: hidden;
+}
+/* .all-inputs .btn_deleteAdv {
+  margin-bottom: 10px;
+} */
+.btn_deleteAdv {
+  background-image: url('../../../images/ads/icon-delete.svg');
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  cursor: pointer;
+  outline: 1px solid grey;
+  border: none;
+  outline: none;
+  border: none;
+  transform: scale(1);
+  background-position: 5%;
+  padding-left: 30px;
+}
+.btn_deleteAdv:hover,
+.btn_deleteAdv:focus {
+  transform: scale(1.1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 0);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../header/images/close/close-24px.svg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transform: scale(1);
+}
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  transform: scale(1.1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 0);
+}
+
+.form_delete {
+  margin-bottom: 20px;
+}
+
+.img-adv-box {
+  position: absolute;
+  top: 0;
+}
+
+.btn_deleteAdv {
+  display: block;
+  width: 220px;
+  height: 25px;
+  font-family: 'MontserratRegular';
+  font-size: 14px;
+  background-color: #131419;
+  border-color: transparent;
+  color: #ccc;
+  border-radius: 40px;
+  outline: none;
+  cursor: pointer;
+  margin-left: 100px;
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.1),
+    2px 2px 6px rgba(0, 0, 0, 0.8);
+  transition: 0.5s;
+}
+
+.btn_deleteAdv:hover,
+.btn_deleteAdv:focus {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .modal-close-btn {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* .is-visible {
+  display: none; 
+} */
+.form {
+  background-color: #131419;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 290px;
+  height: 890px;
+  padding: 20px;
+  border-radius: 8px;
+}
+.img-adv-box {
+  width: 77px;
+  height: 46px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.img-adv-box:nth-child(3n + 3) {
+  margin-right: 0;
+}
+.form_text {
+  display: block;
+  font-family: 'MontserratMedium';
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+  color: var(--main-accent-color);
+}
+.name_product {
+  margin-bottom: 10px;
+  font-family: 'MontserratMedium';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.02em;
+  color: var(--main-accent-color);
+}
+.form_input {
+  -webkit-appearance: none;
+  height: 56px;
+  width: 100%;
+  font-family: 'MontserratLight';
+  margin-bottom: 20px;
+  padding-left: 23px;
+  background-color: #131419;
+  resize: none;
+  display: block;
+  border: none;
+  border-radius: 40px;
+  color: #ccc;
+  font-weight: 500;
+  font-size: 16px;
+  outline: none;
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.description_product {
+  padding: 8px 25px 8px 25px;
+}
+.input_textarea {
+  padding-top: 10px;
+}
+
+/* photo */
+.input_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  border-radius: 8px;
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.05),
+    2px 2px 6px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.file_load {
+  margin-top: 10px;
+}
+
+.price_label,
+.tel_label {
+  margin-bottom: 13px;
+}
+
+.btn_push {
+  display: block;
+  margin: 0 auto;
+  width: 251px;
+  height: 50px;
+  font-family: 'MontserratMedium';
+  background-color: #131419;
+  border-color: transparent;
+  color: var(--main-accent-color);
+  border-radius: 40px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.1),
+    2px 2px 6px rgba(0, 0, 0, 0.8);
+  transition: 0.5s;
+}
+
+.btn_push:hover,
+.btn_push:focus {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* input_plus */
+.file_load {
+  position: relative;
+  width: 76px;
+  height: 46px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.input_load_file {
+  display: none;
+}
+
+.label_load {
+  display: block;
+  width: 76px;
+  height: 46px;
+  background-color: #f5f6fb;
+  text-align: center;
+}
+
+.file_load-plus_load {
+  width: 100%;
+  height: 45.94px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 46px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #bbbbbb;
+}
+
+@media (max-width: 767px) {
+  .form {
+    top: 15%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 750px;
+  }
+
+  .form_field {
+    margin-bottom: 20px;
+  }
+}
+/* .all-inputs {
+  margin-bottom: 40px;
+} */
+@media (max-width: 767px) {
+  .name_product {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .btn_deleteAdv {
+    margin-left: 0px;
+  }
+  .form_input {
+    height: 30px;
+    margin-top: 7px;
+    font-size: 13px;
+    margin-bottom: 12px;
+    padding-left: 15px;
+  }
+
+  .description_product {
+    padding-left: 15px;
+  }
+
+  .form_text {
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+
+  .btn_deleteAdv {
+    margin: auto;
+  }
+
+  .name_product {
+    font-size: 13px;
+  }
+
+  .form_field {
+    margin-bottom: 10px;
+  }
+
+  .grey-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .form-flex {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .tel_input {
+    margin-bottom: 10px;
+  }
+  .btn_deleteAdv {
+    margin-left: 180px;
+  }
+  .form_field {
+    display: flex;
+    align-items: center;
+  }
+  .form {
+    width: 665px;
+    height: 655px;
+    padding: 35px;
+  }
+  .name_product {
+    width: 115px;
+    align-items: center;
+  }
+
+  .img-adv-box {
+    width: 83px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  .img-adv-box:nth-child(3n + 3) {
+    margin-right: 10px;
+  }
+  .form_field--select {
+    width: 100%;
+  }
+  .form_field--category {
+    width: 114.5px;
+  }
+
+  /* .btn {
+    margin-bottom: 60px;
+  } */
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .btn_deleteAdv {
+    margin-left: 180px;
+  }
+  .modal-close-btn {
+    top: 20px;
+    right: 20px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .form_delete {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .form {
+    width: 695px;
+    height: 655px;
+  }
+  .img-adv-box {
+    width: 78px;
+  }
+  .form_delete {
+    margin-bottom: 40px;
+  }
+}

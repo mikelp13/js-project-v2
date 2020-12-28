@@ -1,0 +1,9 @@
+{{#each this}}
+<li class="category-card sliders-item" data-category="{{this.category}}" data-callid="{{this._id}}">
+    <img class="category-card__img" src="{{#with this.imageUrls}}{{this.[0]}}{{/with}}"  alt="photo {{title}}">
+    <p class="category-card__name">{{title}}</p>
+    <div class="category-card__prices">
+        <p class="category-card__price--new">{{price}} €</p>
+    </div>
+</li>
+{{/each}}

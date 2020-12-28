@@ -1,0 +1,10 @@
+{{#each this}}
+<div class="search__card">
+    <img class="search___img" src="{{#with this.imageUrls}}{{this.[0]}}{{/with}}" alt="{{description}}" />
+
+    <div class="search__info">
+        <p class="search__title">{{title}}</p>
+        <p class="search__price">{{price}}</p>
+    </div>
+</div>
+{{/each}}

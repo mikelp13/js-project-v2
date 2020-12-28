@@ -1,0 +1,352 @@
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+h1, h2,h3, h4, h5, h6, p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.product-card__btn:hover{
+  box-shadow: 0 0.5em 0.5em -0.4em #FF6B09;
+  transform: translateY(-0.25em);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  background-image: url('../../../images/icons/close/close-24px.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .modal-close-btn {
+    top: 20px;
+    right: 20px;
+  }
+}
+@media (min-width: 1280px) {
+  .modal-close-btn {
+    top: 25px;
+    right: 25px;
+  }
+}
+
+.act {
+  border: red solid 2px;
+}
+@media screen and (max-width: 767px) {
+.product-card__title{
+  display: none;
+}}
+@media screen and (min-width: 768px) {
+  .product-card__info__mobile{
+    display: none;
+  }}
+
+.product-card__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 290px;
+  height: 95%;
+  z-index: 99;
+  padding: 55px 16px 61px 18px;
+  min-width: 0;
+
+  background-color: white;
+  /*padding: 55px 16px 61px 18px;*/
+  font-family: 'MontserratLight', sans-serif;
+  font-style: normal;
+  list-style: none;
+}
+
+.icon {
+  fill: #878686;
+}
+
+.icon:hover,
+.heart:hover{
+  cursor: pointer;
+} 
+
+.name {
+  margin-right: 13px;
+  fill: #878686;
+}
+
+.activename{
+  fill:  #FF6B09;
+}
+.activeicon {
+  fill:  #FF6B09;
+
+}
+.active-name {
+  color: #FF6B09;
+  font-size: 30px;
+}
+@media screen and (min-width: 768px) {
+  .product-card__list  {
+  width: 724px;
+  height: 530px;
+  padding: 57px 57px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .product-card__list  {
+  width: 850px;
+  height: 674px;
+
+}
+}
+
+.product-card__title__name {
+font-family: 'MontserratBold', sans-serif;
+margin-bottom: 5px;
+font-weight: 700;
+font-size: 18px;
+line-height: 1.22;/*22px;*/
+letter-spacing: 0.02em;
+color: #000000;
+}
+
+.product-card__code {
+  margin-bottom: 20px;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 0.86;/*14px;*/
+  letter-spacing: 0.02em;
+  color: #878686;
+  }
+
+.product-card__image__main {
+  margin-bottom: 30px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card__price {
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 0.82;/*22*/
+  letter-spacing: 0.02em;
+  color: #FF6B09;
+  }
+
+
+.iconcolor {
+  fill: red;
+}
+
+.product-card__btn {
+  margin-bottom: 20px;
+  width: 254px;
+  height: 60px;
+  padding: 16px 58px;
+  background-color: #FF6B09;
+  border: none;
+
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.25;/*15px;*/
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.product-card__user__settings {
+  display: flex;
+  margin-bottom: 30px;
+  min-width: 0;
+}
+
+.product-card__favorite {
+  display: flex;
+  margin-right: 25px;
+  min-width: 0;
+}
+
+.product-card__share {
+  display: flex;
+  min-width: 0;
+}
+
+.title {
+margin-right: 13px;
+ font-weight: 300;
+font-size: 12px;
+line-height: 1.25;
+letter-spacing: 0.02em;
+color: #878686;
+}
+
+.product-card__description__title {
+  margin-bottom: 10px;
+  margin-right: 0;
+
+}
+
+.product-card__description {
+  margin-right: 0;
+  color: #000000;
+}
+
+.product-card__container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  }
+
+  @media screen and (min-width: 290px) {
+    .product-card__container {
+    width: 290px;
+  }
+  .product-card__price {
+    margin-top: 50px;
+  }
+  .image__secondary__list {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  }
+  @media screen and (max-width: 767px) {
+    .product-card__image__main {
+      display: none;}
+      .image__secondary__list {
+        height: 100%;
+      }
+    }
+
+  @media screen and (min-width: 768px) {
+    /*.product-card__image__main {
+      display: none;
+    }*/
+    .product-card__container {
+    width: 724px;
+    padding: 57px 64px;
+
+    /*background-color: yellow;*/
+    }
+
+    .product-card__image {
+      width: 281px;
+      height: 333px;
+    }
+    .product-card__image__main {
+      width: 270px;
+      height: 260px;
+      padding: 25px 10px;
+
+      min-width: 0;
+  }
+    .product-card__list {
+      display: flex;
+      min-width: 0;
+    }
+    .image__secondary__list {
+      min-width: 0;
+    }
+   .product-card__image__secondary {
+
+      display: flex;
+      min-width: 0;
+    }
+    .image__secondary__list:not(:last-child) {
+      margin-right: 5px;
+    }
+    .product-card__image {
+    margin-right: 32px;
+    }
+    .product-card__btn {
+      width: 300px;
+      padding: 16px 69px;
+    }
+    .product-card__description {
+      font-size: 14px;
+      line-height: 1.21;
+    }
+
+}
+  @media screen and (min-width: 1280px) {
+    /*.product-card__container {
+    width: 1025px;}
+    background-color: teal;*/
+
+    .product-card__list {
+      padding: 54px 94px 66px 94px;
+    }
+
+    .product-card__image__main{
+      width: 400px;
+      /*height: 340px;*/
+      padding: 20px 17px;
+    }
+    .product-card__image_ {
+     /* background-color: aqua;*/
+      width: 428px;
+      height: 465px;
+    }
+
+    .image__secondary__list {
+      width: 77.5px;
+      height: 73px;
+    }
+    .image__secondary__list:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    .product-card__btn {
+      width: 255px;
+      padding: 17px 59px;
+    }
+  }
+
+/*/////////////*/
+
+.slick-track {
+  display: flex;
+  min-width: 0;
+
+}
+.slick-list {
+  overflow: hidden;
+}
+.slick-prev.slick-arrow {
+  font-size: 0;
+}
+.slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.slick-dots li {
+  list-style: none;
+  margin-right: 5px;
+  margin-top: 15px;
+}
+
+.slick-dots button {
+  font-size: 0;
+  width: 5px;
+  height: 5px;
+  background-color: #C4C4C4;
+  border-radius: 50%;
+}
+.slick-dots li.slick-active button {
+  border: none;
+  background-color:#FF6B09;
+}

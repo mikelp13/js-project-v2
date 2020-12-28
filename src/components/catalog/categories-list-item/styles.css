@@ -1,0 +1,223 @@
+.category {
+  margin-bottom: 40px;
+}
+
+.category.visible {
+  display: block;
+}
+
+.category.unvisible {
+  display: none;
+}
+
+.category.visible {
+  display: block;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .category {
+    width: 290px;
+  }
+
+  .category-list {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    height: 306px;
+  }
+
+  .category-description {
+    width: 290px;
+    height: 55px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .category {
+    width: 722px;
+  }
+
+  .category-description {
+    width: 410px;
+    height: 35px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .category {
+    width: 1227px;
+  }
+
+  .category-description {
+    width: 410px;
+    height: 35px;
+  }
+}
+
+.category-list {
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 306px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.category-title {
+  font-family: MontserratBold;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #000000;
+  margin-bottom: 16px;
+  margin-right: 12px;
+}
+
+.category-link {
+  font-family: MontserratRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  text-decoration-line: underline;
+  color: #ff6b09;
+  padding-top: 7px;
+}
+
+.category-description {
+  font-family: MontserratRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #a8a8a8;
+  margin-bottom: 24px;
+}
+
+/* Слайдер для categoriesListItem */
+.sliders {
+  position: relative;
+  padding: 0px 12px;
+  min-width: 0px;
+}
+
+.sliders .slick-arrow {
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+  font-size: 0px;
+  width: 32px;
+  height: 60px;
+  border: none;
+}
+
+.sliders .slick-arrow.slick-prev {
+  left: 0px;
+  background: url('../categories-list-item/images/pre.svg') center center
+    no-repeat;
+  background-color: #f4f4f4;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.05);
+  transition-property: opacity;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sliders .slick-arrow.slick-next {
+  right: 0px;
+  background-position: center;
+  background: url('../categories-list-item/images/next.svg') center center
+    no-repeat;
+  background-color: #f4f4f4;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.05);
+  transition-property: opacity;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sliders .slick-arrow.slick-prev:hover,
+.sliders .slick-arrow.slick-next:hover,
+.sliders .slick-arrow.slick-prev:focus,
+.sliders .slick-arrow.slick-next:focus,
+.sliders .slick-arrow.slick-prev:active,
+.sliders .slick-arrow.slick-next:active {
+  outline: none;
+  cursor: pointer;
+  background-color: #ff6b09;
+  opacity: 0.8;
+}
+
+.sliders-img {
+  width: 286px;
+  height: 239px;
+}
+
+/* Слайдер */
+.sliders.slick-slider {
+  margin: 0px auto;
+}
+
+/* Ограничивающая оболочка */
+.sliders .slick-list {
+  overflow: hidden;
+}
+
+/* Лента слайдов */
+.sliders .slick-track {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Точки (булиты) */
+.sliders .slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px auto;
+}
+.sliders .slick-dots li {
+  list-style: none;
+  margin: 0px 5px;
+}
+
+/* Элемент точки */
+.sliders .slick-dots li button {
+  font-size: 0px;
+  width: 10px;
+  height: 10px;
+  background-color: #cdcdcd;
+  border-radius: 50%;
+  border: none;
+}
+
+.sliders .slick-dots li button:hover,
+.sliders .slick-dots li button:focus,
+.sliders .slick-dots li button:active {
+  background-color: #ff6b09;
+  outline: none;
+}
+
+.sliders-item {
+  text-align: center;
+  margin: 5px;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sliders-item:hover,
+.sliders-item:focus,
+.sliders-item:active {
+  outline: none;
+}
